@@ -1,0 +1,829 @@
+.cell,
+.cell1,
+.cell2,
+.cell3,
+.cell4,
+.cell5,
+.cell100 {
+  float: left;
+  width: 100%;
+}
+.form-cells .col.caption {
+  width: 35%;
+}
+.form-cells .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-xs.max-2 .cell1 {
+  width: 100%;
+}
+.layout-responsive.responsive-xs.max-2 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-xs.max-2 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-xs.max-2 .cell {
+  width: 100%;
+}
+.layout-responsive.responsive-xs.max-2 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-xs.max-2 .cell100 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-xs.max-2 .cell100 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-xs.max-3 .cell1 {
+  width: 100%;
+}
+.layout-responsive.responsive-xs.max-3 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-xs.max-3 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-xs.max-3 .cell {
+  width: 100%;
+}
+.layout-responsive.responsive-xs.max-3 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-xs.max-3 .cell100 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-xs.max-3 .cell100 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-xs.max-4 .cell1 {
+  width: 100%;
+}
+.layout-responsive.responsive-xs.max-4 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-xs.max-4 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-xs.max-4 .cell {
+  width: 100%;
+}
+.layout-responsive.responsive-xs.max-4 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-xs.max-4 .cell100 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-xs.max-4 .cell100 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-xs.max-5 .cell1 {
+  width: 100%;
+}
+.layout-responsive.responsive-xs.max-5 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-xs.max-5 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-xs.max-5 .cell {
+  width: 100%;
+}
+.layout-responsive.responsive-xs.max-5 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-xs.max-5 .cell100 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-xs.max-5 .cell100 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-xs.max-6 .cell1 {
+  width: 50%;
+}
+.layout-responsive.responsive-xs.max-6 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-xs.max-6 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-xs.max-6 .cell {
+  width: 50%;
+}
+.layout-responsive.responsive-xs.max-6 .cell2 {
+  width: 100%;
+}
+.layout-responsive.responsive-xs.max-6 .cell2 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-xs.max-6 .cell2 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-xs.max-6 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-xs.max-6 .cell100 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-xs.max-6 .cell100 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-sm.max-2 .cell1 {
+  width: 100%;
+}
+.layout-responsive.responsive-sm.max-2 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-sm.max-2 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-sm.max-2 .cell {
+  width: 100%;
+}
+.layout-responsive.responsive-sm.max-2 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-sm.max-2 .cell100 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-sm.max-2 .cell100 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-sm.max-3 .cell1 {
+  width: 100%;
+}
+.layout-responsive.responsive-sm.max-3 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-sm.max-3 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-sm.max-3 .cell {
+  width: 100%;
+}
+.layout-responsive.responsive-sm.max-3 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-sm.max-3 .cell100 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-sm.max-3 .cell100 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-sm.max-4 .cell1 {
+  width: 100%;
+}
+.layout-responsive.responsive-sm.max-4 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-sm.max-4 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-sm.max-4 .cell {
+  width: 100%;
+}
+.layout-responsive.responsive-sm.max-4 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-sm.max-4 .cell100 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-sm.max-4 .cell100 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-sm.max-5 .cell1 {
+  width: 50%;
+}
+.layout-responsive.responsive-sm.max-5 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-sm.max-5 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-sm.max-5 .cell {
+  width: 50%;
+}
+.layout-responsive.responsive-sm.max-5 .cell2 {
+  width: 100%;
+}
+.layout-responsive.responsive-sm.max-5 .cell2 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-sm.max-5 .cell2 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-sm.max-5 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-sm.max-5 .cell100 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-sm.max-5 .cell100 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-sm.max-6 .cell1 {
+  width: 33.33333333%;
+}
+.layout-responsive.responsive-sm.max-6 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-sm.max-6 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-sm.max-6 .cell {
+  width: 33.33333333%;
+}
+.layout-responsive.responsive-sm.max-6 .cell2 {
+  width: 66.66666667%;
+}
+.layout-responsive.responsive-sm.max-6 .cell2 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-sm.max-6 .cell2 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-sm.max-6 .cell3 {
+  width: 100%;
+}
+.layout-responsive.responsive-sm.max-6 .cell3 .col.caption {
+  width: 11.66666667%;
+}
+.layout-responsive.responsive-sm.max-6 .cell3 .col.content {
+  width: 88.33333333%;
+}
+.layout-responsive.responsive-sm.max-6 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-sm.max-6 .cell100 .col.caption {
+  width: 11.66666667%;
+}
+.layout-responsive.responsive-sm.max-6 .cell100 .col.content {
+  width: 88.33333333%;
+}
+.layout-responsive.responsive-md.max-2 .cell1 {
+  width: 50%;
+}
+.layout-responsive.responsive-md.max-2 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-md.max-2 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-md.max-2 .cell {
+  width: 50%;
+}
+.layout-responsive.responsive-md.max-2 .cell2 {
+  width: 100%;
+}
+.layout-responsive.responsive-md.max-2 .cell2 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-md.max-2 .cell2 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-md.max-2 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-md.max-2 .cell100 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-md.max-2 .cell100 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-md.max-3 .cell1 {
+  width: 50%;
+}
+.layout-responsive.responsive-md.max-3 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-md.max-3 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-md.max-3 .cell {
+  width: 50%;
+}
+.layout-responsive.responsive-md.max-3 .cell2 {
+  width: 100%;
+}
+.layout-responsive.responsive-md.max-3 .cell2 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-md.max-3 .cell2 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-md.max-3 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-md.max-3 .cell100 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-md.max-3 .cell100 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-md.max-4 .cell1 {
+  width: 50%;
+}
+.layout-responsive.responsive-md.max-4 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-md.max-4 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-md.max-4 .cell {
+  width: 50%;
+}
+.layout-responsive.responsive-md.max-4 .cell2 {
+  width: 100%;
+}
+.layout-responsive.responsive-md.max-4 .cell2 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-md.max-4 .cell2 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-md.max-4 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-md.max-4 .cell100 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-md.max-4 .cell100 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-md.max-5 .cell1 {
+  width: 33.33333333%;
+}
+.layout-responsive.responsive-md.max-5 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-md.max-5 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-md.max-5 .cell {
+  width: 33.33333333%;
+}
+.layout-responsive.responsive-md.max-5 .cell2 {
+  width: 66.66666667%;
+}
+.layout-responsive.responsive-md.max-5 .cell2 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-md.max-5 .cell2 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-md.max-5 .cell3 {
+  width: 100%;
+}
+.layout-responsive.responsive-md.max-5 .cell3 .col.caption {
+  width: 11.66666667%;
+}
+.layout-responsive.responsive-md.max-5 .cell3 .col.content {
+  width: 88.33333333%;
+}
+.layout-responsive.responsive-md.max-5 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-md.max-5 .cell100 .col.caption {
+  width: 11.66666667%;
+}
+.layout-responsive.responsive-md.max-5 .cell100 .col.content {
+  width: 88.33333333%;
+}
+.layout-responsive.responsive-md.max-6 .cell1 {
+  width: 25%;
+}
+.layout-responsive.responsive-md.max-6 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-md.max-6 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-md.max-6 .cell {
+  width: 25%;
+}
+.layout-responsive.responsive-md.max-6 .cell2 {
+  width: 50%;
+}
+.layout-responsive.responsive-md.max-6 .cell2 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-md.max-6 .cell2 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-md.max-6 .cell3 {
+  width: 75%;
+}
+.layout-responsive.responsive-md.max-6 .cell3 .col.caption {
+  width: 11.66666667%;
+}
+.layout-responsive.responsive-md.max-6 .cell3 .col.content {
+  width: 88.33333333%;
+}
+.layout-responsive.responsive-md.max-6 .cell4 {
+  width: 100%;
+}
+.layout-responsive.responsive-md.max-6 .cell4 .col.caption {
+  width: 8.75%;
+}
+.layout-responsive.responsive-md.max-6 .cell4 .col.content {
+  width: 91.25%;
+}
+.layout-responsive.responsive-md.max-6 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-md.max-6 .cell100 .col.caption {
+  width: 8.75%;
+}
+.layout-responsive.responsive-md.max-6 .cell100 .col.content {
+  width: 91.25%;
+}
+.layout-responsive.responsive-lg.max-2 .cell1 {
+  width: 50%;
+}
+.layout-responsive.responsive-lg.max-2 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-lg.max-2 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-lg.max-2 .cell {
+  width: 50%;
+}
+.layout-responsive.responsive-lg.max-2 .cell2 {
+  width: 100%;
+}
+.layout-responsive.responsive-lg.max-2 .cell2 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-lg.max-2 .cell2 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-lg.max-2 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-lg.max-2 .cell100 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-lg.max-2 .cell100 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-lg.max-3 .cell1 {
+  width: 50%;
+}
+.layout-responsive.responsive-lg.max-3 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-lg.max-3 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-lg.max-3 .cell {
+  width: 50%;
+}
+.layout-responsive.responsive-lg.max-3 .cell2 {
+  width: 100%;
+}
+.layout-responsive.responsive-lg.max-3 .cell2 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-lg.max-3 .cell2 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-lg.max-3 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-lg.max-3 .cell100 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-lg.max-3 .cell100 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-lg.max-4 .cell1 {
+  width: 33.33333333%;
+}
+.layout-responsive.responsive-lg.max-4 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-lg.max-4 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-lg.max-4 .cell {
+  width: 33.33333333%;
+}
+.layout-responsive.responsive-lg.max-4 .cell2 {
+  width: 66.66666667%;
+}
+.layout-responsive.responsive-lg.max-4 .cell2 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-lg.max-4 .cell2 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-lg.max-4 .cell3 {
+  width: 100%;
+}
+.layout-responsive.responsive-lg.max-4 .cell3 .col.caption {
+  width: 11.66666667%;
+}
+.layout-responsive.responsive-lg.max-4 .cell3 .col.content {
+  width: 88.33333333%;
+}
+.layout-responsive.responsive-lg.max-4 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-lg.max-4 .cell100 .col.caption {
+  width: 11.66666667%;
+}
+.layout-responsive.responsive-lg.max-4 .cell100 .col.content {
+  width: 88.33333333%;
+}
+.layout-responsive.responsive-lg.max-5 .cell1 {
+  width: 25%;
+}
+.layout-responsive.responsive-lg.max-5 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-lg.max-5 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-lg.max-5 .cell {
+  width: 25%;
+}
+.layout-responsive.responsive-lg.max-5 .cell2 {
+  width: 50%;
+}
+.layout-responsive.responsive-lg.max-5 .cell2 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-lg.max-5 .cell2 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-lg.max-5 .cell3 {
+  width: 75%;
+}
+.layout-responsive.responsive-lg.max-5 .cell3 .col.caption {
+  width: 11.66666667%;
+}
+.layout-responsive.responsive-lg.max-5 .cell3 .col.content {
+  width: 88.33333333%;
+}
+.layout-responsive.responsive-lg.max-5 .cell4 {
+  width: 100%;
+}
+.layout-responsive.responsive-lg.max-5 .cell4 .col.caption {
+  width: 8.75%;
+}
+.layout-responsive.responsive-lg.max-5 .cell4 .col.content {
+  width: 91.25%;
+}
+.layout-responsive.responsive-lg.max-5 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-lg.max-5 .cell100 .col.caption {
+  width: 8.75%;
+}
+.layout-responsive.responsive-lg.max-5 .cell100 .col.content {
+  width: 91.25%;
+}
+.layout-responsive.responsive-lg.max-6 .cell1 {
+  width: 20%;
+}
+.layout-responsive.responsive-lg.max-6 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-lg.max-6 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-lg.max-6 .cell {
+  width: 20%;
+}
+.layout-responsive.responsive-lg.max-6 .cell2 {
+  width: 40%;
+}
+.layout-responsive.responsive-lg.max-6 .cell2 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-lg.max-6 .cell2 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-lg.max-6 .cell3 {
+  width: 60%;
+}
+.layout-responsive.responsive-lg.max-6 .cell3 .col.caption {
+  width: 11.66666667%;
+}
+.layout-responsive.responsive-lg.max-6 .cell3 .col.content {
+  width: 88.33333333%;
+}
+.layout-responsive.responsive-lg.max-6 .cell4 {
+  width: 80%;
+}
+.layout-responsive.responsive-lg.max-6 .cell4 .col.caption {
+  width: 8.75%;
+}
+.layout-responsive.responsive-lg.max-6 .cell4 .col.content {
+  width: 91.25%;
+}
+.layout-responsive.responsive-lg.max-6 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-lg.max-6 .cell100 .col.caption {
+  width: 7%;
+}
+.layout-responsive.responsive-lg.max-6 .cell100 .col.content {
+  width: 93%;
+}
+.layout-responsive.responsive-xl.max-2 .cell1 {
+  width: 50%;
+}
+.layout-responsive.responsive-xl.max-2 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-xl.max-2 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-xl.max-2 .cell {
+  width: 50%;
+}
+.layout-responsive.responsive-xl.max-2 .cell2 {
+  width: 100%;
+}
+.layout-responsive.responsive-xl.max-2 .cell2 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-xl.max-2 .cell2 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-xl.max-2 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-xl.max-2 .cell100 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-xl.max-2 .cell100 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-xl.max-3 .cell1 {
+  width: 50%;
+}
+.layout-responsive.responsive-xl.max-3 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-xl.max-3 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-xl.max-3 .cell {
+  width: 50%;
+}
+.layout-responsive.responsive-xl.max-3 .cell2 {
+  width: 100%;
+}
+.layout-responsive.responsive-xl.max-3 .cell2 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-xl.max-3 .cell2 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-xl.max-3 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-xl.max-3 .cell100 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-xl.max-3 .cell100 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-xl.max-4 .cell1 {
+  width: 33.33333333%;
+}
+.layout-responsive.responsive-xl.max-4 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-xl.max-4 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-xl.max-4 .cell {
+  width: 33.33333333%;
+}
+.layout-responsive.responsive-xl.max-4 .cell2 {
+  width: 66.66666667%;
+}
+.layout-responsive.responsive-xl.max-4 .cell2 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-xl.max-4 .cell2 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-xl.max-4 .cell3 {
+  width: 100%;
+}
+.layout-responsive.responsive-xl.max-4 .cell3 .col.caption {
+  width: 11.66666667%;
+}
+.layout-responsive.responsive-xl.max-4 .cell3 .col.content {
+  width: 88.33333333%;
+}
+.layout-responsive.responsive-xl.max-4 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-xl.max-4 .cell100 .col.caption {
+  width: 11.66666667%;
+}
+.layout-responsive.responsive-xl.max-4 .cell100 .col.content {
+  width: 88.33333333%;
+}
+.layout-responsive.responsive-xl.max-5 .cell1 {
+  width: 25%;
+}
+.layout-responsive.responsive-xl.max-5 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-xl.max-5 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-xl.max-5 .cell {
+  width: 25%;
+}
+.layout-responsive.responsive-xl.max-5 .cell2 {
+  width: 50%;
+}
+.layout-responsive.responsive-xl.max-5 .cell2 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-xl.max-5 .cell2 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-xl.max-5 .cell3 {
+  width: 75%;
+}
+.layout-responsive.responsive-xl.max-5 .cell3 .col.caption {
+  width: 11.66666667%;
+}
+.layout-responsive.responsive-xl.max-5 .cell3 .col.content {
+  width: 88.33333333%;
+}
+.layout-responsive.responsive-xl.max-5 .cell4 {
+  width: 100%;
+}
+.layout-responsive.responsive-xl.max-5 .cell4 .col.caption {
+  width: 8.75%;
+}
+.layout-responsive.responsive-xl.max-5 .cell4 .col.content {
+  width: 91.25%;
+}
+.layout-responsive.responsive-xl.max-5 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-xl.max-5 .cell100 .col.caption {
+  width: 8.75%;
+}
+.layout-responsive.responsive-xl.max-5 .cell100 .col.content {
+  width: 91.25%;
+}
+.layout-responsive.responsive-xl.max-6 .cell1 {
+  width: 20%;
+}
+.layout-responsive.responsive-xl.max-6 .cell1 .col.caption {
+  width: 35%;
+}
+.layout-responsive.responsive-xl.max-6 .cell1 .col.content {
+  width: 65%;
+}
+.layout-responsive.responsive-xl.max-6 .cell {
+  width: 20%;
+}
+.layout-responsive.responsive-xl.max-6 .cell2 {
+  width: 40%;
+}
+.layout-responsive.responsive-xl.max-6 .cell2 .col.caption {
+  width: 17.5%;
+}
+.layout-responsive.responsive-xl.max-6 .cell2 .col.content {
+  width: 82.5%;
+}
+.layout-responsive.responsive-xl.max-6 .cell3 {
+  width: 60%;
+}
+.layout-responsive.responsive-xl.max-6 .cell3 .col.caption {
+  width: 11.66666667%;
+}
+.layout-responsive.responsive-xl.max-6 .cell3 .col.content {
+  width: 88.33333333%;
+}
+.layout-responsive.responsive-xl.max-6 .cell4 {
+  width: 80%;
+}
+.layout-responsive.responsive-xl.max-6 .cell4 .col.caption {
+  width: 8.75%;
+}
+.layout-responsive.responsive-xl.max-6 .cell4 .col.content {
+  width: 91.25%;
+}
+.layout-responsive.responsive-xl.max-6 .cell100 {
+  width: 100%;
+}
+.layout-responsive.responsive-xl.max-6 .cell100 .col.caption {
+  width: 7%;
+}
+.layout-responsive.responsive-xl.max-6 .cell100 .col.content {
+  width: 93%;
+}

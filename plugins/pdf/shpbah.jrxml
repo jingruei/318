@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2019-03-13T18:33:12 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="shpbah" pageWidth="612" pageHeight="396" orientation="Landscape" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="11" bottomMargin="11" isFloatColumnFooter="true" uuid="f0e308c1-79d9-408c-a3bf-cb3270e9b0e9">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="getskdata.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<queryString language="json">
+		<![CDATA[]]>
+	</queryString>
+	<field name="uid" class="java.lang.String">
+		<fieldDescription><![CDATA[uid]]></fieldDescription>
+	</field>
+	<field name="created" class="java.lang.String">
+		<fieldDescription><![CDATA[created]]></fieldDescription>
+	</field>
+	<field name="updated" class="java.lang.String">
+		<fieldDescription><![CDATA[updated]]></fieldDescription>
+	</field>
+	<field name="updstamp" class="java.lang.String">
+		<fieldDescription><![CDATA[updstamp]]></fieldDescription>
+	</field>
+	<field name="conditionRelatiion" class="java.lang.String">
+		<fieldDescription><![CDATA[conditionRelatiion]]></fieldDescription>
+	</field>
+	<field name="lovsearchstr" class="java.lang.String">
+		<fieldDescription><![CDATA[lovsearchstr]]></fieldDescription>
+	</field>
+	<field name="notinfield" class="java.lang.String">
+		<fieldDescription><![CDATA[notinfield]]></fieldDescription>
+	</field>
+	<field name="formstatus" class="java.lang.String">
+		<fieldDescription><![CDATA[formstatus]]></fieldDescription>
+	</field>
+	<field name="createda" class="java.lang.String">
+		<fieldDescription><![CDATA[createda]]></fieldDescription>
+	</field>
+	<field name="updateda" class="java.lang.String">
+		<fieldDescription><![CDATA[updateda]]></fieldDescription>
+	</field>
+	<field name="createdb" class="java.lang.String">
+		<fieldDescription><![CDATA[createdb]]></fieldDescription>
+	</field>
+	<field name="updatedb" class="java.lang.String">
+		<fieldDescription><![CDATA[updatedb]]></fieldDescription>
+	</field>
+	<field name="filterfields" class="java.lang.String">
+		<fieldDescription><![CDATA[filterfields]]></fieldDescription>
+	</field>
+	<field name="token" class="java.lang.String">
+		<fieldDescription><![CDATA[token]]></fieldDescription>
+	</field>
+	<field name="eid" class="java.lang.String">
+		<fieldDescription><![CDATA[eid]]></fieldDescription>
+	</field>
+	<field name="createPid" class="java.lang.String">
+		<fieldDescription><![CDATA[createPid]]></fieldDescription>
+	</field>
+	<field name="lastEditpid" class="java.lang.String">
+		<fieldDescription><![CDATA[lastEditpid]]></fieldDescription>
+	</field>
+	<field name="isdel" class="java.lang.String">
+		<fieldDescription><![CDATA[isdel]]></fieldDescription>
+	</field>
+	<field name="huid" class="java.lang.String">
+		<fieldDescription><![CDATA[huid]]></fieldDescription>
+	</field>
+	<field name="desc_no" class="java.lang.String">
+		<fieldDescription><![CDATA[desc_no]]></fieldDescription>
+	</field>
+	<field name="cus_item" class="java.lang.String">
+		<fieldDescription><![CDATA[cus_item]]></fieldDescription>
+	</field>
+	<field name="item_nbr" class="java.lang.String">
+		<fieldDescription><![CDATA[item_nbr]]></fieldDescription>
+	</field>
+	<field name="pro_nbr" class="java.lang.String">
+		<fieldDescription><![CDATA[pro_nbr]]></fieldDescription>
+	</field>
+	<field name="ware_nbr" class="java.lang.String">
+		<fieldDescription><![CDATA[ware_nbr]]></fieldDescription>
+	</field>
+	<field name="c_price" class="java.lang.String">
+		<fieldDescription><![CDATA[c_price]]></fieldDescription>
+	</field>
+	<field name="cut" class="java.lang.String">
+		<fieldDescription><![CDATA[cut]]></fieldDescription>
+	</field>
+	<field name="nbr" class="java.lang.String">
+		<fieldDescription><![CDATA[nbr]]></fieldDescription>
+	</field>
+	<field name="pack_qty" class="java.lang.String">
+		<fieldDescription><![CDATA[pack_qty]]></fieldDescription>
+	</field>
+	<field name="ord_nbr" class="java.lang.String">
+		<fieldDescription><![CDATA[ord_nbr]]></fieldDescription>
+	</field>
+	<field name="item_desc" class="java.lang.String">
+		<fieldDescription><![CDATA[item_desc]]></fieldDescription>
+	</field>
+	<field name="n_wight" class="java.lang.String">
+		<fieldDescription><![CDATA[n_wight]]></fieldDescription>
+	</field>
+	<field name="c_amt" class="java.lang.String">
+		<fieldDescription><![CDATA[c_amt]]></fieldDescription>
+	</field>
+	<field name="no1" class="java.lang.String">
+		<fieldDescription><![CDATA[no1]]></fieldDescription>
+	</field>
+	<field name="g_wight" class="java.lang.String">
+		<fieldDescription><![CDATA[g_wight]]></fieldDescription>
+	</field>
+	<field name="price" class="java.lang.String">
+		<fieldDescription><![CDATA[price]]></fieldDescription>
+	</field>
+	<field name="cuft" class="java.lang.String">
+		<fieldDescription><![CDATA[cuft]]></fieldDescription>
+	</field>
+	<field name="no_t" class="java.lang.String">
+		<fieldDescription><![CDATA[no_t]]></fieldDescription>
+	</field>
+	<field name="qty_pbox" class="java.lang.String">
+		<fieldDescription><![CDATA[qty_pbox]]></fieldDescription>
+	</field>
+	<field name="no2" class="java.lang.String">
+		<fieldDescription><![CDATA[no2]]></fieldDescription>
+	</field>
+	<field name="remark" class="java.lang.String">
+		<fieldDescription><![CDATA[remark]]></fieldDescription>
+	</field>
+	<field name="qty" class="java.lang.String">
+		<fieldDescription><![CDATA[qty]]></fieldDescription>
+	</field>
+	<field name="amt" class="java.lang.String">
+		<fieldDescription><![CDATA[amt]]></fieldDescription>
+	</field>
+	<field name="cost" class="java.lang.String">
+		<fieldDescription><![CDATA[cost]]></fieldDescription>
+	</field>
+	<field name="unit" class="java.lang.String">
+		<fieldDescription><![CDATA[unit]]></fieldDescription>
+	</field>
+	<field name="in_box" class="java.lang.String">
+		<fieldDescription><![CDATA[in_box]]></fieldDescription>
+	</field>
+	<field name="seq" class="java.lang.String">
+		<fieldDescription><![CDATA[seq]]></fieldDescription>
+	</field>
+	<field name="ord_uid" class="java.lang.String">
+		<fieldDescription><![CDATA[ord_uid]]></fieldDescription>
+	</field>
+	<field name="ivc_nbr" class="java.lang.String">
+		<fieldDescription><![CDATA[ivc_nbr]]></fieldDescription>
+	</field>
+	<field name="unit_price" class="java.lang.String">
+		<fieldDescription><![CDATA[unit_price]]></fieldDescription>
+	</field>
+	<field name="nbrdate" class="java.lang.String">
+		<fieldDescription><![CDATA[nbrdate]]></fieldDescription>
+	</field>
+	<field name="is_sure" class="java.lang.String">
+		<fieldDescription><![CDATA[is_sure]]></fieldDescription>
+	</field>
+	<field name="coin_nbr" class="java.lang.String">
+		<fieldDescription><![CDATA[coin_nbr]]></fieldDescription>
+	</field>
+	<field name="cus_nbr" class="java.lang.String">
+		<fieldDescription><![CDATA[cus_nbr]]></fieldDescription>
+	</field>
+	<field name="cus_name" class="java.lang.String">
+		<fieldDescription><![CDATA[cus_name]]></fieldDescription>
+	</field>
+	<field name="cus_alias" class="java.lang.String">
+		<fieldDescription><![CDATA[cus_alias]]></fieldDescription>
+	</field>
+	<field name="cen_cus" class="java.lang.String">
+		<fieldDescription><![CDATA[cen_cus]]></fieldDescription>
+	</field>
+	<field name="cen_cus_alias" class="java.lang.String">
+		<fieldDescription><![CDATA[cen_cus_alias]]></fieldDescription>
+	</field>
+	<field name="coin_desc" class="java.lang.String">
+		<fieldDescription><![CDATA[coin_desc]]></fieldDescription>
+	</field>
+	<field name="item_name" class="java.lang.String">
+		<fieldDescription><![CDATA[item_name]]></fieldDescription>
+	</field>
+	<field name="item_alias" class="java.lang.String">
+		<fieldDescription><![CDATA[item_alias]]></fieldDescription>
+	</field>
+	<field name="un_desc" class="java.lang.String">
+		<fieldDescription><![CDATA[un_desc]]></fieldDescription>
+	</field>
+	<field name="pro_desc" class="java.lang.String">
+		<fieldDescription><![CDATA[pro_desc]]></fieldDescription>
+	</field>
+	<field name="nbrdateb" class="java.lang.String">
+		<fieldDescription><![CDATA[nbrdateb]]></fieldDescription>
+	</field>
+	<field name="plan_dateb" class="java.lang.String">
+		<fieldDescription><![CDATA[plan_dateb]]></fieldDescription>
+	</field>
+	<field name="c_priceb" class="java.lang.String">
+		<fieldDescription><![CDATA[c_priceb]]></fieldDescription>
+	</field>
+	<field name="c_amtb" class="java.lang.String">
+		<fieldDescription><![CDATA[c_amtb]]></fieldDescription>
+	</field>
+	<field name="ware_desc" class="java.lang.String">
+		<fieldDescription><![CDATA[ware_desc]]></fieldDescription>
+	</field>
+	<field name="cname" class="java.lang.String">
+		<fieldDescription><![CDATA[cname]]></fieldDescription>
+	</field>
+	<field name="regAddr" class="java.lang.String">
+		<fieldDescription><![CDATA[regAddr]]></fieldDescription>
+	</field>
+	<field name="regTel" class="java.lang.String">
+		<fieldDescription><![CDATA[regTel]]></fieldDescription>
+	</field>
+	<field name="regFax" class="java.lang.String">
+		<fieldDescription><![CDATA[regFax]]></fieldDescription>
+	</field>
+	<field name="sen_addr" class="java.lang.String">
+		<fieldDescription><![CDATA[sen_addr]]></fieldDescription>
+	</field>
+	<field name="attname" class="java.lang.String">
+		<fieldDescription><![CDATA[attname]]></fieldDescription>
+	</field>
+	<field name="cus_tel" class="java.lang.String">
+		<fieldDescription><![CDATA[cus_tel]]></fieldDescription>
+	</field>
+	<field name="create_name" class="java.lang.String">
+		<fieldDescription><![CDATA[create_name]]></fieldDescription>
+	</field>
+	<field name="io_p" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="124" splitType="Stretch">
+			<line>
+				<reportElement x="206" y="71" width="141" height="1" uuid="8b7a6b21-d788-46d7-811f-dbbd5d3edf9b"/>
+			</line>
+			<line>
+				<reportElement x="206" y="74" width="141" height="1" uuid="a40bf1b8-7010-4983-96ee-7cb033587530">
+					<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+				</reportElement>
+			</line>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="76" y="57" width="133" height="22" uuid="60f683d5-9c79-4b04-b481-8a3cc3ffa13f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文中宋"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nbrdate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="56" width="76" height="22" uuid="ae4c553c-621b-4fbb-8814-7e56014aa269">
+					<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文中宋" isBold="true"/>
+				</textElement>
+				<text><![CDATA[开单日期:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="394" y="57" width="76" height="22" uuid="9eb18733-b77c-486e-b4e9-5127ed53ae88">
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文中宋" isBold="true"/>
+				</textElement>
+				<text><![CDATA[送货单号:]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="460" y="57" width="118" height="22" uuid="867793fc-3b85-4e0e-8bea-c5a7e0d7c2f6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文中宋"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nbr}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="78" width="76" height="22" uuid="2a8e7382-56bc-4fc9-91ca-64238f519ac3">
+					<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文中宋" isBold="true"/>
+				</textElement>
+				<text><![CDATA[购货单位:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="101" width="76" height="22" uuid="5cdd4f51-6d35-4a41-9190-237c387271f1">
+					<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文中宋" isBold="true"/>
+				</textElement>
+				<text><![CDATA[地址、电话]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="76" y="78" width="276" height="22" uuid="e6c88e5e-9390-4e46-b34f-06c170059742"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文中宋"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cus_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="395" y="78" width="76" height="22" uuid="843d714b-e621-439a-a21e-341b35a705d1">
+					<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文中宋" isBold="true"/>
+				</textElement>
+				<text><![CDATA[税务登记号:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="458" y="78" width="120" height="22" uuid="b516d5e1-a8e0-4c65-9e82-8aa5cae5fa41"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文中宋"/>
+				</textElement>
+			</textField>
+			<textField>
+				<reportElement x="76" y="101" width="276" height="22" uuid="e48856b4-2fd7-4a5d-b8be-dd10926bfbf2"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文中宋"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sen_addr}+"    tel:"+$F{cus_tel}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="394" y="101" width="76" height="22" uuid="3b51f428-fa8d-4bfc-b732-9ef5d9a6beed">
+					<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文中宋" isBold="true"/>
+				</textElement>
+				<text><![CDATA[开户银行及帐号:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="458" y="101" width="120" height="22" uuid="d47e3e74-7037-4d44-ab8a-22c8b8948e4e"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文中宋"/>
+				</textElement>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="54" y="-5" width="466" height="30" uuid="4d848d31-f587-4235-8391-e6f5bbf26ba1"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="华文中宋" size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="102" y="21" width="356" height="14" uuid="2af9e424-cfef-4599-91de-1661e6ff81a1"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="华文中宋" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" tel:"+$F{regTel}+"  fax:"+$F{regFax}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="11" y="32" width="540" height="20" uuid="af08f8a0-8156-4790-85b6-b9a8fe898a34"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="华文中宋"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{regAddr}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="163" y="43" width="230" height="30" uuid="82077a9b-9013-46f2-b2ce-15129ba22075"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="华文中宋" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{io_p}.equals("1") ?"销 售 出 货 单":"销 售 退 货 单"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="194" y="0" width="100" height="25" uuid="4967de1d-f2fd-48ca-b99d-cc9fd2d2b95d">
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<box leftPadding="3" rightPadding="3">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文中宋" isBold="true"/>
+				</textElement>
+				<text><![CDATA[产品编号]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="88" y="0" width="106" height="25" uuid="28c668e8-8b6c-4cb6-9a17-09d4822d8152"/>
+				<box leftPadding="3" rightPadding="3">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文中宋" isBold="true"/>
+				</textElement>
+				<text><![CDATA[客户产品编号]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="0" width="158" height="25" uuid="80220cfe-172f-4d0c-ac53-4fc7a5759a2f">
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<box leftPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文中宋" isBold="true"/>
+				</textElement>
+				<text><![CDATA[品名规格]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="452" y="0" width="42" height="25" uuid="6667b6f1-9cfe-4e45-bab1-33b21656ea78"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文中宋" isBold="true"/>
+				</textElement>
+				<text><![CDATA[单位]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="494" y="0" width="84" height="25" uuid="fd0c3073-5225-4a46-8ad9-05f10b7f373a"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="华文中宋" isBold="true"/>
+				</textElement>
+				<text><![CDATA[数量]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="88" height="25" uuid="af17ebfb-3e81-4d0e-a11c-70e6badb6ce9"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文中宋" isBold="true"/>
+				</textElement>
+				<text><![CDATA[客户订单号]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="194" y="0" width="100" height="25" uuid="496a9f6b-4f3f-4d71-b313-422d31031ea8"/>
+				<box topPadding="0" leftPadding="3" bottomPadding="0" rightPadding="3">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font fontName="华文中宋"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{item_nbr}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="88" y="0" width="106" height="25" uuid="592ccca8-76f4-422a-b38c-74ba8f964b59"/>
+				<box topPadding="0" leftPadding="3" bottomPadding="0" rightPadding="3">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font fontName="华文中宋"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cus_item}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="294" y="0" width="158" height="25" uuid="59148c9c-9f91-4d8d-b924-cdd29a4b02ee"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font fontName="华文中宋"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{item_desc}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="452" y="0" width="42" height="25" uuid="a7fa9746-0f6b-4bcf-9e82-e99446ce0215"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font fontName="华文中宋"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{un_desc}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="494" y="0" width="84" height="25" uuid="d74bde15-d12b-4ac3-a5b3-cd418a53dd57">
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="华文中宋"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="88" height="25" uuid="f79a2e2d-1c63-4256-bee1-b7799922650a">
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{desc_no}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="306" y="7" width="76" height="26" uuid="8f2b8d24-5c17-4eef-8c8e-84c73d1227b2">
+					<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文中宋" isBold="true"/>
+				</textElement>
+				<text><![CDATA[业务员：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="-1" y="6" width="76" height="26" uuid="d2dde9c3-e6a0-443c-aae3-049115743cfc">
+					<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文中宋" isBold="true"/>
+				</textElement>
+				<text><![CDATA[用户签名:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="451" y="7" width="76" height="26" uuid="11ef1374-abec-417e-b16f-48d4736baa63">
+					<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文中宋" isBold="true"/>
+				</textElement>
+				<text><![CDATA[开单人：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="161" y="6" width="76" height="26" uuid="4df47c99-e06b-4dcc-aed3-3e17eac58907">
+					<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文中宋" isBold="true"/>
+				</textElement>
+				<text><![CDATA[仓管：]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="491" y="6" width="89" height="27" uuid="f62d218e-ef1f-4fa0-b9aa-4ae6a687f105"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文中宋"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{create_name}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-1" y="3" width="579" height="1" uuid="1a00e2e7-7813-481e-9b31-9fe8014a7180"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

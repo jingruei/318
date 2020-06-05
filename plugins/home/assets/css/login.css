@@ -1,0 +1,165 @@
+/**
+* @section Grid styles
+*/
+/**
+* @section Header styles
+*/
+/** @description Colors for header gradient */
+/**
+* @section Grid body styles
+*/
+/** @description Colors used for row alternation */
+/**
+* @section Sort arrow colors
+*/
+/**
+* @section Scrollbar styles
+*/
+.login-page {
+  text-align: center;
+  padding: 10px 0;
+  display: table;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.login-page .btn {
+  padding: 6px 14px;
+}
+.login-page .form-control {
+  padding: 6px 8px;
+  height: 32px;
+}
+.login-page label {
+  font-weight: normal;
+}
+.login-page .text-extra {
+  line-height: 31px;
+}
+.login-page .login-banner-wrap img {
+  border-radius: 12px;
+}
+.login-page .login-header-wrap {
+  position: fixed;
+  border-bottom: 1px solid #e3e3e3;
+  width: 100%;
+  text-align: left;
+  top: 0;
+}
+.login-page .login-header-wrap h3 {
+  margin: 0;
+  line-height: 74px;
+  color: #3c3c3c;
+}
+.login-page .login-header-wrap .container {
+  position: relative;
+}
+.login-page .login-header-wrap .links {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -10px;
+}
+.login-page .login-footer-wrap {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 120px;
+  padding: 32px 0;
+  background-color: #EBEBEB;
+}
+.login-page .login-footer-wrap .support {
+  color: #666;
+  font-size: 14px;
+  line-height: 32px;
+}
+.login-page .login-footer-wrap .copy-right {
+  color: #bcbcbc;
+  font-size: 10px;
+  line-height: 24px;
+}
+.login-page .login-container {
+  clear: both;
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0 auto;
+  margin-top: 80px;
+  text-align: left;
+  max-width: 900px;
+}
+.login-page .login-container a {
+  color: #00BCD4;
+}
+.login-page .login-container a:hover {
+  color: #08e3ff;
+}
+.login-page .login-container:before,
+.login-page .login-container:after {
+  content: " ";
+  display: table;
+}
+.login-page .login-container:after {
+  clear: both;
+}
+.login-page .login-container .container {
+  max-width: 960px;
+  margin-top: -44px;
+}
+.login-page .login-box {
+  width: 300px;
+}
+.login-page .login-form-outer {
+  text-align: center;
+}
+.login-page .login-form-wrap {
+  border: 1px solid #e3e3e3;
+  max-width: 300px;
+  padding: 0 15px;
+  text-align: left;
+  margin: 0 auto;
+}
+.login-page .login-form-inner {
+  padding-top: 8px;
+  padding-bottom: 24px;
+}
+.login-page .login-form-inner h4 {
+  font-weight: normal;
+  color: #3c3c3c;
+}
+.login-page .login-form-inner .row {
+  padding: 8px 0;
+}
+.login-page .login-container-inner {
+  padding: 20px 0;
+}
+.login-page .login-container-inner:before,
+.login-page .login-container-inner:after {
+  content: " ";
+  display: table;
+}
+.login-page .login-container-inner:after {
+  clear: both;
+}
+.login-page .login-footer {
+  padding: 20px 0;
+  color: #555555;
+  border-top: 1px solid #428bca;
+}
+.login-page .row label.col-sm-12 {
+  width: 100%;
+  margin-top: 5px;
+}
+@media (max-width: 768px) {
+  .login-page .login-container {
+    margin-top: 40px;
+  }
+  .login-page .login-header-wrap .links {
+    display: none;
+  }
+}
+@media (max-width: 992px) {
+  .login-page .login-banner-wrap {
+    display: none;
+  }
+}
