@@ -1,5 +1,5 @@
 define(function() {
-    angular.module('app').controller('bas.cuscus',
+    angular.module('app').controller('bas.basstaff',
         function($rootScope, $scope, $location, uiGridConstants, utils, path, settings,
             $timeout, dialog, toastr, ngDialog, qwsys, $http) {
             var scope = $scope;
@@ -16,7 +16,7 @@ define(function() {
             scope.promise = null;
             scope.listUrl = "plugins/bas/templates/list.html";
             scope.config = {
-                title: "客戶管理",
+                title: "員工資料維護",
                 listoperation: {
                     add: {
                         name: "新增",
@@ -27,77 +27,81 @@ define(function() {
                     }
                 },
                 headers: {
-                    "cus_nbr": {
-                        displayName: "客戶編號",
+                    "s_nbr": {
+                        displayName: "員工編號",
                         width: 120
                     },
-                    "cus_name": {
-                        displayName: "客戶名稱",
+                    "group_nbr": {
+                        displayName: "組別",
                         width: 120
                     },
-                    "cus_alias": {
-                        displayName: "客戶簡稱",
+                    "s_name": {
+                        displayName: "員工姓名",
                         width: 120
                     },
-                    "eng_name": {
-                        displayName: "英文名稱",
+                    "s_id": {
+                        displayName: "身分證號碼",
                         width: 120
                     },
-                    "oew_amt": {
-                        displayName: "資本額",
+                    "n_name": {
+                        displayName: "籍貫",
                         width: 120
                     },
-                    "sale_nbr": {
-                        displayName: "業務員",
+                    "birthday": {
+                        displayName: "出生年月日",
                         width: 120
                     },
-                    "shp_desc": {
-                        displayName: "業務性質",
+                    "tel1": {
+                        displayName: "電話",
                         width: 120
                     },
-                    "tax_cal": {
-                        displayName: "稅額計算方式",
+                    "addr1": {
+                        displayName: "戶籍地址",
                         width: 120
                     },
-                    "remark": {
-                        displayName: "備注",
+                    "addr2": {
+                        displayName: "通訊地址",
                         width: 120
                     },
-                    "tot_amt": {
-                        displayName: "授信額度",
+                    "tel2": {
+                        displayName: "手機",
                         width: 120
                     },
-                    "days3": {
-                        displayName: "付款日",
+                    "cname": {
+                        displayName: "緊急聯絡人",
                         width: 120
                     },
-                    "ddate": {
-                        displayName: "開始交易日",
+                    "redate": {
+                        displayName: "到職日期",
                         width: 120
                     },
-                    "remark7": {
-                        displayName: "收款方式",
+                    "hour": {
+                        displayName: "時薪",
+                        width: 120
+                    },
+                    "indate1": {
+                        displayName: "勞保生效日期",
                         width: 120
                     }
                 },
                 filterItems: {
-                    cus_alias: {
+                    s_id: {
                         type: "input",
                         lovtype: "",
-                        name: "cus_alias",
-                        label: "客戶簡稱"
+                        name: "s_id",
+                        label: "身分證號碼"
                     },
-                    cus_nbr: {
+                    s_nbr: {
                         type: "basDefault",
                         lovtype: "",
-                        name: "cus_nbr",
+                        name: "s_nbr",
                         label: "客戶編號"
                     },
-                    cus_name: {
+                    s_name: {
                         type: "input",
                         lovtype: "",
-                        name: "cus_name",
-                        label: "客戶名稱"
+                        name: "s_name",
+                        label: "員工姓名"
                     }
                 },
                 filtermoreItems: {
@@ -119,17 +123,17 @@ define(function() {
                         name: "area_nbr",
                         label: "地區名稱"
                     },
-                    tax_cal: {
+                    addr2: {
                         type: "basLov",
                         lovtype: "gettax",
-                        name: "tax_cal",
-                        label: "稅額計算方式"
+                        name: "addr2",
+                        label: "通訊地址"
                     },
-                    shp_desc: {
+                    addr1: {
                         type: "input",
                         lovtype: "",
-                        name: "shp_desc",
-                        label: "業務性質"
+                        name: "addr1",
+                        label: "戶籍地址"
                     },
                     sen_addr: {
                         type: "input",
@@ -186,7 +190,7 @@ define(function() {
                 opendetail: function() {
                     var node = {
                         name: "客戶明細",
-                        url: 'bas/cuscus.detail'
+                        url: 'bas/basstaff.detail'
                     }
                     $scope.$emit('opencusdetail', node);
                 }

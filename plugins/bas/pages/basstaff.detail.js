@@ -1,5 +1,5 @@
 define(function() {
-    angular.module('app').controller('bas.cuscus.detail',
+    angular.module('app').controller('bas.staff.detail',
         function($rootScope, $scope, $location, utils, path, getSingleView, settings,
             $timeout, dialog, toastr, ngDialog, uiGridConstants, qwsys, sysconstant) {
             let scope = $scope;

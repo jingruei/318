@@ -1,6 +1,6 @@
 (function() {
     var settings = {
-        host: 'http://211.72.117.90', //當前API調用的主機頭
+        host: 'https://localhost:5001', //當前API調用的主機頭
         mock: false, //如果是mock狀態則API調取得靜態的目錄data下的json
         debug: false, //如啟用debug 則服務log 輸出日志
         apiPrefix: "api", //api調用的地址前綴
@@ -22,15 +22,15 @@
             virtualizationThreshold: 1000 //虛擬化閾值
         },
         company: {
-            logoTitle: "XK",
-            comAlias: "青維科科"
+            logoTitle: "JW",
+            comAlias: "喬偉資訊"
         },
         ui: {
             openWithTabs: !window.noTabs && true, //默認打開方式為tab  
             toolbar: !window.noToolbar && false //默認有toolbar  
         },
         logo: "plugins/home/assets/images/logo.png",
-        logoTitle: "XK",
+        logoTitle: "JW",
         otherwise: 'home',
         templates: {},
         plugins: {},

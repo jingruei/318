@@ -116,7 +116,7 @@ define(function() {
                         name: "ware_nbr",
                         label: "仓库代号"
                     },
-                    war_type: {
+                   war_type: {
                         type: "basRadiosinline",
                         css: "cell2",
                         titleMap: [
@@ -131,7 +131,7 @@ define(function() {
                         },
                         name: "war_type",
                         label: "合并方式"
-                    },
+                    }, 
                     qty_type: {
                         type: "basRadiosinline",
                         css: "cell2",
