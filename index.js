@@ -1,6 +1,7 @@
 (function() {
     var settings = {
-        host: 'https://localhost:5001', //當前API調用的主機頭
+        host: 'https://localhost:5001', //當前API調用的主機頭 http://211.78.333.22
+        // host: 'http://211.72.117.90', //當前API調用的主機頭 http://211.78.333.22
         mock: false, //如果是mock狀態則API調取得靜態的目錄data下的json
         debug: false, //如啟用debug 則服務log 輸出日志
         apiPrefix: "api", //api調用的地址前綴

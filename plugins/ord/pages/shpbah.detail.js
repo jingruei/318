@@ -350,12 +350,6 @@ define(function() {
                                     lovtype: ''
                                 },
                                 {
-                                    Id:1,
-                                    Name:'Lin'
-                                }
-
-
-                                {
                                     title: "指送客户",
                                     key: 'cen_cus',
                                     required: true,

@@ -3,6 +3,43 @@ angular.module('app.core.proconfig', [])
         function(utils, ngDialog, settings, $sce) {
             return {
                 lov: {
+                    getgroup:{
+                        title: "獲取組別",
+                        queryUrl: "group/query", //查询地址
+                        initLoad: true, //加载时是否初始化数据
+                        small: true, //速查是否显示编号
+                        showField: { //速查基本栏位
+                            valueField: "group_nbr",
+                            nameField: "group_nbr",
+                            smallField: "group_name"
+                        },
+                        dialogConfig: "getcus"
+                    },
+                    getcus: {
+                        title: "客戶查詢",
+                        queryUrl: "customer/query", //查询地址
+                        initLoad: true, //加载时是否初始化数据
+                        small: true, //速查是否显示编号
+                        showField: { //速查基本栏位
+                            valueField: "cus_nbr",
+                            nameField: "cus_nbr",
+                            smallField: "cus_alias"
+                        },
+                        dialogConfig: "getcus",
+                    },
+                    getwork:{
+                        title: "獲取工作內容",
+                        queryUrl: "work/query", //查询地址
+                        initLoad: true, //加载时是否初始化数据
+                        small: true, //速查是否显示编号
+                        showField: { //速查基本栏位
+                            nameField: "s_nbr",
+                            valueField: "s_nbr",
+                            smallField: "desc"
+                        },
+                        dialogConfig: ""
+                    },
+                    /**------------------------------------------------------------ */
                     getenterprise: {
                         title: "企业查询",
                         queryUrl: "base/enterprise/query", //查询地址
@@ -155,19 +192,6 @@ angular.module('app.core.proconfig', [])
                             nameField: "ven_alias"
                         },
                         dialogConfig: "getven"
-
-                    },
-                    getcus: {
-                        title: "客户查询",
-                        queryUrl: "bas/cuscus/query", //查询地址
-                        initLoad: false, //加载时是否初始化数据
-                        small: true, //速查是否显示编号
-                        showField: { //速查基本栏位
-                            valueField: "cus_nbr",
-                            nameField: "cus_nbr",
-                            smallField: "cus_alias"
-                        },
-                        dialogConfig: "getcus",
 
                     },
                     getbank: {
@@ -349,7 +373,7 @@ angular.module('app.core.proconfig', [])
                     },
                     getcus: {
                         title: "客户资料",
-                        queryUrl: "bas/cuscus/query", //查询地址
+                        queryUrl: "customer/query", //查询地址
                         ngdialogSize: "ngdialog-md", //视窗大小 ngdialog-xs 特小 ngdialog-sm 小,ngdialog-md 大,ngdialog-lg特大
                         headers: {
                             "cus_nbr": {

@@ -346,7 +346,6 @@ define(function() {
                                 },
                                 {
                                     title: "客戶名稱",
-                                    required: true,
                                     editstatus: {
                                         relation: "and",
                                         filedlist: [
@@ -359,7 +358,6 @@ define(function() {
                                 },
                                 {
                                     title: "客戶簡稱",
-                                    required: true,
                                     key: 'cus_alias',
                                     editstatus: {
                                         relation: "and",
@@ -391,17 +389,26 @@ define(function() {
                                     },
                                     type: 'basString'
                                 },
-                                //T
                                 {
                                     title: "組別",
                                     key: 'group_nbr',
                                     editstatus: {
                                         relation: "and",
                                         filedlist: [
-                                            { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
+                                            {field: "formstatus", status: "add,edit"} //表單為新增，修改狀態
                                         ]
                                     },
-                                    type: 'basString'
+                                    relationfield: [
+                                        {findfield: "group_name", tofield: "group_name"},
+                                    ],
+                                    type: 'basLov',
+                                    lovtype: 'getgroup',
+                                    additionalField: {
+                                        key: "group_name",
+                                        readonly: true,
+                                        type: "basString"
+                                    },
+                                    nameField: "group_name"
                                 },
                                 {
                                     title: "主辦會計",
@@ -436,7 +443,7 @@ define(function() {
                                     items: [
                                         {
                                             title: "客戶電話1",
-                                            key: 'cus_tel',
+                                            key: 'cus_tel1',
                                             editstatus: {
                                                 relation: "and",
                                                 filedlist: [
@@ -447,7 +454,7 @@ define(function() {
                                         },
                                         {
                                             title: "分機1",
-                                            key: 'cus_oth',
+                                            key: 'cus_oth1',
                                             editstatus: {
                                                 relation: "and",
                                                 filedlist: [
@@ -490,17 +497,14 @@ define(function() {
                                             },
                                             type: 'basString'
                                         },
-                                        //T
                                         {
                                             title: "稅籍編號",
                                             key: 'tax_nbr',
-                                            readonly: true,
                                             type: 'basString'
                                         },
                                         {
                                             title: "稽徵機關代號",
                                             key: 'chk_nbr',
-                                            readonly: true,
                                             type: 'basString'
                                         },
                                         {
@@ -524,8 +528,7 @@ define(function() {
                                             },
                                             key: 'shp_desc',
                                             css: "cell100",
-                                            type: 'basLovm',
-                                            lovtype: "getword"
+                                            type: 'basTextarea'
                                         }
                                         
 
@@ -535,19 +538,20 @@ define(function() {
                                     title: "稅務服務1",
                                     items: [
                                         {
-                                            title: "是否提供購買發票服務",
-                                            type: "basRadiosinline",
+                                            title: "每期憑證收取方式",
                                             key: 'buy_invo',
                                             titleMap: [
-                                                { value: "1", name: "是" },
-                                                { value: "2", name: "否，自行購買" }
+                                                { value: 1, name: "是" },
+                                                { value: 2, name: "否，自行購買" }
                                             ],
                                             editstatus: {
                                                 relation: "and",
                                                 filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
+                                                    { field: "formstatus", status: "add,edit" } //表单为新增，修改状态
                                                 ]
                                             },
+                                            type: 'basLov',
+                                            lovtype: "select"
                                         },
                                         //T
                                         {
@@ -559,7 +563,7 @@ define(function() {
                                                     { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
                                                 ]
                                             },
-                                            type: "basString"
+                                            type: "basNumber"
                                         },
                                         {
                                             title: "每期憑證收取方式",
@@ -587,7 +591,7 @@ define(function() {
                                                     { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
                                                 ]
                                             },
-                                            type: "basString"
+                                            type: "basNumber"
                                         },
                                         {
                                             title: "營業稅申報方式",
@@ -751,7 +755,7 @@ define(function() {
                                         },
                                         {
                                             title: "郵遞區號",
-                                            key: 'mail_no1',
+                                            key: 'mail_nbr',
                                             editstatus: {
                                                 relation: "and",
                                                 filedlist: [
@@ -796,8 +800,6 @@ define(function() {
                                             type: 'basTextarea'
                                         }
 
-
-
                                     ]
                                 },
                                
@@ -810,10 +812,6 @@ define(function() {
                 add: function(event) {
                     scope.model = {
                         formstatus: "add", //edit,view
-                        coin_nbr: sysconstant.SYS_COIN,
-                        tax_type: sysconstant.SYS_TAX,
-                        pay_term: sysconstant.SYS_PAY,
-                        days: 25,
                     }
                     $scope.$broadcast('schemaFormRedraw');
                 },
@@ -851,11 +849,11 @@ define(function() {
                     if (scope.cus_nbr) {
                         scope.promise = utils.ajax({
                             method: 'GET',
-                            url: "bas/cuscus/getbycusnbr/" + scope.cus_nbr,
+                            url: `customer/${scope.uid}`,
                             mockUrl: "plugins/data/cuscus.detail.json"
                         }).then(function(res) {
                             var data = res.data;
-                            scope.model = data.body;
+                            scope.model = data;
                             scope.model.formstatus = "view";
                             for (var p in scope.model) {
                                 if (scope.model[p] === null) {
@@ -867,11 +865,11 @@ define(function() {
                     } else if (scope.uid) {
                         scope.promise = utils.ajax({
                             method: 'GET',
-                            url: "bas/cuscus/" + scope.uid,
+                            url: `customer/${scope.uid}`,
                             mockUrl: "plugins/data/cuscus.detail.json"
                         }).then(function(res) {
                             var data = res.data;
-                            scope.model = data.body;
+                            scope.model = data;
                             scope.model.formstatus = "view";
                             for (var p in scope.model) {
                                 if (scope.model[p] === null) {
@@ -899,14 +897,18 @@ define(function() {
                     var type = scope.model.uid ? "edit" : "add";
                     var bakstatus = scope.model.formstatus
                     scope.model.formstatus = "read";
+
+                    console.log(scope.model);
+                    
+
                     scope.promise = utils.ajax({
                         method: "POST",
-                        url: "bas/cuscus",
+                        url: "customer",
                         mockUrl: "plugins/data/cuscus.detail.json",
                         data: scope.model
                     }).then(function(res) {
-                        scope.cus_nbr = "";
-                        scope.uid = res.data.body.uid
+                        scope.cus_nbr = res.data.cus_nbr;
+                        scope.uid = res.data.uid
                         if (type == "add") {
                             toastr.info("新增成功！");
                         } else {

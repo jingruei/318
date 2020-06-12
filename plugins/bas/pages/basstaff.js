@@ -11,7 +11,6 @@ define(function() {
             scope.datapage = {
                 page: 0,
                 size: 20,
-                sort: "created,desc"
             }
             scope.promise = null;
             scope.listUrl = "plugins/bas/templates/list.html";
@@ -124,8 +123,8 @@ define(function() {
                         label: "地區名稱"
                     },
                     addr2: {
-                        type: "basLov",
-                        lovtype: "gettax",
+                        type: "input",
+                        lovtype: "",
                         name: "addr2",
                         label: "通訊地址"
                     },
@@ -153,28 +152,15 @@ define(function() {
                 load: function() {
                     scope.promise = utils.ajax({
                         method: 'POST',
-                        url: "popup/get_cus",
+                        url: `staff/query?page=${scope.datapage.page || 0}&size=${scope.datapage.size || 30} ${scope.datapage.sort ? `&sort=${scope.datapage.sort}` : ''}`,
                         mockUrl: "plugins/base/data/orderlines.json",
-                        data: {}
+                        data:scope.filter
                     }).then(function(res) {
                         scope.model.content = res.data;
                     });
-
-                    // scope.promise = utils.ajax({
-                    //     method: 'POST',
-                    //     url: "bas/cuscus/query?page=" + scope.datapage.page + "&size=" + scope.datapage.size + "&sort=" + scope.datapage.sort,
-                    //     mockUrl: "plugins/base/data/orderlines.json",
-                    //     data: scope.filter
-                    // }).then(function(res) {
-                    //     console.log(res);
-                    //     scope.model = res.data.body;
-                    // });
-
                 },
                 reset: function() {
-                    scope.filter = {
-
-                    };
+                    scope.filter = {};
 
                 },
                 changepage: function(page, size, sort) {
@@ -189,7 +175,7 @@ define(function() {
                 },
                 opendetail: function() {
                     var node = {
-                        name: "客戶明細",
+                        name: "員工明細",
                         url: 'bas/basstaff.detail'
                     }
                     $scope.$emit('opencusdetail', node);

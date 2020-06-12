@@ -220,7 +220,7 @@ define(function() {
                     }
                     var type = scope.model.uid ? "edit" : "add";
                     var bakstatus = scope.model.formstatus
-                    console.log(scope.model);
+                    // console.log(scope.model); //"formstatus":"add"
                     
                     scope.model.formstatus = "read";
                     scope.promise = utils.ajax({

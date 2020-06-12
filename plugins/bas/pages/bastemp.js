@@ -58,37 +58,16 @@ define(function() {
                 },
 
                 load: function() {
-
-                    // scope.promise = utils.ajax({
-                    //     method: 'GET',
-                    //     url: "advancemoney",
-                    //     mockUrl: "plugins/base/data/orderlines.json",
-                    // }).then(function(res) {
-                    //     scope.model.content = res.data;
-                    // });
                     
                     scope.promise = utils.ajax({
                         method: 'POST',
                         url: `advancemoney/query?page=${scope.datapage.page || 0}&size=${scope.datapage.size || 30} ${scope.datapage.sort ? `&sort=${scope.datapage.sort}` : ''}`,
                         mockUrl: "plugins/base/data/orderlines.json",
-                        data:scope.filter
+                        data:scope.filter,
+                        useJWT:true
                     }).then(function(res) {
-                        
                         scope.model.content = res.data;
                     });
-
-                    let url = `advancemoney/query?page=${scope.datapage.page || 0}&size=${scope.datapage.size || 30} ${scope.datapage.sort ? `&sort=${scope.datapage.sort}` : ''}`
-                    console.log('POST URL===>',url);
-                    
-
-                    // scope.promise = utils.ajax({
-                    //     method: 'POST',
-                    //     url: "bas/baswar/query?page=" + scope.datapage.page + "&size=" + scope.datapage.size + "&sort=created,desc ",
-                    //     mockUrl: "plugins/base/data/orderlines.json",
-                    //     data: scope.filter
-                    // }).then(function(res) {
-                    //     scope.model = res.data.body;
-                    // });
 
                 },
                 reset: function() {

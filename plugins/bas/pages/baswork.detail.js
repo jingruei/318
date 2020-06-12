@@ -1,7 +1,7 @@
 define(function() {
     angular.module('app').controller('bas.baswork.detail',
         function($rootScope, $scope, $location, utils, path, getSingleView, settings,
-            $timeout, dialog, toastr, ngDialog, uiGridConstants, qwsys) {
+                 $timeout, dialog, toastr, ngDialog, uiGridConstants, qwsys) {
             var scope = $scope;
             scope.uid = "";
             if ($rootScope.uid) {
@@ -21,7 +21,7 @@ define(function() {
                         readonlystatus: {
                             relation: "and",
                             filedlist: [
-                                { field: "formstatus", status: "add,edit,read" } //表单新增状态
+                                { field: "formstatus", status: "add,edit,read" } //表單新增狀態
                             ]
                         },
                         action: function(event, form) {
@@ -34,7 +34,7 @@ define(function() {
                         editstatus: {
                             relation: "and",
                             filedlist: [
-                                { field: "formstatus", status: "add,edit" }, //表单为新增，修改状态
+                                { field: "formstatus", status: "add,edit" }, //表單為新增，修改狀態
                             ]
                         },
                         action: function(event, form) {
@@ -47,7 +47,7 @@ define(function() {
                         editstatus: {
                             relation: "and",
                             filedlist: [
-                                { field: "formstatus", status: "add,edit" }, //表单为新增，修改状态
+                                { field: "formstatus", status: "add,edit" }, //表單為新增，修改狀態
                             ]
                         },
                         action: function(event, form) {
@@ -60,21 +60,21 @@ define(function() {
                         editstatus: {
                             relation: "and",
                             filedlist: [
-                                { field: "formstatus", status: "view" } //查询状态                              
+                                { field: "formstatus", status: "view" } //查詢狀態
                             ]
                         },
                         action: function(event, form) {
                             scope.action.edit(event);
                         }
                     },
-                    del: { //分配状态下还可以删除
-                        name: "删除",
+                    del: { //分配狀態下還可以刪除
+                        name: "刪除",
                         icon: "fa-remove",
                         htmlClass: "deletestyle",
                         editstatus: {
                             relation: "and",
                             filedlist: [
-                                { field: "formstatus", status: "view" } //表单查询状态                             
+                                { field: "formstatus", status: "view" } //表單查詢狀態
                             ]
                         },
                         action: function(event, form) {
@@ -88,7 +88,7 @@ define(function() {
                         editstatus: {
                             relation: "and",
                             filedlist: [
-                                { field: "formstatus", status: "view" }, //表单为新增，修改状态
+                                { field: "formstatus", status: "view" }, //表單為新增，修改狀態
                             ]
                         },
                         action: function(event, form) {
@@ -115,51 +115,50 @@ define(function() {
                         }
                     },
                     form: [{
-                            type: "group",
-                            title: "基礎訊息",
-                            items: [{
-                                    title: "工作編號",
-                                    key: 's_nbr',
-                                    required: true,
-                                    editstatus: {
-                                        relation: "and",
-                                        filedlist: [
-                                            { field: "formstatus", status: "add" } //表单为新增，修改状态
-                                        ]
-                                    },
-                                    type: 'basDefault',
-                                    lovtype: ''
+                        type: "group",
+                        title: "基礎訊息",
+                        items: [{
+                            title: "工作編號",
+                            key: 's_nbr',
+                            required: true,
+                            editstatus: {
+                                relation: "and",
+                                filedlist: [
+                                    { field: "formstatus", status: "add" } //表單為新增，修改狀態
+                                ]
+                            },
+                            type: 'basDefault',
+                            lovtype: ''
+                        },
+                            {
+                                title: "工作內容",
+                                key: 'desc',
+                                required: true,
+                                editstatus: {
+                                    relation: "and",
+                                    filedlist: [
+                                        { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
+                                    ]
                                 },
-                                {
-                                    title: "工作內容",
-                                    key: 'desc',
-                                    required: true,
-                                    editstatus: {
-                                        relation: "and",
-                                        filedlist: [
-                                            { field: "formstatus", status: "add,edit" } //表单为新增，修改状态
-                                        ]
-                                    },
-                                    type: 'basDefault',
-                                    lovtype: ''
+                                type: 'basDefault',
+                                lovtype: ''
+                            },
+                            {
+                                title: "會計編號",
+                                key: 'acc_id',
+                                editstatus: {
+                                    relation: "and",
+                                    filedlist: [
+                                        { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
+                                    ]
                                 },
-                                {
-                                    title: "會計編號",
-                                    key: 'acc_id',
-                                    required: true,
-                                    editstatus: {
-                                        relation: "and",
-                                        filedlist: [
-                                            { field: "formstatus", status: "add,edit" } //表单为新增，修改状态
-                                        ]
-                                    },
-                                    type: 'basDefault',
-                                    lovtype: ''
-                                }
-                            ]
-                        }
-                        //下面为分组B
-                        //下面为分组C
+                                type: 'basDefault',
+                                lovtype: ''
+                            }
+                        ]
+                    }
+                        //下面為分組B
+                        //下面為分組C
                     ]
                 }
             };
@@ -175,13 +174,13 @@ define(function() {
                     scope.$broadcast("GridRedraw");
                 },
                 del: function() {
-                    dialog.confirm('确定删除当前数据?').then(function() {
+                    dialog.confirm('確定刪除當前數據?').then(function() {
                         scope.promise = utils.ajax({
                             method: 'DELETE',
-                            url: "bas/baswar/" + scope.model.uid,
+                            url: `work/${scope.model.uid}`,
                             mockUrl: "plugins/data/baswar.detail.json"
                         }).then(function(res) {
-                            toastr.info("数据删除成功!!!");
+                            toastr.info("數據刪除成功!!!");
                             scope.uid = "";
                             scope.model = {
                                 formstatus: "add",
@@ -204,7 +203,7 @@ define(function() {
                     if (scope.uid) {
                         scope.promise = utils.ajax({
                             method: 'GET',
-                            url: "bas/baswar/" + scope.uid,
+                            url: `work/${scope.uid}`,
                             mockUrl: "plugins/data/baswar.detail.json"
                         }).then(function(res) {
                             var data = res.data;
@@ -230,7 +229,7 @@ define(function() {
                     }
                     scope.$broadcast("schemaFormValidate");
                     if (!form.base_form.$valid) {
-                        toastr.warning("请输入必填项！");
+                        toastr.warning("請輸入必填項！");
                         return
                     }
                     var type = scope.model.uid ? "edit" : "add";
@@ -238,11 +237,11 @@ define(function() {
                     scope.model.formstatus = "read";
                     scope.promise = utils.ajax({
                         method: "POST",
-                        url: "bas/baswar",
+                        url: "work",
                         mockUrl: "plugins/data/baswar.detail.json",
                         data: scope.model
                     }).then(function(res) {
-                        scope.uid = res.data.body.uid
+                        scope.uid = res.data;
                         if (type == "add") {
                             toastr.info("新增成功！");
                         } else {

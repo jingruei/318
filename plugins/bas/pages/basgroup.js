@@ -26,11 +26,11 @@ define(function() {
                     }
                 },
                 headers: {
-                    "ware_nbr": {
+                    "group_nbr": {
                         displayName: "組別代號",
                         width: 120
                     },
-                    "ware_desc": {
+                    "group_name": {
                         displayName: "組別名稱",
                         width: 120
                     }
@@ -39,13 +39,13 @@ define(function() {
                     ware_desc: {
                         type: "basDefault",
                         lovtype: "",
-                        name: "ware_desc",
+                        name: "group_name",
                         label: "組別名稱"
                     },
                     ware_nbr: {
                         type: "basDefault",
                         lovtype: "",
-                        name: "ware_nbr",
+                        name: "group_nbr",
                         label: "組別代號"
                     }
                 }
@@ -61,12 +61,23 @@ define(function() {
 
                     scope.promise = utils.ajax({
                         method: 'POST',
-                        url: "bas/baswar/query?page=" + scope.datapage.page + "&size=" + scope.datapage.size + "&sort=created,desc ",
+                        url: `group/query?page=${scope.datapage.page || 0}&size=${scope.datapage.size || 30} ${scope.datapage.sort ? `&sort=${scope.datapage.sort}` : ''}`,
                         mockUrl: "plugins/base/data/orderlines.json",
-                        data: scope.filter
+                        data:scope.filter
                     }).then(function(res) {
-                        scope.model = res.data.body;
+                        scope.model.content = res.data;
                     });
+
+
+                    // var req = {
+                    //     method: 'GET',
+                    //     url: 'https://localhost:5001/api/ping',
+                    //     headers: {
+                    //       'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJpZXdpaGNAanduZXQuY29tLnR3IiwianRpIjoiOTY3MmIzODctNGU5MS00YzgxLWEyNWEtYmEzNmZmMTIzNTdiIiwic3ViIjoiYWRtaW4iLCJleHAiOjE1OTE5MTQ2MTMsImlzcyI6ImxvY2FsaG9zdCIsImF1ZCI6ImxvY2FsaG9zdCJ9.XrnBH08sTw0-NKSMXH4y7wxP6UDrPwosV0gpZZRFVZY'
+                    //     },
+                    //    }
+                       
+                    //    $http(req).then(function(res){console.log(res)}, function(err){});
 
                 },
                 reset: function() {

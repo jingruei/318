@@ -71,11 +71,11 @@ define(function() {
 
                     scope.promise = utils.ajax({
                         method: 'POST',
-                        url: "bas/baswar/query?page=" + scope.datapage.page + "&size=" + scope.datapage.size + "&sort=created,desc ",
+                        url: `work/query?page=${scope.datapage.page || 0}&size=${scope.datapage.size || 30} ${scope.datapage.sort ? `&sort=${scope.datapage.sort}` : ''}`,
                         mockUrl: "plugins/base/data/orderlines.json",
                         data: scope.filter
                     }).then(function(res) {
-                        scope.model = res.data.body;
+                        scope.model.content = res.data;
                     });
 
                 },
@@ -85,9 +85,10 @@ define(function() {
                     };
 
                 },
-                changepage: function(page, size) {
+                changepage: function(page, size,sort) {
                     scope.datapage.page = page;
                     scope.datapage.size = size;
+                    scope.datapage.sort = sort;
                     scope.action.load();
                 },
                 rowclick: function(entity) {

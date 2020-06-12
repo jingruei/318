@@ -87,11 +87,14 @@ angular.module('app').controller('app.master',
             },
             logout: function () {
                 utils.ajax({
-                    url: "logout"
+                    url: "ping"
                 }).then(function (res) {
-                    localStorage.removeItem("displayName");
-                    //$location.path("/login");
-                    location.reload();
+                    console.log(res);
+                    
+                    // alert(res)
+                    // localStorage.removeItem("displayName");
+                    // $location.path("/login");
+                    // location.reload();
                 }, function (error) {
                     location.reload();
                 });

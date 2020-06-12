@@ -1,4 +1,4 @@
-(function () { application.plugin = {"queryFormComponents":{"base":[],"bas":["checkboxes","datepicker","default","esydatetime","lov","love","number","radiosinline","rangedate","selectmultiple","string"],"bpm":[],"sanan":[]},"schemaFormComponents":{"base":[],"bas":["addgrid","array","button","checkbox","checkboxes","columns","columnsremark","datepicker","datetimepicker","default","detail","editgrid","endline","esydatetime","esydatetimepicker","formatnumber","getgallery","image","label","line","lov","love","lovm","number","numberamt","numberpas","password","radiosinline","region","relationfield","remark","select","selectmultiple","status","string","table","tablerow","tabs","textarea","titlefield","ueditor","ueditord","uploader","viewgrid"],"bpm":[],"sanan":[]}}}()); 
+(function () { application.plugin = {"queryFormComponents":{"base":[],"bas":["checkboxes","datepicker","default","esydatetime","lov","love","number","radiosinline","rangedate","selectmultiple","string"],"bpm":[],"sanan":[]},"schemaFormComponents":{"base":[],"bas":["addgrid","array","button","checkbox","checkboxes","columns","columnsremark","datepicker","datetimepicker","default","detail","editgrid","endline","esydatetime","esydatetimepicker","formatnumber","getgallery","image","label","line","lov","love","lovm","number","numberamt","numberpas","password","radiosinline","region","relationfield","remark","select","selectmultiple","status","string","table","tablerow","tabs","textarea","titlefield","ueditor","ueditord","uploader","viewgrid"],"bpm":[],"sanan":[]}}}());
 angular.module('app').directive('jqChart', ['$timeout', function ($timeout) {
     return {
         restrict: "E",
@@ -22,7 +22,7 @@ angular.module('app').directive('jqChart', ['$timeout', function ($timeout) {
             });
         }
     };
-}]); 
+}]);
 angular.module('app').directive('jqMarquee', ['$timeout', function ($timeout) {
     function init(element, $ul, options) {
         var defaults = {
@@ -90,112 +90,112 @@ var yes;
     (function () {
         angular.module('app')
             .directive('addGrid', function ($compile, $templateCache, $http) {
-            return {
-                restrict: 'E',
-                replace: true,
-                scope: {
-                    ngModel: "=",
-                    form: "=",
-                    model: "="
-                },
-                require: '^ngModel',
-                templateUrl: 'plugins/bas/components/addgrid.html',
-                controller: ['$rootScope', 'uiGridConstants', 'toastr', '$timeout', 'settings', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
-                    function ($rootScope, uiGridConstants, toastr, $timeout, settings, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
-                        if (!$scope.ngModel) {
-                            $scope.ngModel = [];
-                        }
-                        $scope.rowmodel = {};
-                        $scope.gridconfig = {
-                            schema: {
-                                "type": "object",
-                                "properties": {
-                                    "uid": {
-                                        "title": "不动产单元号",
-                                        "type": "string"
+                return {
+                    restrict: 'E',
+                    replace: true,
+                    scope: {
+                        ngModel: "=",
+                        form: "=",
+                        model: "="
+                    },
+                    require: '^ngModel',
+                    templateUrl: 'plugins/bas/components/addgrid.html',
+                    controller: ['$rootScope', 'uiGridConstants', 'toastr', '$timeout', 'settings', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
+                        function ($rootScope, uiGridConstants, toastr, $timeout, settings, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
+                            if (!$scope.ngModel) {
+                                $scope.ngModel = [];
+                            }
+                            $scope.rowmodel = {};
+                            $scope.gridconfig = {
+                                schema: {
+                                    "type": "object",
+                                    "properties": {
+                                        "uid": {
+                                            "title": "不动产单元号",
+                                            "type": "string"
+                                        }
                                     }
-                                }
-                            },
-                            form: [{
+                                },
+                                form: [{
                                     title: "",
                                     type: "basRegion",
                                     css: "max-4",
                                     items: []
                                 },
-                            ]
-                        };
-                        if ($scope.form.hasOwnProperty("form")) {
-                            $scope.gridconfig = angular.copy($scope.form.form);
-                        }
-                        var isfoot = false;
-                        $scope.bakheaders = angular.copy($scope.form.headers);
-                        angular.forEach($scope.form.headers, function (col, key) {
-                            col.title = col.displayName;
-                            col.key = key;
-                            if (!$scope.form.hasOwnProperty("form")) {
-                                if (!col.hasOwnProperty("type")) {
-                                    col.type = "string";
-                                }
-                                $scope.gridconfig.form[0].items.push(col);
+                                ]
+                            };
+                            if ($scope.form.hasOwnProperty("form")) {
+                                $scope.gridconfig = angular.copy($scope.form.form);
                             }
-                            col.enableFiltering = false;
-                            if (!col.hasOwnProperty("enableColumnMenu")) {
-                                col.enableColumnMenu = false;
-                            }
-                            if (col.hasOwnProperty("summsg")) {
-                                col.aggregationType = uiGridConstants.aggregationTypes.sum;
-                                isfoot = true;
-                                if (col.summsg.auto) {
-                                    col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{ ( col.getAggregationValue() | number :col.colDef.num ) }}</div></div>";
+                            var isfoot = false;
+                            $scope.bakheaders = angular.copy($scope.form.headers);
+                            angular.forEach($scope.form.headers, function (col, key) {
+                                col.title = col.displayName;
+                                col.key = key;
+                                if (!$scope.form.hasOwnProperty("form")) {
+                                    if (!col.hasOwnProperty("type")) {
+                                        col.type = "string";
+                                    }
+                                    $scope.gridconfig.form[0].items.push(col);
                                 }
-                                else {
-                                    if (angular.isString(col.summsg.sumval)) {
-                                        col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{(col.colDef.summsg.sumval)}}</div></div>";
+                                col.enableFiltering = false;
+                                if (!col.hasOwnProperty("enableColumnMenu")) {
+                                    col.enableColumnMenu = false;
+                                }
+                                if (col.hasOwnProperty("summsg")) {
+                                    col.aggregationType = uiGridConstants.aggregationTypes.sum;
+                                    isfoot = true;
+                                    if (col.summsg.auto) {
+                                        col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{ ( col.getAggregationValue() | number :col.colDef.num ) }}</div></div>";
                                     }
                                     else {
-                                        col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{(col.colDef.summsg.sumval | number :col.colDef.num)}}</div></div>";
+                                        if (angular.isString(col.summsg.sumval)) {
+                                            col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{(col.colDef.summsg.sumval)}}</div></div>";
+                                        }
+                                        else {
+                                            col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{(col.colDef.summsg.sumval | number :col.colDef.num)}}</div></div>";
+                                        }
                                     }
                                 }
+                                if (col) {
+                                    if (col.readonly) {
+                                        col.enableCellEdit = false;
+                                        if (col.type == "number" || col.type == "basNumber") {
+                                            col.cellTemplate = "ui-grid/gridcellnumber";
+                                            col.headerCellClass = "esy-number";
+                                        }
+                                        else if (col.type == "basLov") {
+                                            col.cellTemplate = "ui-grid/gridcelllov";
+                                        }
+                                    }
+                                    else {
+                                        if (col.type == "basLov") {
+                                            col.cellTemplate = "ui-grid/gridcelllov";
+                                        }
+                                        else if (col.type == "basNumber" || col.type == "number") {
+                                            col.headerCellClass = "esy-number";
+                                            col.cellTemplate = "ui-grid/gridcellnumber";
+                                        }
+                                    }
+                                }
+                            });
+                            if (angular.isUndefined($scope.form.existdel)) {
+                                $scope.form.existdel = true;
                             }
-                            if (col) {
-                                if (col.readonly) {
-                                    col.enableCellEdit = false;
-                                    if (col.type == "number" || col.type == "basNumber") {
-                                        col.cellTemplate = "ui-grid/gridcellnumber";
-                                        col.headerCellClass = "esy-number";
-                                    }
-                                    else if (col.type == "basLov") {
-                                        col.cellTemplate = "ui-grid/gridcelllov";
-                                    }
-                                }
-                                else {
-                                    if (col.type == "basLov") {
-                                        col.cellTemplate = "ui-grid/gridcelllov";
-                                    }
-                                    else if (col.type == "basNumber" || col.type == "number") {
-                                        col.headerCellClass = "esy-number";
-                                        col.cellTemplate = "ui-grid/gridcellnumber";
-                                    }
-                                }
-                            }
-                        });
-                        if (angular.isUndefined($scope.form.existdel)) {
-                            $scope.form.existdel = true;
-                        }
-                        $scope.gridOptions = angular.extend({
-                            data: 'ngModel',
-                            enableCellEditOnFocus: false,
-                            // enableFiltering: true,
-                            enableSorting: true,
-                            enableColumnMenu: true,
-                            suppressRemoveSort: false,
-                            showGridFooter: false,
-                            showColumnFooter: isfoot,
-                            columnFooterHeight: 24,
-                            multiSelect: true,
-                            enableFullRowSelection: false,
-                            enableGridMenu: true,
-                            gridMenuCustomItems: [{
+                            $scope.gridOptions = angular.extend({
+                                data: 'ngModel',
+                                enableCellEditOnFocus: false,
+                                // enableFiltering: true,
+                                enableSorting: true,
+                                enableColumnMenu: true,
+                                suppressRemoveSort: false,
+                                showGridFooter: false,
+                                showColumnFooter: isfoot,
+                                columnFooterHeight: 24,
+                                multiSelect: true,
+                                enableFullRowSelection: false,
+                                enableGridMenu: true,
+                                gridMenuCustomItems: [{
                                     title: '重置',
                                     action: function ($event) {
                                         $scope.resetgridmsg();
@@ -204,233 +204,233 @@ var yes;
                                     },
                                     order: 210
                                 }],
-                            onRegisterApi: function (gridApi) {
-                                $scope.form.gridApi = gridApi;
-                                $scope.gridApi = gridApi;
-                                if ($scope.form.existdel) {
-                                    $scope.gridApi.grid.registerRowsProcessor($scope.singleFilter, 200);
-                                }
-                                gridApi.core.on.renderingComplete($scope, function (ar1) {
-                                    $timeout(function () {
-                                        angular.element(window).trigger('resize');
-                                        if ($scope.gridApi.grid.rows.length > 0) {
-                                            $scope.gridApi.grid.rows.forEach(function (element) {
-                                                if (!element.entity.isdel) {
-                                                    $scope.rowmodel = $scope.gridApi.grid.rows[0].entity;
-                                                    $scope.rowmodel.formstatus = $scope.model.formstatus;
-                                                }
-                                            });
-                                        }
-                                        else {
-                                            $scope.rowmodel = { formstatus: "view" };
-                                        }
+                                onRegisterApi: function (gridApi) {
+                                    $scope.form.gridApi = gridApi;
+                                    $scope.gridApi = gridApi;
+                                    if ($scope.form.existdel) {
+                                        $scope.gridApi.grid.registerRowsProcessor($scope.singleFilter, 200);
+                                    }
+                                    gridApi.core.on.renderingComplete($scope, function (ar1) {
                                         $timeout(function () {
-                                            $scope.$broadcast('changeadddetail');
-                                        });
-                                    }, 0);
-                                });
-                                gridApi.core.on.columnVisibilityChanged($scope, function (ar1, ar2) {
-                                    $scope.savegridmsg(gridApi.grid.columns);
-                                });
-                                gridApi.colMovable.on.columnPositionChanged($scope, function (ar1, ar2) {
-                                    $scope.savegridmsg(gridApi.grid.columns);
-                                });
-                                gridApi.colResizable.on.columnSizeChanged($scope, function (ar1, ar2) {
-                                    $scope.savegridmsg(gridApi.grid.columns);
-                                });
-                            },
-                            rowTemplate: "<div  ng-click=\"grid.appScope.onDblClick($event,row);grid.appScope.hoveredIndex = rowRenderIndex\" " +
-                                "ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" " +
-                                "class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader,'selecthoverclass': grid.appScope.hoveredIndex === rowRenderIndex }\" " +
-                                "ui-grid-cell ></div>"
-                        }, settings.uiGrid);
-                        if ($scope.form.sortable) {
-                            $scope.gridOptions.sortable = $scope.form.sortable;
-                        }
-                        if ($scope.form.height) {
-                            $scope.gridstyle = {
-                                height: $scope.form.height + "px"
-                            };
-                        }
-                        $scope.onDblClick = function (event, row) {
-                            if (row && row.entity) {
-                                $scope.rowmodel = row.entity;
-                                $timeout(function () {
-                                    $scope.$broadcast('changeadddetail');
-                                });
-                            }
-                        };
-                        $scope.$on("changeadddetail", function (event, id) {
-                            if (event.currentScope.$id != event.targetScope.$id) {
-                                $scope.rowmodel = { formstatus: "view" };
-                                if ($scope.gridApi.grid.rows.length > 0) {
-                                    $scope.gridApi.grid.rows.forEach(function (element) {
-                                        if (!element.entity.isdel) {
-                                            $scope.rowmodel = $scope.gridApi.grid.rows[0].entity;
-                                            $scope.rowmodel.formstatus = $scope.model.formstatus;
-                                        }
-                                    });
-                                }
-                                if ($scope.form.hasOwnProperty("onchangerecord")) {
-                                    $scope.form.onchangerecord($scope.rowmodel);
-                                }
-                            }
-                        });
-                        $scope.singleFilter = function (renderableRows) {
-                            renderableRows.forEach(function (row) {
-                                row.visible = !row.entity["isdel"];
-                            });
-                            return renderableRows;
-                        };
-                        $scope.resetgridmsg = function () {
-                            localStorage.setItem($scope.form.gridkey + "_grid", "{}");
-                        };
-                        $scope.savegridmsg = function (gridcols) {
-                            var cols = {};
-                            angular.forEach(gridcols, function (column) {
-                                cols[column.field] = {
-                                    width: column.width,
-                                    visible: column.visible
-                                };
-                            });
-                            localStorage.setItem($scope.form.gridkey + "_grid", angular.toJson(cols, true));
-                        };
-                        $scope.readgridmsg = function (headers, localStorageKey) {
-                            var columns = [];
-                            var colsmsg = angular.fromJson(localStorage.getItem(localStorageKey + "_grid") || "{}");
-                            angular.forEach(colsmsg, function (col, key) {
-                                if (headers.hasOwnProperty(key)) {
-                                    var item = angular.extend(headers[key], col);
-                                    if (angular.isObject(headers[key]) && key) {
-                                        item.name = key;
-                                        item.displayName = headers[key].displayName;
-                                    }
-                                    if (angular.isUndefined(item.headerCellFilter))
-                                        item.headerCellFilter = "translate";
-                                    columns.push(item);
-                                }
-                            });
-                            angular.forEach(headers, function (col, key) {
-                                if (!colsmsg.hasOwnProperty(key)) {
-                                    if (angular.isString(col)) {
-                                        col = {
-                                            name: key,
-                                            original: col,
-                                            displayName: col
-                                        };
-                                    }
-                                    else if (angular.isObject(col) && key) {
-                                        col.name = key;
-                                    }
-                                    if (angular.isUndefined(col.headerCellFilter))
-                                        col.headerCellFilter = "translate";
-                                    columns.push(col);
-                                }
-                            });
-                            return columns;
-                        };
-                        $scope.resetstatus = function () {
-                            var nowgridmsg = $scope.gridOptions.columnDefs;
-                            angular.forEach($scope.bakheaders, function (col, key) {
-                                angular.forEach($scope.gridOptions.columnDefs, function (column) {
-                                    if (column.name == key) {
-                                        if (column.hasOwnProperty("readonly")) {
-                                            col.readonly = column.readonly;
-                                        }
-                                    }
-                                });
-                            });
-                        };
-                        $scope.action = [];
-                        if ($scope.form.action) {
-                            angular.forEach($scope.form.action, function (op, key) {
-                                var item = {};
-                                if (key == "add") {
-                                    item = {
-                                        'name': '新增',
-                                        'icon': 'fa-plus',
-                                        'preclick': function () {
-                                            //$scope.form.action[key].click();
-                                            op.click($scope.ngModel);
-                                            $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.COLUMN);
-                                            $timeout(function (resource) {
-                                                $scope.gridApi.grid.appScope.hoveredIndex = $scope.gridApi.grid.rows.length - 1;
-                                                $scope.rowmodel = $scope.gridApi.grid.rows[$scope.gridApi.grid.rows.length - 1].entity;
-                                                $timeout(function () {
-                                                    $scope.$broadcast('changeadddetail');
+                                            angular.element(window).trigger('resize');
+                                            if ($scope.gridApi.grid.rows.length > 0) {
+                                                $scope.gridApi.grid.rows.forEach(function (element) {
+                                                    if (!element.entity.isdel) {
+                                                        $scope.rowmodel = $scope.gridApi.grid.rows[0].entity;
+                                                        $scope.rowmodel.formstatus = $scope.model.formstatus;
+                                                    }
                                                 });
-                                            });
-                                        }
-                                    };
-                                }
-                                else if (key == "del") {
-                                    item = {
-                                        'name': '删除',
-                                        'icon': 'fa-remove',
-                                        'preclick': function () {
-                                            var rows = $scope.gridApi.selection.getSelectedRows() || [];
-                                            if (rows.length == 0) {
-                                                toastr.info("请选择删除记录！");
                                             }
                                             else {
-                                                angular.forEach(rows, function (row) {
-                                                    op.click(row);
-                                                    $scope.gridApi.grid.refresh();
-                                                    $scope.rowmodel = { formstatus: "view" };
-                                                    $scope.gridApi.grid.rows.forEach(function (element) {
-                                                        if (!element.entity.isdel) {
-                                                            $scope.rowmodel = element.entity;
-                                                            $timeout(function () {
-                                                                $scope.$broadcast('changeadddetail');
-                                                            });
-                                                        }
-                                                    });
-                                                    // $scope.form.action[key].click(row);
-                                                    // $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.COLUMN);
-                                                });
+                                                $scope.rowmodel = { formstatus: "view" };
+                                            }
+                                            $timeout(function () {
+                                                $scope.$broadcast('changeadddetail');
+                                            });
+                                        }, 0);
+                                    });
+                                    gridApi.core.on.columnVisibilityChanged($scope, function (ar1, ar2) {
+                                        $scope.savegridmsg(gridApi.grid.columns);
+                                    });
+                                    gridApi.colMovable.on.columnPositionChanged($scope, function (ar1, ar2) {
+                                        $scope.savegridmsg(gridApi.grid.columns);
+                                    });
+                                    gridApi.colResizable.on.columnSizeChanged($scope, function (ar1, ar2) {
+                                        $scope.savegridmsg(gridApi.grid.columns);
+                                    });
+                                },
+                                rowTemplate: "<div  ng-click=\"grid.appScope.onDblClick($event,row);grid.appScope.hoveredIndex = rowRenderIndex\" " +
+                                    "ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" " +
+                                    "class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader,'selecthoverclass': grid.appScope.hoveredIndex === rowRenderIndex }\" " +
+                                    "ui-grid-cell ></div>"
+                            }, settings.uiGrid);
+                            if ($scope.form.sortable) {
+                                $scope.gridOptions.sortable = $scope.form.sortable;
+                            }
+                            if ($scope.form.height) {
+                                $scope.gridstyle = {
+                                    height: $scope.form.height + "px"
+                                };
+                            }
+                            $scope.onDblClick = function (event, row) {
+                                if (row && row.entity) {
+                                    $scope.rowmodel = row.entity;
+                                    $timeout(function () {
+                                        $scope.$broadcast('changeadddetail');
+                                    });
+                                }
+                            };
+                            $scope.$on("changeadddetail", function (event, id) {
+                                if (event.currentScope.$id != event.targetScope.$id) {
+                                    $scope.rowmodel = { formstatus: "view" };
+                                    if ($scope.gridApi.grid.rows.length > 0) {
+                                        $scope.gridApi.grid.rows.forEach(function (element) {
+                                            if (!element.entity.isdel) {
+                                                $scope.rowmodel = $scope.gridApi.grid.rows[0].entity;
+                                                $scope.rowmodel.formstatus = $scope.model.formstatus;
+                                            }
+                                        });
+                                    }
+                                    if ($scope.form.hasOwnProperty("onchangerecord")) {
+                                        $scope.form.onchangerecord($scope.rowmodel);
+                                    }
+                                }
+                            });
+                            $scope.singleFilter = function (renderableRows) {
+                                renderableRows.forEach(function (row) {
+                                    row.visible = !row.entity["isdel"];
+                                });
+                                return renderableRows;
+                            };
+                            $scope.resetgridmsg = function () {
+                                localStorage.setItem($scope.form.gridkey + "_grid", "{}");
+                            };
+                            $scope.savegridmsg = function (gridcols) {
+                                var cols = {};
+                                angular.forEach(gridcols, function (column) {
+                                    cols[column.field] = {
+                                        width: column.width,
+                                        visible: column.visible
+                                    };
+                                });
+                                localStorage.setItem($scope.form.gridkey + "_grid", angular.toJson(cols, true));
+                            };
+                            $scope.readgridmsg = function (headers, localStorageKey) {
+                                var columns = [];
+                                var colsmsg = angular.fromJson(localStorage.getItem(localStorageKey + "_grid") || "{}");
+                                angular.forEach(colsmsg, function (col, key) {
+                                    if (headers.hasOwnProperty(key)) {
+                                        var item = angular.extend(headers[key], col);
+                                        if (angular.isObject(headers[key]) && key) {
+                                            item.name = key;
+                                            item.displayName = headers[key].displayName;
+                                        }
+                                        if (angular.isUndefined(item.headerCellFilter))
+                                            item.headerCellFilter = "translate";
+                                        columns.push(item);
+                                    }
+                                });
+                                angular.forEach(headers, function (col, key) {
+                                    if (!colsmsg.hasOwnProperty(key)) {
+                                        if (angular.isString(col)) {
+                                            col = {
+                                                name: key,
+                                                original: col,
+                                                displayName: col
+                                            };
+                                        }
+                                        else if (angular.isObject(col) && key) {
+                                            col.name = key;
+                                        }
+                                        if (angular.isUndefined(col.headerCellFilter))
+                                            col.headerCellFilter = "translate";
+                                        columns.push(col);
+                                    }
+                                });
+                                return columns;
+                            };
+                            $scope.resetstatus = function () {
+                                var nowgridmsg = $scope.gridOptions.columnDefs;
+                                angular.forEach($scope.bakheaders, function (col, key) {
+                                    angular.forEach($scope.gridOptions.columnDefs, function (column) {
+                                        if (column.name == key) {
+                                            if (column.hasOwnProperty("readonly")) {
+                                                col.readonly = column.readonly;
                                             }
                                         }
-                                    };
-                                }
-                                else {
-                                    item = {
-                                        'name': op.name,
-                                        'icon': op.icon,
-                                        'preclick': function () {
-                                            op.click();
-                                            // $scope.form.action[key].click();
-                                            $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.COLUMN);
-                                        }
-                                    };
-                                }
-                                item = angular.extend(item, op);
-                                $scope.action.push(item);
-                            });
-                        }
-                        $scope.$watch("form.headers", function (newValue, oldValue) {
-                            if ($scope.form.headers) {
-                                $scope.gridOptions.columnDefs = angular.copy($scope.readgridmsg($scope.form.headers, $scope.form.gridkey ? $scope.form.gridkey : ""));
-                            }
-                        }, true); ///
-                        $scope.$watch("ngModel", function (newValue, oldValue) {
-                            if ($scope.ngModel) {
-                                $scope.gridOptions.totalItems = $scope.ngModel.count;
-                            }
-                        }, true); ///
-                        $scope.$watch("model.formstatus", function (newValue, oldValue) {
-                            if ($scope.model.formstatus && $scope.ngModel) {
-                                $scope.ngModel.forEach(function (element) {
-                                    element.formstatus = $scope.model.formstatus;
+                                    });
+                                });
+                            };
+                            $scope.action = [];
+                            if ($scope.form.action) {
+                                angular.forEach($scope.form.action, function (op, key) {
+                                    var item = {};
+                                    if (key == "add") {
+                                        item = {
+                                            'name': '新增',
+                                            'icon': 'fa-plus',
+                                            'preclick': function () {
+                                                //$scope.form.action[key].click();
+                                                op.click($scope.ngModel);
+                                                $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.COLUMN);
+                                                $timeout(function (resource) {
+                                                    $scope.gridApi.grid.appScope.hoveredIndex = $scope.gridApi.grid.rows.length - 1;
+                                                    $scope.rowmodel = $scope.gridApi.grid.rows[$scope.gridApi.grid.rows.length - 1].entity;
+                                                    $timeout(function () {
+                                                        $scope.$broadcast('changeadddetail');
+                                                    });
+                                                });
+                                            }
+                                        };
+                                    }
+                                    else if (key == "del") {
+                                        item = {
+                                            'name': '删除',
+                                            'icon': 'fa-remove',
+                                            'preclick': function () {
+                                                var rows = $scope.gridApi.selection.getSelectedRows() || [];
+                                                if (rows.length == 0) {
+                                                    toastr.info("请选择删除记录！");
+                                                }
+                                                else {
+                                                    angular.forEach(rows, function (row) {
+                                                        op.click(row);
+                                                        $scope.gridApi.grid.refresh();
+                                                        $scope.rowmodel = { formstatus: "view" };
+                                                        $scope.gridApi.grid.rows.forEach(function (element) {
+                                                            if (!element.entity.isdel) {
+                                                                $scope.rowmodel = element.entity;
+                                                                $timeout(function () {
+                                                                    $scope.$broadcast('changeadddetail');
+                                                                });
+                                                            }
+                                                        });
+                                                        // $scope.form.action[key].click(row);
+                                                        // $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.COLUMN);
+                                                    });
+                                                }
+                                            }
+                                        };
+                                    }
+                                    else {
+                                        item = {
+                                            'name': op.name,
+                                            'icon': op.icon,
+                                            'preclick': function () {
+                                                op.click();
+                                                // $scope.form.action[key].click();
+                                                $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.COLUMN);
+                                            }
+                                        };
+                                    }
+                                    item = angular.extend(item, op);
+                                    $scope.action.push(item);
                                 });
                             }
-                        }, true); ///
-                        $scope.$on('RefreshGrid', function () {
-                            $scope.gridApi.grid.refresh();
-                        });
-                    }
-                ]
-            };
-        });
+                            $scope.$watch("form.headers", function (newValue, oldValue) {
+                                if ($scope.form.headers) {
+                                    $scope.gridOptions.columnDefs = angular.copy($scope.readgridmsg($scope.form.headers, $scope.form.gridkey ? $scope.form.gridkey : ""));
+                                }
+                            }, true); ///
+                            $scope.$watch("ngModel", function (newValue, oldValue) {
+                                if ($scope.ngModel) {
+                                    $scope.gridOptions.totalItems = $scope.ngModel.count;
+                                }
+                            }, true); ///
+                            $scope.$watch("model.formstatus", function (newValue, oldValue) {
+                                if ($scope.model.formstatus && $scope.ngModel) {
+                                    $scope.ngModel.forEach(function (element) {
+                                        element.formstatus = $scope.model.formstatus;
+                                    });
+                                }
+                            }, true); ///
+                            $scope.$on('RefreshGrid', function () {
+                                $scope.gridApi.grid.refresh();
+                            });
+                        }
+                    ]
+                };
+            });
     }());
 })(yes || (yes = {}));
 
@@ -438,51 +438,51 @@ var yes;
 
 angular.module('app')
     .directive('authority', function ($compile, $templateCache, $http) {
-    return {
-        restrict: 'AE',
-        replace: true,
-        scope: {
-            authorityOption: "="
-        },
-        require: '^ngModel',
-        controller: ['$rootScope', '$scope', '$location', '$element', '$attrs', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
-            function ($rootScope, $scope, $location, $element, $attrs, utils, ngDialog, $filter) {
-                var scope = $scope;
-                if (scope.authorityOption.authoritykey) {
-                    var authorityList = $rootScope.authorityList;
-                    var readonly = true;
-                    authorityList.forEach(function (item) {
-                        if (item.bas_cuscus_add == scope.authorityOption.authoritykey) {
-                            readonly = false;
-                        }
-                    });
-                    scope.authorityOption.readonly = readonly;
-                }
-                //scope.dataNgDisabled="disabled"
-                //  $element.addClass("disabled");
-            }]
-    };
-});
+        return {
+            restrict: 'AE',
+            replace: true,
+            scope: {
+                authorityOption: "="
+            },
+            require: '^ngModel',
+            controller: ['$rootScope', '$scope', '$location', '$element', '$attrs', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
+                function ($rootScope, $scope, $location, $element, $attrs, utils, ngDialog, $filter) {
+                    var scope = $scope;
+                    if (scope.authorityOption.authoritykey) {
+                        var authorityList = $rootScope.authorityList;
+                        var readonly = true;
+                        authorityList.forEach(function (item) {
+                            if (item.bas_cuscus_add == scope.authorityOption.authoritykey) {
+                                readonly = false;
+                            }
+                        });
+                        scope.authorityOption.readonly = readonly;
+                    }
+                    //scope.dataNgDisabled="disabled"
+                    //  $element.addClass("disabled");
+                }]
+        };
+    });
 
 //# sourceMappingURL=authority.js.map
 
 angular.module('app.core.layout')
     .directive('autoWidth', ['settings', '$timeout', '$window',
-    function (settings, $timeout, $window) {
-        // var _docHeight = document.documentElement.clientHeight;
-        function resetwidth(scope, element, attr) {
-            var width = element.parent().width();
-            angular.element(element).width(width);
-        }
-        return {
-            restrict: "A",
-            link: function (scope, element, attr) {
-                scope.$on('layout-responsive:changed', function () {
-                    resetwidth(scope, element, attr);
-                });
+        function (settings, $timeout, $window) {
+            // var _docHeight = document.documentElement.clientHeight;
+            function resetwidth(scope, element, attr) {
+                var width = element.parent().width();
+                angular.element(element).width(width);
             }
-        };
-    }]);
+            return {
+                restrict: "A",
+                link: function (scope, element, attr) {
+                    scope.$on('layout-responsive:changed', function () {
+                        resetwidth(scope, element, attr);
+                    });
+                }
+            };
+        }]);
 
 //# sourceMappingURL=autowidth.js.map
 
@@ -553,96 +553,96 @@ angular.module('app')
     ]);
 angular.module('app')
     .directive('basRemark', function ($compile, $templateCache, $http) {
-    return {
-        restrict: 'E',
-        replace: true,
-        scope: {
-            ngModel: "=",
-            form: "="
-        },
-        require: '^ngModel',
-        templateUrl: 'plugins/bas/components/basremark.html',
-        controller: ['$rootScope', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
-            function ($rootScope, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
-                var scope = $scope;
-                if (!scope.form.ngModelOptions) {
-                    scope.form.ngModelOptions = {};
-                }
-                // scope.model = {
-                //     field: scope.ngModel
-                // }
-                // scope.$watch('model.field', function (newValue, oldValue) {
-                //     scope.ngModel = newValue;
-                // }, true); ///
-                // scope.$watch('ngModel', function (newValue, oldValue) {
-                //     scope.model.field = newValue;
-                // }, true); ///
-                //  scope.remarktemplateUrl="plugins/bas/components/remarkpop.html"
-                scope.dialog = function () {
-                    var injector = angular.element(document).injector();
-                    var ngDialog = injector.get('ngDialog');
-                    var toastr = injector.get('toastr');
-                    ngDialog.open({
-                        className: "ngdialog-sm",
-                        template: 'plugins/bas/components/remarkpop.html',
-                        scope: $scope,
-                        controller: function ($scope) {
-                        }
-                    });
-                };
-            }]
-    };
-});
+        return {
+            restrict: 'E',
+            replace: true,
+            scope: {
+                ngModel: "=",
+                form: "="
+            },
+            require: '^ngModel',
+            templateUrl: 'plugins/bas/components/basremark.html',
+            controller: ['$rootScope', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
+                function ($rootScope, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
+                    var scope = $scope;
+                    if (!scope.form.ngModelOptions) {
+                        scope.form.ngModelOptions = {};
+                    }
+                    // scope.model = {
+                    //     field: scope.ngModel
+                    // }
+                    // scope.$watch('model.field', function (newValue, oldValue) {
+                    //     scope.ngModel = newValue;
+                    // }, true); ///
+                    // scope.$watch('ngModel', function (newValue, oldValue) {
+                    //     scope.model.field = newValue;
+                    // }, true); ///
+                    //  scope.remarktemplateUrl="plugins/bas/components/remarkpop.html"
+                    scope.dialog = function () {
+                        var injector = angular.element(document).injector();
+                        var ngDialog = injector.get('ngDialog');
+                        var toastr = injector.get('toastr');
+                        ngDialog.open({
+                            className: "ngdialog-sm",
+                            template: 'plugins/bas/components/remarkpop.html',
+                            scope: $scope,
+                            controller: function ($scope) {
+                            }
+                        });
+                    };
+                }]
+        };
+    });
 
 //# sourceMappingURL=basremark.js.map
 
 angular.module('app')
     .directive('basString', function ($compile, $templateCache, $http) {
-    return {
-        restrict: 'E',
-        replace: true,
-        scope: {
-            ngModel: "=",
-            form: "="
-        },
-        require: '^ngModel',
-        templateUrl: 'plugins/bas/components/basstring.html',
-        controller: ['$rootScope', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
-            function ($rootScope, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
-                var scope = $scope;
-                scope.model = {
-                    field: scope.ngModel
-                };
-                scope.$watch('model.field', function (newValue, oldValue) {
-                    scope.ngModel = newValue;
-                }, true); ///
-                scope.$watch('ngModel', function (newValue, oldValue) {
-                    scope.model.field = newValue;
-                }, true); ///
-                scope.$watch('$parent.model.formstatus', function (newValue, oldValue) {
-                    var formstatus = "00"; //初始状态
-                    if (newValue) {
-                        formstatus = newValue;
-                    }
-                    if (formstatus == "99") {
-                        scope.form.readonly = true;
-                    }
-                    else {
-                        if (scope.form.readonlystatus) {
-                            var readonlystatus = scope.form.readonlystatus.split(",");
-                            var readonly = false;
-                            readonlystatus.forEach(function (element) {
-                                if (element == formstatus) {
-                                    readonly = true;
-                                }
-                            });
-                            scope.form.readonly = readonly;
+        return {
+            restrict: 'E',
+            replace: true,
+            scope: {
+                ngModel: "=",
+                form: "="
+            },
+            require: '^ngModel',
+            templateUrl: 'plugins/bas/components/basstring.html',
+            controller: ['$rootScope', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
+                function ($rootScope, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
+                    var scope = $scope;
+                    scope.model = {
+                        field: scope.ngModel
+                    };
+                    scope.$watch('model.field', function (newValue, oldValue) {
+                        scope.ngModel = newValue;
+                    }, true); ///
+                    scope.$watch('ngModel', function (newValue, oldValue) {
+                        scope.model.field = newValue;
+                    }, true); ///
+                    scope.$watch('$parent.model.formstatus', function (newValue, oldValue) {
+                        var formstatus = "00"; //初始状态
+                        if (newValue) {
+                            formstatus = newValue;
                         }
-                    }
-                }, true); ///
-            }]
-    };
-});
+                        if (formstatus == "99") {
+                            scope.form.readonly = true;
+                        }
+                        else {
+                            if (scope.form.readonlystatus) {
+                                var readonlystatus = scope.form.readonlystatus.split(",");
+                                var readonly = false;
+                                readonlystatus.forEach(function (element) {
+                                    if (element == formstatus) {
+                                        readonly = true;
+                                    }
+                                });
+                                scope.form.readonly = readonly;
+                            }
+                        }
+                    }, true); ///
+                }]
+        };
+    });
 
 //# sourceMappingURL=basstring.js.map
 
@@ -842,72 +842,72 @@ angular.module('app')
     }]);
 angular.module('app')
     .directive('dateTimepicker', function ($compile, $templateCache, $http) {
-    return {
-        restrict: 'E',
-        replace: true,
-        scope: {
-            ngModel: "=",
-            form: "="
-        },
-        require: '^ngModel',
-        templateUrl: 'plugins/bas/components/datetimepicker.html',
-        controller: ['$timeout', '$rootScope', '$scope', '$location', '$log', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
-            function ($timeout, $rootScope, $scope, $location, $log, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
-                var scope = $scope;
-                scope.mytime = new Date();
-                var minu = scope.mytime.getMinutes();
-                minu = minu.toString().substring(0, minu.toString().length - 1) + "0";
-                scope.mytime.setMinutes(minu);
-                scope.$watch('ngModel', function (newValue, oldValue) {
-                    if (newValue) {
-                        scope.mytime = new Date(scope.ngModel.replace(/-/g, "/"));
-                        scope.datefield = new moment(scope.mytime).format("YYYY-MM-DD");
-                        scope.timefield = new moment(scope.mytime).format("HH:mm");
-                    }
-                    else {
-                        scope.datefield = "";
-                        scope.timefield = "";
-                    }
-                }, true); ///
-                scope.changeddate = function () {
-                    if (!scope.datefield) {
-                        return;
-                    }
-                    if (!scope.timefield) {
-                        scope.timefield = new moment(scope.mytime).format("HH:mm");
-                    }
-                    scope.ngModel = scope.datefield + " " + scope.timefield;
-                    scope.mytime = new Date(scope.ngModel);
-                    $timeout(function () {
-                        scope.form.change();
-                    }, 100);
-                };
-                scope.changetimestr = function () {
-                    if (!scope.datefield) {
-                        scope.datefield = new moment(scope.mytime).format("YYYY-MM-DD");
-                    }
-                    scope.ngModel = scope.datefield + " " + scope.timefield;
-                    scope.mytime = new Date(scope.ngModel.replace(/-/g, "/"));
-                };
-                scope.changedtime = function () {
-                    scope.timefield = new moment(scope.mytime).format("HH:mm");
-                    if (!scope.datefield) {
-                        scope.datefield = new moment(scope.mytime).format("YYYY-MM-DD");
-                    }
-                    scope.ngModel = scope.datefield + " " + scope.timefield;
-                    $timeout(function () {
-                        if (scope.form.change) {
-                            scope.form.change();
+        return {
+            restrict: 'E',
+            replace: true,
+            scope: {
+                ngModel: "=",
+                form: "="
+            },
+            require: '^ngModel',
+            templateUrl: 'plugins/bas/components/datetimepicker.html',
+            controller: ['$timeout', '$rootScope', '$scope', '$location', '$log', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
+                function ($timeout, $rootScope, $scope, $location, $log, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
+                    var scope = $scope;
+                    scope.mytime = new Date();
+                    var minu = scope.mytime.getMinutes();
+                    minu = minu.toString().substring(0, minu.toString().length - 1) + "0";
+                    scope.mytime.setMinutes(minu);
+                    scope.$watch('ngModel', function (newValue, oldValue) {
+                        if (newValue) {
+                            scope.mytime = new Date(scope.ngModel.replace(/-/g, "/"));
+                            scope.datefield = new moment(scope.mytime).format("YYYY-MM-DD");
+                            scope.timefield = new moment(scope.mytime).format("HH:mm");
                         }
-                    }, 100);
-                    //this.mytime.setHours(14);
-                    //this.mytime.setMinutes(0);
-                };
-                scope.hstep = 1;
-                scope.mstep = 10;
-            }]
-    };
-});
+                        else {
+                            scope.datefield = "";
+                            scope.timefield = "";
+                        }
+                    }, true); ///
+                    scope.changeddate = function () {
+                        if (!scope.datefield) {
+                            return;
+                        }
+                        if (!scope.timefield) {
+                            scope.timefield = new moment(scope.mytime).format("HH:mm");
+                        }
+                        scope.ngModel = scope.datefield + " " + scope.timefield;
+                        scope.mytime = new Date(scope.ngModel);
+                        $timeout(function () {
+                            scope.form.change();
+                        }, 100);
+                    };
+                    scope.changetimestr = function () {
+                        if (!scope.datefield) {
+                            scope.datefield = new moment(scope.mytime).format("YYYY-MM-DD");
+                        }
+                        scope.ngModel = scope.datefield + " " + scope.timefield;
+                        scope.mytime = new Date(scope.ngModel.replace(/-/g, "/"));
+                    };
+                    scope.changedtime = function () {
+                        scope.timefield = new moment(scope.mytime).format("HH:mm");
+                        if (!scope.datefield) {
+                            scope.datefield = new moment(scope.mytime).format("YYYY-MM-DD");
+                        }
+                        scope.ngModel = scope.datefield + " " + scope.timefield;
+                        $timeout(function () {
+                            if (scope.form.change) {
+                                scope.form.change();
+                            }
+                        }, 100);
+                        //this.mytime.setHours(14);
+                        //this.mytime.setMinutes(0);
+                    };
+                    scope.hstep = 1;
+                    scope.mstep = 10;
+                }]
+        };
+    });
 
 //# sourceMappingURL=datetimepicker.js.map
 
@@ -975,100 +975,100 @@ var yes;
         ]);
         angular.module('app')
             .directive('editGrid', function ($compile, $templateCache, $http) {
-            return {
-                restrict: 'E',
-                replace: true,
-                scope: {
-                    ngModel: "=",
-                    form: "=",
-                    model: "="
-                },
-                require: '^ngModel',
-                templateUrl: 'plugins/bas/components/editgrid.html',
-                controller: ['$rootScope', 'uiGridConstants', 'toastr', '$timeout', 'settings', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
-                    function ($rootScope, uiGridConstants, toastr, $timeout, settings, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
-                        if (!$scope.ngModel) {
-                            $scope.ngModel = [];
-                        }
-                        var isfoot = false;
-                        $scope.bakheaders = angular.copy($scope.form.headers);
-                        angular.forEach($scope.form.headers, function (col, key) {
-                            col.enableFiltering = false;
-                            // if (col.aggregationType) {
-                            //     isfoot = true
-                            // }
-                            if (!col.hasOwnProperty("enableColumnMenu")) {
-                                col.enableColumnMenu = false;
+                return {
+                    restrict: 'E',
+                    replace: true,
+                    scope: {
+                        ngModel: "=",
+                        form: "=",
+                        model: "="
+                    },
+                    require: '^ngModel',
+                    templateUrl: 'plugins/bas/components/editgrid.html',
+                    controller: ['$rootScope', 'uiGridConstants', 'toastr', '$timeout', 'settings', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
+                        function ($rootScope, uiGridConstants, toastr, $timeout, settings, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
+                            if (!$scope.ngModel) {
+                                $scope.ngModel = [];
                             }
-                            if (col.hasOwnProperty("summsg")) {
-                                col.aggregationType = uiGridConstants.aggregationTypes.sum;
-                                isfoot = true;
-                                if (col.summsg.auto) {
-                                    col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{ ( col.getAggregationValue() | number :col.colDef.num ) }}</div></div>";
+                            var isfoot = false;
+                            $scope.bakheaders = angular.copy($scope.form.headers);
+                            angular.forEach($scope.form.headers, function (col, key) {
+                                col.enableFiltering = false;
+                                // if (col.aggregationType) {
+                                //     isfoot = true
+                                // }
+                                if (!col.hasOwnProperty("enableColumnMenu")) {
+                                    col.enableColumnMenu = false;
                                 }
-                                else {
-                                    if (angular.isString(col.summsg.sumval)) {
-                                        col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{(col.colDef.summsg.sumval)}}</div></div>";
+                                if (col.hasOwnProperty("summsg")) {
+                                    col.aggregationType = uiGridConstants.aggregationTypes.sum;
+                                    isfoot = true;
+                                    if (col.summsg.auto) {
+                                        col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{ ( col.getAggregationValue() | number :col.colDef.num ) }}</div></div>";
                                     }
                                     else {
-                                        col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{(col.colDef.summsg.sumval | number :col.colDef.num)}}</div></div>";
+                                        if (angular.isString(col.summsg.sumval)) {
+                                            col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{(col.colDef.summsg.sumval)}}</div></div>";
+                                        }
+                                        else {
+                                            col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{(col.colDef.summsg.sumval | number :col.colDef.num)}}</div></div>";
+                                        }
                                     }
                                 }
-                            }
-                            if (col) {
-                                if (col.readonly) {
-                                    col.enableCellEdit = false;
-                                    if (col.type == "number" || col.type == "basNumber") {
-                                        col.cellTemplate = "ui-grid/gridcellnumber";
-                                        col.headerCellClass = "esy-number";
-                                    }
-                                    else if (col.type == "basLov") {
-                                        col.cellTemplate = "ui-grid/gridcelllov";
-                                    }
-                                }
-                                else {
-                                    if (col.type == "basLov") {
-                                        col.editableCellTemplate = "ui-grid/celllov";
-                                        //  if (col.nameField) {
-                                        col.cellTemplate = "ui-grid/gridcelllov";
-                                    }
-                                    else if (col.type == "basLove") {
-                                        col.editableCellTemplate = "ui-grid/celllove";
-                                    }
-                                    else if (col.type == "date-picker") {
-                                        col.editableCellTemplate = "ui-grid/celldatePicker";
-                                    }
-                                    else if (col.type == "basEsydatetime") {
-                                        col.editableCellTemplate = "ui-grid/cellesydatetime";
-                                    }
-                                    else if (col.type == "basRemark") {
-                                        col.editableCellTemplate = "ui-grid/cellremark";
-                                    }
-                                    else if (col.type == "basNumber" || col.type == "number") {
-                                        col.headerCellClass = "esy-number";
-                                        col.editableCellTemplate = "ui-grid/cellnumber";
-                                        col.cellTemplate = "ui-grid/gridcellnumber";
+                                if (col) {
+                                    if (col.readonly) {
+                                        col.enableCellEdit = false;
+                                        if (col.type == "number" || col.type == "basNumber") {
+                                            col.cellTemplate = "ui-grid/gridcellnumber";
+                                            col.headerCellClass = "esy-number";
+                                        }
+                                        else if (col.type == "basLov") {
+                                            col.cellTemplate = "ui-grid/gridcelllov";
+                                        }
                                     }
                                     else {
-                                        col.editableCellTemplate = "ui-grid/cellDefault";
+                                        if (col.type == "basLov") {
+                                            col.editableCellTemplate = "ui-grid/celllov";
+                                            //  if (col.nameField) {
+                                            col.cellTemplate = "ui-grid/gridcelllov";
+                                        }
+                                        else if (col.type == "basLove") {
+                                            col.editableCellTemplate = "ui-grid/celllove";
+                                        }
+                                        else if (col.type == "date-picker") {
+                                            col.editableCellTemplate = "ui-grid/celldatePicker";
+                                        }
+                                        else if (col.type == "basEsydatetime") {
+                                            col.editableCellTemplate = "ui-grid/cellesydatetime";
+                                        }
+                                        else if (col.type == "basRemark") {
+                                            col.editableCellTemplate = "ui-grid/cellremark";
+                                        }
+                                        else if (col.type == "basNumber" || col.type == "number") {
+                                            col.headerCellClass = "esy-number";
+                                            col.editableCellTemplate = "ui-grid/cellnumber";
+                                            col.cellTemplate = "ui-grid/gridcellnumber";
+                                        }
+                                        else {
+                                            col.editableCellTemplate = "ui-grid/cellDefault";
+                                        }
+                                    }
+                                    if (col.required) {
+                                        col.headerCellClass = (col.headerCellClass ? col.headerCellClass : "") + " required ";
                                     }
                                 }
-                                if (col.required) {
-                                    col.headerCellClass = (col.headerCellClass ? col.headerCellClass : "") + " required ";
-                                }
+                            });
+                            if (angular.isUndefined($scope.form.existdel)) {
+                                $scope.form.existdel = true;
                             }
-                        });
-                        if (angular.isUndefined($scope.form.existdel)) {
-                            $scope.form.existdel = true;
-                        }
-                        $scope.gridOptions = angular.extend({
-                            data: 'ngModel',
-                            enableCellEditOnFocus: true,
-                            // enableFiltering: true,
-                            enableSorting: false,
-                            columnFooterHeight: 24,
-                            showColumnFooter: isfoot,
-                            gridMenuCustomItems: [{
+                            $scope.gridOptions = angular.extend({
+                                data: 'ngModel',
+                                enableCellEditOnFocus: true,
+                                // enableFiltering: true,
+                                enableSorting: false,
+                                columnFooterHeight: 24,
+                                showColumnFooter: isfoot,
+                                gridMenuCustomItems: [{
                                     title: '重置',
                                     action: function ($event) {
                                         $scope.resetgridmsg();
@@ -1077,179 +1077,179 @@ var yes;
                                     },
                                     order: 210
                                 }],
-                            onRegisterApi: function (gridApi) {
-                                $scope.form.gridApi = gridApi;
-                                $scope.gridApi = gridApi;
-                                if ($scope.form.existdel) {
-                                    $scope.gridApi.grid.registerRowsProcessor($scope.singleFilter, 200);
-                                }
-                                gridApi.core.on.renderingComplete($scope, function (ar1) {
-                                    $timeout(function () {
-                                        angular.element(window).trigger('resize');
-                                    }, 0);
-                                });
-                                gridApi.core.on.columnVisibilityChanged($scope, function (ar1, ar2) {
-                                    $scope.savegridmsg(gridApi.grid.columns);
-                                });
-                                gridApi.colMovable.on.columnPositionChanged($scope, function (ar1, ar2) {
-                                    $scope.savegridmsg(gridApi.grid.columns);
-                                });
-                                gridApi.colResizable.on.columnSizeChanged($scope, function (ar1, ar2) {
-                                    $scope.savegridmsg(gridApi.grid.columns);
-                                });
-                            },
-                            rowTemplate: "<div  " +
-                                "ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" " +
-                                "class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" " +
-                                "ui-grid-cell   ></div>"
-                        }, settings.uiGrid);
-                        if ($scope.form.sortable) {
-                            $scope.gridOptions.sortable = $scope.form.sortable;
-                        }
-                        if ($scope.form.height) {
-                            $scope.gridstyle = {
-                                height: $scope.form.height + "px"
-                            };
-                        }
-                        $scope.singleFilter = function (renderableRows) {
-                            renderableRows.forEach(function (row) {
-                                row.visible = !row.entity["isdel"];
-                            });
-                            return renderableRows;
-                        };
-                        $scope.resetgridmsg = function () {
-                            localStorage.setItem($scope.form.gridkey + "_grid", "{}");
-                        };
-                        $scope.savegridmsg = function (gridcols) {
-                            var cols = {};
-                            angular.forEach(gridcols, function (column) {
-                                cols[column.field] = {
-                                    width: column.width,
-                                    visible: column.visible
-                                };
-                            });
-                            localStorage.setItem($scope.form.gridkey + "_grid", angular.toJson(cols, true));
-                        };
-                        $scope.readgridmsg = function (headers, localStorageKey) {
-                            var columns = [];
-                            var colsmsg = angular.fromJson(localStorage.getItem(localStorageKey + "_grid") || "{}");
-                            angular.forEach(colsmsg, function (col, key) {
-                                if (headers.hasOwnProperty(key)) {
-                                    var item = angular.extend(headers[key], col);
-                                    if (angular.isObject(headers[key]) && key) {
-                                        item.name = key;
-                                        item.displayName = headers[key].displayName;
+                                onRegisterApi: function (gridApi) {
+                                    $scope.form.gridApi = gridApi;
+                                    $scope.gridApi = gridApi;
+                                    if ($scope.form.existdel) {
+                                        $scope.gridApi.grid.registerRowsProcessor($scope.singleFilter, 200);
                                     }
-                                    if (angular.isUndefined(item.headerCellFilter))
-                                        item.headerCellFilter = "translate";
-                                    columns.push(item);
-                                }
-                            });
-                            angular.forEach(headers, function (col, key) {
-                                if (!colsmsg.hasOwnProperty(key)) {
-                                    if (angular.isString(col)) {
-                                        col = {
-                                            name: key,
-                                            original: col,
-                                            displayName: col
+                                    gridApi.core.on.renderingComplete($scope, function (ar1) {
+                                        $timeout(function () {
+                                            angular.element(window).trigger('resize');
+                                        }, 0);
+                                    });
+                                    gridApi.core.on.columnVisibilityChanged($scope, function (ar1, ar2) {
+                                        $scope.savegridmsg(gridApi.grid.columns);
+                                    });
+                                    gridApi.colMovable.on.columnPositionChanged($scope, function (ar1, ar2) {
+                                        $scope.savegridmsg(gridApi.grid.columns);
+                                    });
+                                    gridApi.colResizable.on.columnSizeChanged($scope, function (ar1, ar2) {
+                                        $scope.savegridmsg(gridApi.grid.columns);
+                                    });
+                                },
+                                rowTemplate: "<div  " +
+                                    "ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" " +
+                                    "class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" " +
+                                    "ui-grid-cell   ></div>"
+                            }, settings.uiGrid);
+                            if ($scope.form.sortable) {
+                                $scope.gridOptions.sortable = $scope.form.sortable;
+                            }
+                            if ($scope.form.height) {
+                                $scope.gridstyle = {
+                                    height: $scope.form.height + "px"
+                                };
+                            }
+                            $scope.singleFilter = function (renderableRows) {
+                                renderableRows.forEach(function (row) {
+                                    row.visible = !row.entity["isdel"];
+                                });
+                                return renderableRows;
+                            };
+                            $scope.resetgridmsg = function () {
+                                localStorage.setItem($scope.form.gridkey + "_grid", "{}");
+                            };
+                            $scope.savegridmsg = function (gridcols) {
+                                var cols = {};
+                                angular.forEach(gridcols, function (column) {
+                                    cols[column.field] = {
+                                        width: column.width,
+                                        visible: column.visible
+                                    };
+                                });
+                                localStorage.setItem($scope.form.gridkey + "_grid", angular.toJson(cols, true));
+                            };
+                            $scope.readgridmsg = function (headers, localStorageKey) {
+                                var columns = [];
+                                var colsmsg = angular.fromJson(localStorage.getItem(localStorageKey + "_grid") || "{}");
+                                angular.forEach(colsmsg, function (col, key) {
+                                    if (headers.hasOwnProperty(key)) {
+                                        var item = angular.extend(headers[key], col);
+                                        if (angular.isObject(headers[key]) && key) {
+                                            item.name = key;
+                                            item.displayName = headers[key].displayName;
+                                        }
+                                        if (angular.isUndefined(item.headerCellFilter))
+                                            item.headerCellFilter = "translate";
+                                        columns.push(item);
+                                    }
+                                });
+                                angular.forEach(headers, function (col, key) {
+                                    if (!colsmsg.hasOwnProperty(key)) {
+                                        if (angular.isString(col)) {
+                                            col = {
+                                                name: key,
+                                                original: col,
+                                                displayName: col
+                                            };
+                                        }
+                                        else if (angular.isObject(col) && key) {
+                                            col.name = key;
+                                        }
+                                        if (angular.isUndefined(col.headerCellFilter))
+                                            col.headerCellFilter = "translate";
+                                        columns.push(col);
+                                    }
+                                });
+                                return columns;
+                            };
+                            $scope.resetstatus = function () {
+                                var nowgridmsg = $scope.gridOptions.columnDefs;
+                                angular.forEach($scope.bakheaders, function (col, key) {
+                                    angular.forEach($scope.gridOptions.columnDefs, function (column) {
+                                        if (column.name == key) {
+                                            if (column.hasOwnProperty("readonly")) {
+                                                col.readonly = column.readonly;
+                                            }
+                                        }
+                                    });
+                                });
+                            };
+                            $scope.action = [];
+                            if ($scope.form.action) {
+                                angular.forEach($scope.form.action, function (op, key) {
+                                    var item = {};
+                                    if (key == "add") {
+                                        item = {
+                                            'name': '新增',
+                                            'icon': 'fa-plus',
+                                            'preclick': function () {
+                                                //$scope.form.action[key].click();
+                                                op.click($scope.ngModel);
+                                                $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.COLUMN);
+                                            }
                                         };
                                     }
-                                    else if (angular.isObject(col) && key) {
-                                        col.name = key;
+                                    else if (key == "del") {
+                                        item = {
+                                            'name': '删除',
+                                            'icon': 'fa-remove',
+                                            'preclick': function () {
+                                                var rows = $scope.gridApi.selection.getSelectedRows() || [];
+                                                if (rows.length == 0) {
+                                                    toastr.info("请选择删除记录！");
+                                                }
+                                                else {
+                                                    angular.forEach(rows, function (row) {
+                                                        op.click(row);
+                                                        $scope.gridApi.grid.refresh();
+                                                        // $scope.form.action[key].click(row);
+                                                        // $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.COLUMN);
+                                                    });
+                                                }
+                                            }
+                                        };
                                     }
-                                    if (angular.isUndefined(col.headerCellFilter))
-                                        col.headerCellFilter = "translate";
-                                    columns.push(col);
-                                }
-                            });
-                            return columns;
-                        };
-                        $scope.resetstatus = function () {
-                            var nowgridmsg = $scope.gridOptions.columnDefs;
-                            angular.forEach($scope.bakheaders, function (col, key) {
-                                angular.forEach($scope.gridOptions.columnDefs, function (column) {
-                                    if (column.name == key) {
-                                        if (column.hasOwnProperty("readonly")) {
-                                            col.readonly = column.readonly;
-                                        }
+                                    else {
+                                        item = {
+                                            'name': op.name,
+                                            'icon': op.icon,
+                                            'preclick': function () {
+                                                op.click();
+                                                // $scope.form.action[key].click();
+                                                $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.COLUMN);
+                                            }
+                                        };
                                     }
+                                    item = angular.extend(item, op);
+                                    $scope.action.push(item);
                                 });
+                            }
+                            $scope.$watch("form.headers", function (newValue, oldValue) {
+                                if ($scope.form.headers) {
+                                    $scope.gridOptions.columnDefs = angular.copy($scope.readgridmsg($scope.form.headers, $scope.form.gridkey ? $scope.form.gridkey : ""));
+                                }
+                            }, true); ///
+                            $scope.$watch("ngModel", function (newValue, oldValue) {
+                                if ($scope.ngModel) {
+                                    $scope.gridOptions.totalItems = $scope.ngModel.count;
+                                }
+                            }, true); ///
+                            $scope.$on('RefreshGrid', function () {
+                                $scope.gridApi.grid.refresh();
                             });
-                        };
-                        $scope.action = [];
-                        if ($scope.form.action) {
-                            angular.forEach($scope.form.action, function (op, key) {
-                                var item = {};
-                                if (key == "add") {
-                                    item = {
-                                        'name': '新增',
-                                        'icon': 'fa-plus',
-                                        'preclick': function () {
-                                            //$scope.form.action[key].click();
-                                            op.click($scope.ngModel);
-                                            $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.COLUMN);
-                                        }
-                                    };
-                                }
-                                else if (key == "del") {
-                                    item = {
-                                        'name': '删除',
-                                        'icon': 'fa-remove',
-                                        'preclick': function () {
-                                            var rows = $scope.gridApi.selection.getSelectedRows() || [];
-                                            if (rows.length == 0) {
-                                                toastr.info("请选择删除记录！");
-                                            }
-                                            else {
-                                                angular.forEach(rows, function (row) {
-                                                    op.click(row);
-                                                    $scope.gridApi.grid.refresh();
-                                                    // $scope.form.action[key].click(row);
-                                                    // $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.COLUMN);
-                                                });
-                                            }
-                                        }
-                                    };
-                                }
-                                else {
-                                    item = {
-                                        'name': op.name,
-                                        'icon': op.icon,
-                                        'preclick': function () {
-                                            op.click();
-                                            // $scope.form.action[key].click();
-                                            $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.COLUMN);
-                                        }
-                                    };
-                                }
-                                item = angular.extend(item, op);
-                                $scope.action.push(item);
-                            });
+                            //  $scope.$on('GridRedraw', function () {
+                            //     // var resource = angular.copy($scope.ngModel)
+                            //     // $scope.ngModel = [];
+                            //     $timeout(function(resource) {
+                            //        $scope.gridApi.grid.refresh();
+                            //     }, 300);
+                            // });
                         }
-                        $scope.$watch("form.headers", function (newValue, oldValue) {
-                            if ($scope.form.headers) {
-                                $scope.gridOptions.columnDefs = angular.copy($scope.readgridmsg($scope.form.headers, $scope.form.gridkey ? $scope.form.gridkey : ""));
-                            }
-                        }, true); ///
-                        $scope.$watch("ngModel", function (newValue, oldValue) {
-                            if ($scope.ngModel) {
-                                $scope.gridOptions.totalItems = $scope.ngModel.count;
-                            }
-                        }, true); ///
-                        $scope.$on('RefreshGrid', function () {
-                            $scope.gridApi.grid.refresh();
-                        });
-                        //  $scope.$on('GridRedraw', function () {
-                        //     // var resource = angular.copy($scope.ngModel)
-                        //     // $scope.ngModel = [];
-                        //     $timeout(function(resource) {
-                        //        $scope.gridApi.grid.refresh();
-                        //     }, 300);
-                        // });
-                    }
-                ]
-            };
-        });
+                    ]
+                };
+            });
     }());
 })(yes || (yes = {}));
 
@@ -1803,10 +1803,10 @@ angular.module('app')
                                             data: data
                                         }).then(function(res) {
                                             $rootScope[rootmap] = [];
-                                            if (res.data.body.content.length > 0) {
+                                            if (res.data.length > 0) {
                                                 $rootScope[rootmap] = [{ value: "", name: "重置" }];
                                             }
-                                            res.data.body.content.forEach(function(e) {
+                                            res.data.forEach(function(e) {
                                                 if (e) {
                                                     e.value = e[scope.config.showField.valueField];
                                                     e.name = e[scope.config.showField.nameField];
@@ -2555,21 +2555,21 @@ angular.module('app')
     });
 angular.module('app')
     .directive('gridCellIoc', function ($compile, $templateCache, $http) {
-    return {
-        restrict: 'AE',
-        replace: true,
-        scope: {
-            gridField: "@",
-            form: "=",
-            entity: "="
-        },
-        templateUrl: 'plugins/bas/components/gridcellioc.html',
-        controller: ['$rootScope', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
-            function ($rootScope, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
-                var scope = $scope;
-            }]
-    };
-});
+        return {
+            restrict: 'AE',
+            replace: true,
+            scope: {
+                gridField: "@",
+                form: "=",
+                entity: "="
+            },
+            templateUrl: 'plugins/bas/components/gridcellioc.html',
+            controller: ['$rootScope', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
+                function ($rootScope, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
+                    var scope = $scope;
+                }]
+        };
+    });
 
 //# sourceMappingURL=gridcellioc.js.map
 
@@ -2759,26 +2759,26 @@ angular.module('app')
     });
 angular.module('app')
     .directive('gridCellNumber', function ($compile, $templateCache, $http) {
-    return {
-        restrict: 'AE',
-        replace: true,
-        scope: {
-            gridField: "@",
-            form: "="
-        },
-        templateUrl: 'plugins/bas/components/gridcellnumber.html',
-        controller: ['$rootScope', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
-            function ($rootScope, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
-                var scope = $scope;
-                if (scope.form.showchange) {
-                    scope.showprice = localStorage.getItem("price") == "Y" ? true : false;
-                }
-                else {
-                    scope.showprice = true;
-                }
-            }]
-    };
-});
+        return {
+            restrict: 'AE',
+            replace: true,
+            scope: {
+                gridField: "@",
+                form: "="
+            },
+            templateUrl: 'plugins/bas/components/gridcellnumber.html',
+            controller: ['$rootScope', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
+                function ($rootScope, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
+                    var scope = $scope;
+                    if (scope.form.showchange) {
+                        scope.showprice = localStorage.getItem("price") == "Y" ? true : false;
+                    }
+                    else {
+                        scope.showprice = true;
+                    }
+                }]
+        };
+    });
 
 //# sourceMappingURL=gridcellnumber.js.map
 
@@ -2823,304 +2823,304 @@ angular.module('app')
     });
 angular.module('app')
     .directive('gridcolControl', function ($compile, $templateCache, $http) {
-    return {
-        restrict: 'A',
-        replace: true,
-        scope: {
-            ngModel: "=",
-            model: "=",
-            form: "="
-        },
-        require: '^ngModel',
-        controller: ['$rootScope', '$scope', '$location', '$templateCache', '$translate', 'utils', '$element', '$timeout', 'uiGridConstants',
-            function ($rootScope, $scope, $location, $templateCache, $translate, utils, $element, $timeout, uiGridConstants) {
-                var scope = $scope;
-                var watchstr = "", tag = "+";
-                var watfld = "";
-                angular.forEach(scope.form.headers, function (col, key) {
-                    if (col.editstatus) {
-                        col.editstatus.filedlist.forEach(function (element) {
-                            watfld = tag + 'model.' + element.field + tag;
-                            if (watchstr.indexOf(watfld) < 0) {
-                                watchstr += tag + 'model.' + element.field + tag;
-                            }
-                        });
-                    }
-                    if (col.readonlystatus) {
-                        col.readonlystatus.filedlist.forEach(function (element) {
-                            watfld = tag + 'model.' + element.field + tag;
-                            if (watchstr.indexOf(watfld) < 0) {
-                                watchstr += tag + 'model.' + element.field + tag;
-                            }
-                        });
-                    }
-                    if (col.hidestatus) {
-                        col.hidestatus.filedlist.forEach(function (element) {
-                            watfld = tag + 'model.' + element.field + tag;
-                            if (watchstr.indexOf(watfld) < 0) {
-                                watchstr += tag + 'model.' + element.field + tag;
-                            }
-                        });
-                    }
-                    if (col.showstatus) {
-                        col.showstatus.filedlist.forEach(function (element) {
-                            watfld = tag + 'model.' + element.field + tag;
-                            if (watchstr.indexOf(watfld) < 0) {
-                                watchstr += tag + 'model.' + element.field + tag;
-                            }
-                        });
-                    }
-                });
-                if (watchstr) {
-                    watchstr = watchstr.substr(1, watchstr.length - 2);
-                    scope.$watch(watchstr, function (newValue, oldValue) {
-                        angular.forEach(scope.form.headers, function (col, key) {
-                            if (col.editstatus) {
-                                var arrayObj = new Array();
-                                col.editstatus.filedlist.forEach(function (element) {
-                                    var formstatus = scope.model[element.field];
-                                    if (angular.isUndefined(formstatus)) {
-                                        formstatus = "";
-                                    }
-                                    if (typeof element.status == "string") {
-                                        var editstatus = element.status.split(",");
-                                        var itemval = false;
-                                        editstatus.forEach(function (item) {
-                                            if (item == formstatus) {
-                                                itemval = itemval || true;
-                                            }
-                                            else {
-                                                itemval = itemval || false;
-                                            }
-                                        });
-                                        arrayObj.push(itemval);
-                                    }
-                                    else if (formstatus == element.status) {
-                                        arrayObj.push(true);
-                                    }
-                                    else {
-                                        arrayObj.push(false);
-                                    }
-                                });
-                                var edit = false;
-                                if (arrayObj.length > 0) {
-                                    edit = arrayObj[0];
-                                    arrayObj.forEach(function (element) {
-                                        edit = col.editstatus.relation == "or" ? edit || element : edit && element;
-                                    }, this);
+        return {
+            restrict: 'A',
+            replace: true,
+            scope: {
+                ngModel: "=",
+                model: "=",
+                form: "="
+            },
+            require: '^ngModel',
+            controller: ['$rootScope', '$scope', '$location', '$templateCache', '$translate', 'utils', '$element', '$timeout', 'uiGridConstants',
+                function ($rootScope, $scope, $location, $templateCache, $translate, utils, $element, $timeout, uiGridConstants) {
+                    var scope = $scope;
+                    var watchstr = "", tag = "+";
+                    var watfld = "";
+                    angular.forEach(scope.form.headers, function (col, key) {
+                        if (col.editstatus) {
+                            col.editstatus.filedlist.forEach(function (element) {
+                                watfld = tag + 'model.' + element.field + tag;
+                                if (watchstr.indexOf(watfld) < 0) {
+                                    watchstr += tag + 'model.' + element.field + tag;
                                 }
-                                col.readonly = !edit;
-                                col.enableCellEdit = !col.readonly;
-                            }
-                            if (col.readonlystatus) {
-                                var arrayObj = new Array();
-                                col.readonlystatus.filedlist.forEach(function (element) {
-                                    var formstatus = scope.model[element.field];
-                                    if (angular.isUndefined(formstatus)) {
-                                        formstatus = "";
-                                    }
-                                    if (typeof element.status == "string") {
-                                        var readonlystatus = element.status.split(",");
-                                        var itemval = false;
-                                        readonlystatus.forEach(function (item) {
-                                            if (item == formstatus) {
-                                                itemval = itemval || true;
-                                            }
-                                            else {
-                                                itemval = itemval || false;
-                                            }
-                                        });
-                                        arrayObj.push(itemval);
-                                    }
-                                    else if (formstatus == element.status) {
-                                        arrayObj.push(true);
-                                    }
-                                    else {
-                                        arrayObj.push(false);
-                                    }
-                                });
-                                var readonly = false;
-                                if (arrayObj.length > 0) {
-                                    readonly = arrayObj[0];
-                                    arrayObj.forEach(function (element) {
-                                        readonly = col.readonlystatus.relation == "or" ? readonly || element : readonly && element;
-                                    }, this);
+                            });
+                        }
+                        if (col.readonlystatus) {
+                            col.readonlystatus.filedlist.forEach(function (element) {
+                                watfld = tag + 'model.' + element.field + tag;
+                                if (watchstr.indexOf(watfld) < 0) {
+                                    watchstr += tag + 'model.' + element.field + tag;
                                 }
-                                col.readonly = readonly;
-                                col.enableCellEdit = !col.readonly;
-                            }
-                            if (col.showstatus) {
-                                var arrayObj = new Array();
-                                col.showstatus.filedlist.forEach(function (element) {
-                                    var formstatus = scope.model[element.field];
-                                    if (angular.isUndefined(formstatus)) {
-                                        formstatus = "";
-                                    }
-                                    if (typeof element.status == "string") {
-                                        var showstatus = element.status.split(",");
-                                        var itemval = false;
-                                        showstatus.forEach(function (item) {
-                                            if (item == formstatus) {
-                                                itemval = itemval || true;
-                                            }
-                                            else {
-                                                itemval = itemval || false;
-                                            }
-                                        });
-                                        arrayObj.push(itemval);
-                                    }
-                                    else if (formstatus == element.status) {
-                                        arrayObj.push(true);
-                                    }
-                                    else {
-                                        arrayObj.push(false);
-                                    }
-                                });
-                                var show = true;
-                                if (arrayObj.length > 0) {
-                                    show = arrayObj[0];
-                                    arrayObj.forEach(function (element) {
-                                        show = col.showstatus.relation == "or" ? show || element : show && element;
-                                    }, this);
+                            });
+                        }
+                        if (col.hidestatus) {
+                            col.hidestatus.filedlist.forEach(function (element) {
+                                watfld = tag + 'model.' + element.field + tag;
+                                if (watchstr.indexOf(watfld) < 0) {
+                                    watchstr += tag + 'model.' + element.field + tag;
                                 }
-                                col.visible = show;
-                            }
-                            if (col.hidestatus) {
-                                var arrayObj = new Array();
-                                col.hidestatus.filedlist.forEach(function (element) {
-                                    var formstatus = scope.model[element.field];
-                                    if (angular.isUndefined(formstatus)) {
-                                        formstatus = "";
-                                    }
-                                    if (typeof element.status == "string") {
-                                        var hidestatus = element.status.split(",");
-                                        var itemval = false;
-                                        hidestatus.forEach(function (item) {
-                                            if (item == formstatus) {
-                                                itemval = itemval || true;
-                                            }
-                                            else {
-                                                itemval = itemval || false;
-                                            }
-                                        });
-                                        arrayObj.push(itemval);
-                                    }
-                                    else if (formstatus == element.status) {
-                                        arrayObj.push(true);
-                                    }
-                                    else {
-                                        arrayObj.push(false);
-                                    }
-                                });
-                                var hide = false;
-                                if (arrayObj.length > 0) {
-                                    hide = arrayObj[0];
-                                    arrayObj.forEach(function (element) {
-                                        hide = col.hidestatus.relation == "or" ? hide || element : hide && element;
-                                    }, this);
+                            });
+                        }
+                        if (col.showstatus) {
+                            col.showstatus.filedlist.forEach(function (element) {
+                                watfld = tag + 'model.' + element.field + tag;
+                                if (watchstr.indexOf(watfld) < 0) {
+                                    watchstr += tag + 'model.' + element.field + tag;
                                 }
-                                col.visible = !hide;
-                            }
-                            if (scope.form.gridApi) {
-                            }
-                            // var resource = angular.copy(scope.ngModel);
-                            // scope.ngModel = resource;
-                            // $timeout(function() {
-                            //     scope.ngModel = resource;
-                            // }, 100);
-                        });
-                    }, true); ///
+                            });
+                        }
+                    });
+                    if (watchstr) {
+                        watchstr = watchstr.substr(1, watchstr.length - 2);
+                        scope.$watch(watchstr, function (newValue, oldValue) {
+                            angular.forEach(scope.form.headers, function (col, key) {
+                                if (col.editstatus) {
+                                    var arrayObj = new Array();
+                                    col.editstatus.filedlist.forEach(function (element) {
+                                        var formstatus = scope.model[element.field];
+                                        if (angular.isUndefined(formstatus)) {
+                                            formstatus = "";
+                                        }
+                                        if (typeof element.status == "string") {
+                                            var editstatus = element.status.split(",");
+                                            var itemval = false;
+                                            editstatus.forEach(function (item) {
+                                                if (item == formstatus) {
+                                                    itemval = itemval || true;
+                                                }
+                                                else {
+                                                    itemval = itemval || false;
+                                                }
+                                            });
+                                            arrayObj.push(itemval);
+                                        }
+                                        else if (formstatus == element.status) {
+                                            arrayObj.push(true);
+                                        }
+                                        else {
+                                            arrayObj.push(false);
+                                        }
+                                    });
+                                    var edit = false;
+                                    if (arrayObj.length > 0) {
+                                        edit = arrayObj[0];
+                                        arrayObj.forEach(function (element) {
+                                            edit = col.editstatus.relation == "or" ? edit || element : edit && element;
+                                        }, this);
+                                    }
+                                    col.readonly = !edit;
+                                    col.enableCellEdit = !col.readonly;
+                                }
+                                if (col.readonlystatus) {
+                                    var arrayObj = new Array();
+                                    col.readonlystatus.filedlist.forEach(function (element) {
+                                        var formstatus = scope.model[element.field];
+                                        if (angular.isUndefined(formstatus)) {
+                                            formstatus = "";
+                                        }
+                                        if (typeof element.status == "string") {
+                                            var readonlystatus = element.status.split(",");
+                                            var itemval = false;
+                                            readonlystatus.forEach(function (item) {
+                                                if (item == formstatus) {
+                                                    itemval = itemval || true;
+                                                }
+                                                else {
+                                                    itemval = itemval || false;
+                                                }
+                                            });
+                                            arrayObj.push(itemval);
+                                        }
+                                        else if (formstatus == element.status) {
+                                            arrayObj.push(true);
+                                        }
+                                        else {
+                                            arrayObj.push(false);
+                                        }
+                                    });
+                                    var readonly = false;
+                                    if (arrayObj.length > 0) {
+                                        readonly = arrayObj[0];
+                                        arrayObj.forEach(function (element) {
+                                            readonly = col.readonlystatus.relation == "or" ? readonly || element : readonly && element;
+                                        }, this);
+                                    }
+                                    col.readonly = readonly;
+                                    col.enableCellEdit = !col.readonly;
+                                }
+                                if (col.showstatus) {
+                                    var arrayObj = new Array();
+                                    col.showstatus.filedlist.forEach(function (element) {
+                                        var formstatus = scope.model[element.field];
+                                        if (angular.isUndefined(formstatus)) {
+                                            formstatus = "";
+                                        }
+                                        if (typeof element.status == "string") {
+                                            var showstatus = element.status.split(",");
+                                            var itemval = false;
+                                            showstatus.forEach(function (item) {
+                                                if (item == formstatus) {
+                                                    itemval = itemval || true;
+                                                }
+                                                else {
+                                                    itemval = itemval || false;
+                                                }
+                                            });
+                                            arrayObj.push(itemval);
+                                        }
+                                        else if (formstatus == element.status) {
+                                            arrayObj.push(true);
+                                        }
+                                        else {
+                                            arrayObj.push(false);
+                                        }
+                                    });
+                                    var show = true;
+                                    if (arrayObj.length > 0) {
+                                        show = arrayObj[0];
+                                        arrayObj.forEach(function (element) {
+                                            show = col.showstatus.relation == "or" ? show || element : show && element;
+                                        }, this);
+                                    }
+                                    col.visible = show;
+                                }
+                                if (col.hidestatus) {
+                                    var arrayObj = new Array();
+                                    col.hidestatus.filedlist.forEach(function (element) {
+                                        var formstatus = scope.model[element.field];
+                                        if (angular.isUndefined(formstatus)) {
+                                            formstatus = "";
+                                        }
+                                        if (typeof element.status == "string") {
+                                            var hidestatus = element.status.split(",");
+                                            var itemval = false;
+                                            hidestatus.forEach(function (item) {
+                                                if (item == formstatus) {
+                                                    itemval = itemval || true;
+                                                }
+                                                else {
+                                                    itemval = itemval || false;
+                                                }
+                                            });
+                                            arrayObj.push(itemval);
+                                        }
+                                        else if (formstatus == element.status) {
+                                            arrayObj.push(true);
+                                        }
+                                        else {
+                                            arrayObj.push(false);
+                                        }
+                                    });
+                                    var hide = false;
+                                    if (arrayObj.length > 0) {
+                                        hide = arrayObj[0];
+                                        arrayObj.forEach(function (element) {
+                                            hide = col.hidestatus.relation == "or" ? hide || element : hide && element;
+                                        }, this);
+                                    }
+                                    col.visible = !hide;
+                                }
+                                if (scope.form.gridApi) {
+                                }
+                                // var resource = angular.copy(scope.ngModel);
+                                // scope.ngModel = resource;
+                                // $timeout(function() {
+                                //     scope.ngModel = resource;
+                                // }, 100);
+                            });
+                        }, true); ///
+                    }
                 }
-            }
-        ]
-    };
-});
+            ]
+        };
+    });
 
 //# sourceMappingURL=gridcolcontrol.js.map
 
 angular.module('app')
     .directive('listGrid', function ($compile, $templateCache, $http) {
-    return {
-        restrict: 'AE',
-        replace: true,
-        scope: {
-            headers: "=",
-            rowDblclick: "=",
-            onchangepage: "=",
-            resource: "=",
-            gridApi: "=",
-            gridKey: "=",
-            sortable: "=",
-            gridheight: "=",
-            onHoveredIndexChange: "="
-        },
-        require: '^ngModel',
-        templateUrl: 'plugins/bas/components/listgrid.html',
-        controller: ['$rootScope', '$timeout', 'uiGridConstants', 'settings', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
-            function ($rootScope, $timeout, uiGridConstants, settings, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
-                var scope = $scope;
-                var isfoot = false;
-                scope.bakheaders = angular.copy($scope.headers);
-                angular.forEach($scope.headers, function (col, key) {
-                    if (col) {
-                        col.readonly = true;
-                        if (col.type == "basLov") {
-                            col.cellTemplate = "ui-grid/gridcelllov";
-                        }
-                        else if (col.type == "basNumber" || col.type == "number") {
-                            col.headerCellClass = "esy-number";
-                            col.type = "number";
-                            col.cellTemplate = "ui-grid/gridcellnumber";
-                        }
-                        else if (col.type == "basRemark") {
-                            col.cellTemplate = "ui-grid/gridcellremark";
-                        }
-                        else if (col.type == "basIcos") {
-                            col.cellTemplate = "ui-grid/gridcellioc";
-                        }
-                        else {
-                            if (!col.cellTemplate) {
-                                col.cellTemplate = "ui-grid/gridcelldefault";
+        return {
+            restrict: 'AE',
+            replace: true,
+            scope: {
+                headers: "=",
+                rowDblclick: "=",
+                onchangepage: "=",
+                resource: "=",
+                gridApi: "=",
+                gridKey: "=",
+                sortable: "=",
+                gridheight: "=",
+                onHoveredIndexChange: "="
+            },
+            require: '^ngModel',
+            templateUrl: 'plugins/bas/components/listgrid.html',
+            controller: ['$rootScope', '$timeout', 'uiGridConstants', 'settings', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
+                function ($rootScope, $timeout, uiGridConstants, settings, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
+                    var scope = $scope;
+                    var isfoot = false;
+                    scope.bakheaders = angular.copy($scope.headers);
+                    angular.forEach($scope.headers, function (col, key) {
+                        if (col) {
+                            col.readonly = true;
+                            if (col.type == "basLov") {
+                                col.cellTemplate = "ui-grid/gridcelllov";
                             }
-                        }
-                        if (!col.hasOwnProperty("enableColumnMenu")) {
-                            col.enableColumnMenu = false;
-                        }
-                        if (col.hasOwnProperty("summsg")) {
-                            col.aggregationType = uiGridConstants.aggregationTypes.sum;
-                            isfoot = true;
-                            if (col.summsg.auto) {
-                                col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{ ( col.getAggregationValue() | number :col.colDef.num ) }}</div></div>";
+                            else if (col.type == "basNumber" || col.type == "number") {
+                                col.headerCellClass = "esy-number";
+                                col.type = "number";
+                                col.cellTemplate = "ui-grid/gridcellnumber";
+                            }
+                            else if (col.type == "basRemark") {
+                                col.cellTemplate = "ui-grid/gridcellremark";
+                            }
+                            else if (col.type == "basIcos") {
+                                col.cellTemplate = "ui-grid/gridcellioc";
                             }
                             else {
-                                if (angular.isString(col.summsg.sumval)) {
-                                    col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{(col.colDef.summsg.sumval)}}</div></div>";
+                                if (!col.cellTemplate) {
+                                    col.cellTemplate = "ui-grid/gridcelldefault";
+                                }
+                            }
+                            if (!col.hasOwnProperty("enableColumnMenu")) {
+                                col.enableColumnMenu = false;
+                            }
+                            if (col.hasOwnProperty("summsg")) {
+                                col.aggregationType = uiGridConstants.aggregationTypes.sum;
+                                isfoot = true;
+                                if (col.summsg.auto) {
+                                    col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{ ( col.getAggregationValue() | number :col.colDef.num ) }}</div></div>";
                                 }
                                 else {
-                                    col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{(col.colDef.summsg.sumval | number :col.colDef.num)}}</div></div>";
+                                    if (angular.isString(col.summsg.sumval)) {
+                                        col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{(col.colDef.summsg.sumval)}}</div></div>";
+                                    }
+                                    else {
+                                        col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{(col.colDef.summsg.sumval | number :col.colDef.num)}}</div></div>";
+                                    }
                                 }
                             }
                         }
-                    }
-                });
-                scope.paginationOptions = {
-                    pageNumber: 0,
-                    pageSize: 30,
-                    sort: ""
-                };
-                scope.gridOptions = angular.extend({
-                    data: 'entries',
-                    height: 200,
-                    enableSorting: true,
-                    enableColumnMenu: true,
-                    suppressRemoveSort: false,
-                    showGridFooter: false,
-                    showColumnFooter: isfoot,
-                    columnFooterHeight: 24,
-                    multiSelect: true,
-                    enableFullRowSelection: false,
-                    enableGridMenu: true,
-                    gridMenuCustomItems: [{
+                    });
+                    scope.paginationOptions = {
+                        pageNumber: 0,
+                        pageSize: 30,
+                        sort: ""
+                    };
+                    scope.gridOptions = angular.extend({
+                        data: 'entries',
+                        height: 200,
+                        enableSorting: true,
+                        enableColumnMenu: true,
+                        suppressRemoveSort: false,
+                        showGridFooter: false,
+                        showColumnFooter: isfoot,
+                        columnFooterHeight: 24,
+                        multiSelect: true,
+                        enableFullRowSelection: false,
+                        enableGridMenu: true,
+                        gridMenuCustomItems: [{
                             title: '重置',
                             action: function ($event) {
                                 scope.resetgridmsg();
@@ -3128,229 +3128,229 @@ angular.module('app')
                             },
                             order: 210
                         }],
-                    onRegisterApi: function (gridApi) {
-                        gridApi.headers = scope.headers;
-                        scope.gridApi = gridApi;
-                        scope.$parent.gridApi = gridApi;
-                        gridApi.core.on.sortChanged(scope, function (grid, sortColumns) {
-                            if (sortColumns.length == 0) {
-                                scope.paginationOptions.sort = null;
-                            }
-                            else {
-                                scope.paginationOptions.sort = sortColumns[0].colDef.name + "," + sortColumns[0].sort.direction;
-                            }
-                            if (scope.onchangepage) {
-                                scope.onchangepage(scope.paginationOptions.pageNumber, scope.paginationOptions.pageSize, scope.paginationOptions.sort);
-                            }
-                        });
-                        gridApi.pagination.on.paginationChanged(scope, function (newPage, pageSize) {
-                            if (scope.onchangepage) {
-                                scope.paginationOptions.pageNumber = newPage - 1;
-                                scope.paginationOptions.pageSize = pageSize;
-                                scope.onchangepage(scope.paginationOptions.pageNumber, scope.paginationOptions.pageSize, scope.paginationOptions.sort);
-                            }
-                        });
-                        gridApi.core.on.renderingComplete(scope, function (ar1) {
-                            $timeout(function () {
-                                angular.element(window).trigger('resize');
-                            }, 0);
-                        });
-                        gridApi.core.on.columnVisibilityChanged(scope, function (ar1, ar2) {
-                            scope.savegridmsg(gridApi.grid.columns);
-                        });
-                        gridApi.colMovable.on.columnPositionChanged(scope, function (ar1, ar2) {
-                            scope.savegridmsg(gridApi.grid.columns);
-                        });
-                        gridApi.colResizable.on.columnSizeChanged(scope, function (ar1, ar2) {
-                            scope.savegridmsg(gridApi.grid.columns);
-                            // var cols = [];
-                            // angular.forEach(gridApi.grid.columns, function(column) {
-                            //     cols.push(column.width);
-                            // });
-                            // if (scope.option.gridKey) {
-                            //     localStorage.setItem(scope.gridKey + "_grid", cols);
+                        onRegisterApi: function (gridApi) {
+                            gridApi.headers = scope.headers;
+                            scope.gridApi = gridApi;
+                            scope.$parent.gridApi = gridApi;
+                            gridApi.core.on.sortChanged(scope, function (grid, sortColumns) {
+                                if (sortColumns.length == 0) {
+                                    scope.paginationOptions.sort = null;
+                                }
+                                else {
+                                    scope.paginationOptions.sort = sortColumns[0].colDef.name + "," + sortColumns[0].sort.direction;
+                                }
+                                if (scope.onchangepage) {
+                                    scope.onchangepage(scope.paginationOptions.pageNumber, scope.paginationOptions.pageSize, scope.paginationOptions.sort);
+                                }
+                            });
+                            gridApi.pagination.on.paginationChanged(scope, function (newPage, pageSize) {
+                                if (scope.onchangepage) {
+                                    scope.paginationOptions.pageNumber = newPage - 1;
+                                    scope.paginationOptions.pageSize = pageSize;
+                                    scope.onchangepage(scope.paginationOptions.pageNumber, scope.paginationOptions.pageSize, scope.paginationOptions.sort);
+                                }
+                            });
+                            gridApi.core.on.renderingComplete(scope, function (ar1) {
+                                $timeout(function () {
+                                    angular.element(window).trigger('resize');
+                                }, 0);
+                            });
+                            gridApi.core.on.columnVisibilityChanged(scope, function (ar1, ar2) {
+                                scope.savegridmsg(gridApi.grid.columns);
+                            });
+                            gridApi.colMovable.on.columnPositionChanged(scope, function (ar1, ar2) {
+                                scope.savegridmsg(gridApi.grid.columns);
+                            });
+                            gridApi.colResizable.on.columnSizeChanged(scope, function (ar1, ar2) {
+                                scope.savegridmsg(gridApi.grid.columns);
+                                // var cols = [];
+                                // angular.forEach(gridApi.grid.columns, function(column) {
+                                //     cols.push(column.width);
+                                // });
+                                // if (scope.option.gridKey) {
+                                //     localStorage.setItem(scope.gridKey + "_grid", cols);
+                                // }
+                            });
+                        },
+                        rowTemplate: "<div ng-dblclick=\"grid.appScope.onDblClick($event,row)\"  ng-click=\"grid.appScope.hoveredIndex = rowRenderIndex\" " +
+                            "ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" " +
+                            "class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader,'selecthoverclass': grid.appScope.hoveredIndex === rowRenderIndex }\" " +
+                            "ui-grid-cell ></div>"
+                    }, settings.uiGrid);
+                    if ($scope.sortable) {
+                        $scope.gridOptions.sortable = $scope.sortable;
+                    }
+                    if ($scope.gridheight) {
+                        $scope.gridstyle = {
+                            height: $scope.gridheight + "px"
+                        };
+                    }
+                    scope.onDblClick = function (event, row) {
+                        if (row && row.entity)
+                            scope.backentry = angular.copy(row.entity);
+                        if (scope.rowDblclick) {
+                            scope.rowDblclick(scope.backentry);
+                        }
+                    };
+                    scope.$watch("headers", function (newValue, oldValue) {
+                        if (scope.headers) {
+                            scope.gridOptions.columnDefs = scope.readgridmsg(scope.headers, scope.gridKey ? scope.gridKey : "");
+                        }
+                    }, true); ///
+                    scope.$watch("resource", function (newValue, oldValue) {
+                        if (scope.resource) {
+                            scope.entries = scope.resource.content;
+                            scope.gridOptions.totalItems = scope.resource.records;
+                            scope.hoveredIndex = null; //对象改变的时候,重置选中状态
+                        }
+                    }, true); ///
+                    scope.$watch("hoveredIndex", function (newValue, oldValue) {
+                        scope.onHoveredIndexChange && scope.onHoveredIndexChange(scope.hoveredIndex != null ? scope.entries[scope.hoveredIndex] : null, scope.hoveredIndex);
+                    }, true);
+                    scope.resetgridmsg = function () {
+                        localStorage.setItem(scope.gridKey + "_grid", "{}");
+                    };
+                    scope.savegridmsg = function (gridcols) {
+                        var cols = {};
+                        angular.forEach(gridcols, function (column) {
+                            cols[column.field] = {
+                                width: column.width,
+                                visible: column.visible
+                            };
+                            // var item ={ //selectionRowHeaderCol
+                            //     key: column.field,
+                            //     width: column.width,
+                            //     visible: column.visible
                             // }
+                            // cols.push(item);
                         });
-                    },
-                    rowTemplate: "<div ng-dblclick=\"grid.appScope.onDblClick($event,row)\"  ng-click=\"grid.appScope.hoveredIndex = rowRenderIndex\" " +
-                        "ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" " +
-                        "class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader,'selecthoverclass': grid.appScope.hoveredIndex === rowRenderIndex }\" " +
-                        "ui-grid-cell ></div>"
-                }, settings.uiGrid);
-                if ($scope.sortable) {
-                    $scope.gridOptions.sortable = $scope.sortable;
-                }
-                if ($scope.gridheight) {
-                    $scope.gridstyle = {
-                        height: $scope.gridheight + "px"
+                        localStorage.setItem(scope.gridKey + "_grid", angular.toJson(cols, true));
+                    };
+                    scope.readgridmsg = function (headers, localStorageKey) {
+                        var columns = [];
+                        var colsmsg = angular.fromJson(localStorage.getItem(localStorageKey + "_grid") || "{}");
+                        angular.forEach(colsmsg, function (col, key) {
+                            if (headers.hasOwnProperty(key)) {
+                                var item = angular.extend(headers[key], col);
+                                if (angular.isObject(headers[key]) && key) {
+                                    item.name = key;
+                                }
+                                if (angular.isUndefined(item.headerCellFilter))
+                                    item.headerCellFilter = "translate";
+                                columns.push(item);
+                            }
+                        });
+                        angular.forEach(headers, function (col, key) {
+                            if (!colsmsg.hasOwnProperty(key)) {
+                                if (angular.isString(col)) {
+                                    col = {
+                                        name: key,
+                                        original: col,
+                                        displayName: col
+                                    };
+                                }
+                                else if (angular.isObject(col) && key) {
+                                    col.name = key;
+                                }
+                                if (angular.isUndefined(col.headerCellFilter))
+                                    col.headerCellFilter = "translate";
+                                columns.push(col);
+                            }
+                        });
+                        return columns;
                     };
                 }
-                scope.onDblClick = function (event, row) {
-                    if (row && row.entity)
-                        scope.backentry = angular.copy(row.entity);
-                    if (scope.rowDblclick) {
-                        scope.rowDblclick(scope.backentry);
-                    }
-                };
-                scope.$watch("headers", function (newValue, oldValue) {
-                    if (scope.headers) {
-                        scope.gridOptions.columnDefs = scope.readgridmsg(scope.headers, scope.gridKey ? scope.gridKey : "");
-                    }
-                }, true); ///
-                scope.$watch("resource", function (newValue, oldValue) {
-                    if (scope.resource) {
-                        scope.entries = scope.resource.content;
-                        scope.gridOptions.totalItems = scope.resource.records;
-                        scope.hoveredIndex = null; //对象改变的时候,重置选中状态
-                    }
-                }, true); ///
-                scope.$watch("hoveredIndex", function (newValue, oldValue) {
-                    scope.onHoveredIndexChange && scope.onHoveredIndexChange(scope.hoveredIndex != null ? scope.entries[scope.hoveredIndex] : null, scope.hoveredIndex);
-                }, true);
-                scope.resetgridmsg = function () {
-                    localStorage.setItem(scope.gridKey + "_grid", "{}");
-                };
-                scope.savegridmsg = function (gridcols) {
-                    var cols = {};
-                    angular.forEach(gridcols, function (column) {
-                        cols[column.field] = {
-                            width: column.width,
-                            visible: column.visible
-                        };
-                        // var item ={ //selectionRowHeaderCol
-                        //     key: column.field,
-                        //     width: column.width,
-                        //     visible: column.visible
-                        // }
-                        // cols.push(item);
-                    });
-                    localStorage.setItem(scope.gridKey + "_grid", angular.toJson(cols, true));
-                };
-                scope.readgridmsg = function (headers, localStorageKey) {
-                    var columns = [];
-                    var colsmsg = angular.fromJson(localStorage.getItem(localStorageKey + "_grid") || "{}");
-                    angular.forEach(colsmsg, function (col, key) {
-                        if (headers.hasOwnProperty(key)) {
-                            var item = angular.extend(headers[key], col);
-                            if (angular.isObject(headers[key]) && key) {
-                                item.name = key;
-                            }
-                            if (angular.isUndefined(item.headerCellFilter))
-                                item.headerCellFilter = "translate";
-                            columns.push(item);
-                        }
-                    });
-                    angular.forEach(headers, function (col, key) {
-                        if (!colsmsg.hasOwnProperty(key)) {
-                            if (angular.isString(col)) {
-                                col = {
-                                    name: key,
-                                    original: col,
-                                    displayName: col
-                                };
-                            }
-                            else if (angular.isObject(col) && key) {
-                                col.name = key;
-                            }
-                            if (angular.isUndefined(col.headerCellFilter))
-                                col.headerCellFilter = "translate";
-                            columns.push(col);
-                        }
-                    });
-                    return columns;
-                };
-            }
-        ]
-    };
-});
+            ]
+        };
+    });
 
 //# sourceMappingURL=listgrid.js.map
 
 angular.module('app')
     .directive('modalGrid', function ($compile, $templateCache, $http) {
-    return {
-        restrict: 'AE',
-        replace: true,
-        scope: {
-            headers: "=",
-            rowDblclick: "=",
-            onchangepage: "=",
-            resource: "="
-        },
-        require: '^ngModel',
-        templateUrl: 'plugins/bas/components/modalgrid.html',
-        controller: ['$rootScope', '$timeout', 'settings', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
-            function ($rootScope, $timeout, settings, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
-                var scope = $scope;
-                var pageSize = 20;
-                $scope.gridOptions = {
-                    gridMenuTitleFilter: function (title) {
-                        return $translate.instant(title);
-                    },
-                    data: 'entries',
-                    enableGridMenu: true,
-                    exporterMenuAllData: false,
-                    exporterMenuCsv: true,
-                    exporterMenuPdf: false,
-                    enablePaginationControls: true,
-                    enableFiltering: true,
-                    enableRowHeaderSelection: true,
-                    exporterOlderExcelCompatibility: true,
-                    useExternalPagination: true,
-                    onRegisterApi: function (gridApi) {
-                        $scope.gridApi = gridApi;
-                        $scope.$parent.gridApi = gridApi;
-                        gridApi.pagination.on.paginationChanged(scope, function (newPage, pageSize) {
-                            var start = (newPage - 1) * pageSize;
-                            var count = pageSize;
-                            if (scope.onchangepage) {
-                                scope.onchangepage(start, count);
+        return {
+            restrict: 'AE',
+            replace: true,
+            scope: {
+                headers: "=",
+                rowDblclick: "=",
+                onchangepage: "=",
+                resource: "="
+            },
+            require: '^ngModel',
+            templateUrl: 'plugins/bas/components/modalgrid.html',
+            controller: ['$rootScope', '$timeout', 'settings', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
+                function ($rootScope, $timeout, settings, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
+                    var scope = $scope;
+                    var pageSize = 20;
+                    $scope.gridOptions = {
+                        gridMenuTitleFilter: function (title) {
+                            return $translate.instant(title);
+                        },
+                        data: 'entries',
+                        enableGridMenu: true,
+                        exporterMenuAllData: false,
+                        exporterMenuCsv: true,
+                        exporterMenuPdf: false,
+                        enablePaginationControls: true,
+                        enableFiltering: true,
+                        enableRowHeaderSelection: true,
+                        exporterOlderExcelCompatibility: true,
+                        useExternalPagination: true,
+                        onRegisterApi: function (gridApi) {
+                            $scope.gridApi = gridApi;
+                            $scope.$parent.gridApi = gridApi;
+                            gridApi.pagination.on.paginationChanged(scope, function (newPage, pageSize) {
+                                var start = (newPage - 1) * pageSize;
+                                var count = pageSize;
+                                if (scope.onchangepage) {
+                                    scope.onchangepage(start, count);
+                                }
+                            });
+                        },
+                        selectedItems: [],
+                        paginationPageSizes: [pageSize, 200, 1000],
+                        paginationPageSize: pageSize,
+                        virtualizationThreshold: 1000,
+                        appScopeProvider: {
+                            onDblClick: function (row) {
                             }
-                        });
-                    },
-                    selectedItems: [],
-                    paginationPageSizes: [pageSize, 200, 1000],
-                    paginationPageSize: pageSize,
-                    virtualizationThreshold: 1000,
-                    appScopeProvider: {
-                        onDblClick: function (row) {
                         }
-                    }
-                };
-                scope.onDblClick = function (event, row) {
-                    if (row && row.entity)
-                        scope.backentry = angular.copy(row.entity);
-                    if (scope.rowDblclick) {
-                        scope.rowDblclick(scope.backentry);
-                    }
-                };
-                scope.$watch("headers", function (newValue, oldValue) {
-                    if (scope.headers) {
-                        scope.gridOptions.columnDefs = utils.gridDefine(scope.headers, "");
-                    }
-                }, true); ///
-                scope.$watch("resource", function (newValue, oldValue) {
-                    if (scope.resource) {
-                        scope.entries = scope.resource;
-                    }
-                }, true); ///
-            }]
-    };
-});
+                    };
+                    scope.onDblClick = function (event, row) {
+                        if (row && row.entity)
+                            scope.backentry = angular.copy(row.entity);
+                        if (scope.rowDblclick) {
+                            scope.rowDblclick(scope.backentry);
+                        }
+                    };
+                    scope.$watch("headers", function (newValue, oldValue) {
+                        if (scope.headers) {
+                            scope.gridOptions.columnDefs = utils.gridDefine(scope.headers, "");
+                        }
+                    }, true); ///
+                    scope.$watch("resource", function (newValue, oldValue) {
+                        if (scope.resource) {
+                            scope.entries = scope.resource;
+                        }
+                    }, true); ///
+                }]
+        };
+    });
 
 //# sourceMappingURL=modalgrid.js.map
 
-angular.module('app').directive('textFormat', function() {   
-    return {    
+angular.module('app').directive('textFormat', function() {
+    return {
         require: 'ngModel',
         scope: {
             model: '=ngModel'
         },
-        link: function(scope, elm, iAttrs, modelCtrl) {   
-            var num = iAttrs.textFormat;      
+        link: function(scope, elm, iAttrs, modelCtrl) {
+            var num = iAttrs.textFormat;
             //   $(elm).number(true, num); 
 
-        }  
+        }
     };
 });
 
@@ -3395,7 +3395,7 @@ angular.module('app').directive('numberFormat', ['$filter', '$parse', function($
             var num = 0; //小数点位数     
             if (attrs.numberFormat) {
                 var num = attrs.numberFormat;
-            } 
+            }
             var position = 0; //实际光标位置
             var numposition = 0; //数字+点号光标位置
             var mdposttion = ""; //仅移动光标
@@ -3613,41 +3613,29 @@ angular.module('app').directive('toChange', function($parse) {
 })
 angular.module('app')
     .directive('objControl', function ($compile, $templateCache, $http) {
-    return {
-        restrict: 'A',
-        replace: true,
-        scope: {
-            model: "=",
-            dmodel: "=",
-            form: "="
-        },
-        require: '^ngModel',
-        controller: ['$rootScope', '$scope', '$location', '$templateCache', '$translate', 'utils', '$element',
-            function ($rootScope, $scope, $location, $templateCache, $translate, utils, $element) {
-                var scope = $scope;
-                if (angular.isUndefined(scope.form.hide)) {
-                    scope.form.hide = false;
-                }
-                var tmodel = "";
-                var tfield = "";
-                if (scope.form.readonlystatus) {
-                    if (!scope.form.readonlystatus.relation) {
-                        scope.form.readonlystatus.relation = "or";
+        return {
+            restrict: 'A',
+            replace: true,
+            scope: {
+                model: "=",
+                dmodel: "=",
+                form: "="
+            },
+            require: '^ngModel',
+            controller: ['$rootScope', '$scope', '$location', '$templateCache', '$translate', 'utils', '$element',
+                function ($rootScope, $scope, $location, $templateCache, $translate, utils, $element) {
+                    var scope = $scope;
+                    if (angular.isUndefined(scope.form.hide)) {
+                        scope.form.hide = false;
                     }
-                    if (scope.form.readonlystatus.filedlist) {
-                        var watchstr = "", tag = "";
-                        scope.form.readonlystatus.filedlist.forEach(function (element) {
-                            tmodel = scope.model;
-                            tfield = element.field;
-                            if (element.dfield) {
-                                tmodel = scope.dmodel;
-                                tfield = element.dfield;
-                            }
-                            watchstr += tag + (element.dfield ? "dmodel" : "model") + '.' + tfield;
-                            tag = "+";
-                        });
-                        scope.$watch(watchstr, function (newValue, oldValue) {
-                            var arrayObj = new Array();
+                    var tmodel = "";
+                    var tfield = "";
+                    if (scope.form.readonlystatus) {
+                        if (!scope.form.readonlystatus.relation) {
+                            scope.form.readonlystatus.relation = "or";
+                        }
+                        if (scope.form.readonlystatus.filedlist) {
+                            var watchstr = "", tag = "";
                             scope.form.readonlystatus.filedlist.forEach(function (element) {
                                 tmodel = scope.model;
                                 tfield = element.field;
@@ -3655,62 +3643,61 @@ angular.module('app')
                                     tmodel = scope.dmodel;
                                     tfield = element.dfield;
                                 }
-                                if (!angular.isUndefined(tmodel) && tmodel.hasOwnProperty(tfield)) {
-                                    var formstatus = tmodel[tfield];
-                                    if (angular.isUndefined(formstatus)) {
-                                        formstatus = "";
-                                    }
-                                    if (typeof element.status == "string") {
-                                        var readonlystatus = element.status.split(",");
-                                        var itemval = false;
-                                        readonlystatus.forEach(function (item) {
-                                            if (item == formstatus) {
-                                                itemval = itemval || true;
-                                            }
-                                            else {
-                                                itemval = itemval || false;
-                                            }
-                                        });
-                                        arrayObj.push(itemval);
-                                    }
-                                    else if (formstatus == element.status) {
-                                        arrayObj.push(true);
-                                    }
-                                    else {
-                                        arrayObj.push(false);
-                                    }
-                                }
+                                watchstr += tag + (element.dfield ? "dmodel" : "model") + '.' + tfield;
+                                tag = "+";
                             });
-                            var readonly = false;
-                            if (arrayObj.length > 0) {
-                                readonly = arrayObj[0];
-                                arrayObj.forEach(function (element) {
-                                    readonly = scope.form.readonlystatus.relation == "or" ? readonly || element : readonly && element;
-                                }, this);
-                            }
-                            scope.form.readonly = readonly;
-                        }, true); ///
+                            scope.$watch(watchstr, function (newValue, oldValue) {
+                                var arrayObj = new Array();
+                                scope.form.readonlystatus.filedlist.forEach(function (element) {
+                                    tmodel = scope.model;
+                                    tfield = element.field;
+                                    if (element.dfield) {
+                                        tmodel = scope.dmodel;
+                                        tfield = element.dfield;
+                                    }
+                                    if (!angular.isUndefined(tmodel) && tmodel.hasOwnProperty(tfield)) {
+                                        var formstatus = tmodel[tfield];
+                                        if (angular.isUndefined(formstatus)) {
+                                            formstatus = "";
+                                        }
+                                        if (typeof element.status == "string") {
+                                            var readonlystatus = element.status.split(",");
+                                            var itemval = false;
+                                            readonlystatus.forEach(function (item) {
+                                                if (item == formstatus) {
+                                                    itemval = itemval || true;
+                                                }
+                                                else {
+                                                    itemval = itemval || false;
+                                                }
+                                            });
+                                            arrayObj.push(itemval);
+                                        }
+                                        else if (formstatus == element.status) {
+                                            arrayObj.push(true);
+                                        }
+                                        else {
+                                            arrayObj.push(false);
+                                        }
+                                    }
+                                });
+                                var readonly = false;
+                                if (arrayObj.length > 0) {
+                                    readonly = arrayObj[0];
+                                    arrayObj.forEach(function (element) {
+                                        readonly = scope.form.readonlystatus.relation == "or" ? readonly || element : readonly && element;
+                                    }, this);
+                                }
+                                scope.form.readonly = readonly;
+                            }, true); ///
+                        }
                     }
-                }
-                if (scope.form.editstatus) {
-                    if (!scope.form.editstatus.relation) {
-                        scope.form.editstatus.relation = "or";
-                    }
-                    if (scope.form.editstatus.filedlist) {
-                        var watchstr = "", tag = "";
-                        scope.form.editstatus.filedlist.forEach(function (element) {
-                            tmodel = scope.model;
-                            tfield = element.field;
-                            if (element.dfield) {
-                                tmodel = scope.dmodel;
-                                tfield = element.dfield;
-                            }
-                            watchstr += tag + (element.dfield ? "dmodel" : "model") + '.' + tfield;
-                            tag = "+";
-                        });
-                        scope.$watch(watchstr, function (newValue, oldValue) {
-                            //  var edit = true;
-                            var arrayObj = new Array();
+                    if (scope.form.editstatus) {
+                        if (!scope.form.editstatus.relation) {
+                            scope.form.editstatus.relation = "or";
+                        }
+                        if (scope.form.editstatus.filedlist) {
+                            var watchstr = "", tag = "";
                             scope.form.editstatus.filedlist.forEach(function (element) {
                                 tmodel = scope.model;
                                 tfield = element.field;
@@ -3718,62 +3705,62 @@ angular.module('app')
                                     tmodel = scope.dmodel;
                                     tfield = element.dfield;
                                 }
-                                if (!angular.isUndefined(tmodel) && tmodel.hasOwnProperty(tfield)) {
-                                    var formstatus = tmodel[tfield];
-                                    if (angular.isUndefined(formstatus)) {
-                                        formstatus = "";
-                                    }
-                                    if (typeof element.status == "string") {
-                                        var editstatus = element.status.split(",");
-                                        var itemval = false;
-                                        editstatus.forEach(function (item) {
-                                            if (item == formstatus) {
-                                                itemval = itemval || true;
-                                            }
-                                            else {
-                                                itemval = itemval || false;
-                                            }
-                                        });
-                                        arrayObj.push(itemval);
-                                    }
-                                    else if (formstatus == element.status) {
-                                        arrayObj.push(true);
-                                    }
-                                    else {
-                                        arrayObj.push(false);
-                                    }
-                                }
+                                watchstr += tag + (element.dfield ? "dmodel" : "model") + '.' + tfield;
+                                tag = "+";
                             });
-                            var edit = false;
-                            if (arrayObj.length > 0) {
-                                edit = arrayObj[0];
-                                arrayObj.forEach(function (element) {
-                                    edit = scope.form.editstatus.relation == "or" ? edit || element : edit && element;
-                                }, this);
-                            }
-                            scope.form.readonly = !edit;
-                        }, true); ///
+                            scope.$watch(watchstr, function (newValue, oldValue) {
+                                //  var edit = true;
+                                var arrayObj = new Array();
+                                scope.form.editstatus.filedlist.forEach(function (element) {
+                                    tmodel = scope.model;
+                                    tfield = element.field;
+                                    if (element.dfield) {
+                                        tmodel = scope.dmodel;
+                                        tfield = element.dfield;
+                                    }
+                                    if (!angular.isUndefined(tmodel) && tmodel.hasOwnProperty(tfield)) {
+                                        var formstatus = tmodel[tfield];
+                                        if (angular.isUndefined(formstatus)) {
+                                            formstatus = "";
+                                        }
+                                        if (typeof element.status == "string") {
+                                            var editstatus = element.status.split(",");
+                                            var itemval = false;
+                                            editstatus.forEach(function (item) {
+                                                if (item == formstatus) {
+                                                    itemval = itemval || true;
+                                                }
+                                                else {
+                                                    itemval = itemval || false;
+                                                }
+                                            });
+                                            arrayObj.push(itemval);
+                                        }
+                                        else if (formstatus == element.status) {
+                                            arrayObj.push(true);
+                                        }
+                                        else {
+                                            arrayObj.push(false);
+                                        }
+                                    }
+                                });
+                                var edit = false;
+                                if (arrayObj.length > 0) {
+                                    edit = arrayObj[0];
+                                    arrayObj.forEach(function (element) {
+                                        edit = scope.form.editstatus.relation == "or" ? edit || element : edit && element;
+                                    }, this);
+                                }
+                                scope.form.readonly = !edit;
+                            }, true); ///
+                        }
                     }
-                }
-                if (scope.form.hidestatus) {
-                    if (!scope.form.hidestatus.relation) {
-                        scope.form.hidestatus.relation = "or";
-                    }
-                    if (scope.form.hidestatus.filedlist) {
-                        var watchstr = "", tag = "";
-                        scope.form.hidestatus.filedlist.forEach(function (element) {
-                            tmodel = scope.model;
-                            tfield = element.field;
-                            if (element.dfield) {
-                                tmodel = scope.dmodel;
-                                tfield = element.dfield;
-                            }
-                            watchstr += tag + (element.dfield ? "dmodel" : "model") + '.' + tfield;
-                            tag = "+";
-                        });
-                        scope.$watch(watchstr, function (newValue, oldValue) {
-                            //  var hide = false;
-                            var arrayObj = new Array();
+                    if (scope.form.hidestatus) {
+                        if (!scope.form.hidestatus.relation) {
+                            scope.form.hidestatus.relation = "or";
+                        }
+                        if (scope.form.hidestatus.filedlist) {
+                            var watchstr = "", tag = "";
                             scope.form.hidestatus.filedlist.forEach(function (element) {
                                 tmodel = scope.model;
                                 tfield = element.field;
@@ -3781,61 +3768,62 @@ angular.module('app')
                                     tmodel = scope.dmodel;
                                     tfield = element.dfield;
                                 }
-                                if (!angular.isUndefined(tmodel) && tmodel.hasOwnProperty(tfield)) {
-                                    var formstatus = tmodel[tfield];
-                                    if (angular.isUndefined(formstatus)) {
-                                        formstatus = "";
-                                    }
-                                    if (typeof element.status == "string") {
-                                        var hidestatus = element.status.split(",");
-                                        var itemval = false;
-                                        hidestatus.forEach(function (item) {
-                                            if (item == formstatus) {
-                                                itemval = itemval || true;
-                                            }
-                                            else {
-                                                itemval = itemval || false;
-                                            }
-                                        });
-                                        arrayObj.push(itemval);
-                                    }
-                                    else if (formstatus == element.status) {
-                                        arrayObj.push(true);
-                                    }
-                                    else {
-                                        arrayObj.push(false);
-                                    }
-                                }
+                                watchstr += tag + (element.dfield ? "dmodel" : "model") + '.' + tfield;
+                                tag = "+";
                             });
-                            var hide = false;
-                            if (arrayObj.length > 0) {
-                                hide = arrayObj[0];
-                                arrayObj.forEach(function (element) {
-                                    hide = scope.form.hidestatus.relation == "or" ? hide || element : hide && element;
-                                }, this);
-                            }
-                            scope.form.hide = hide;
-                        }, true); ///
+                            scope.$watch(watchstr, function (newValue, oldValue) {
+                                //  var hide = false;
+                                var arrayObj = new Array();
+                                scope.form.hidestatus.filedlist.forEach(function (element) {
+                                    tmodel = scope.model;
+                                    tfield = element.field;
+                                    if (element.dfield) {
+                                        tmodel = scope.dmodel;
+                                        tfield = element.dfield;
+                                    }
+                                    if (!angular.isUndefined(tmodel) && tmodel.hasOwnProperty(tfield)) {
+                                        var formstatus = tmodel[tfield];
+                                        if (angular.isUndefined(formstatus)) {
+                                            formstatus = "";
+                                        }
+                                        if (typeof element.status == "string") {
+                                            var hidestatus = element.status.split(",");
+                                            var itemval = false;
+                                            hidestatus.forEach(function (item) {
+                                                if (item == formstatus) {
+                                                    itemval = itemval || true;
+                                                }
+                                                else {
+                                                    itemval = itemval || false;
+                                                }
+                                            });
+                                            arrayObj.push(itemval);
+                                        }
+                                        else if (formstatus == element.status) {
+                                            arrayObj.push(true);
+                                        }
+                                        else {
+                                            arrayObj.push(false);
+                                        }
+                                    }
+                                });
+                                var hide = false;
+                                if (arrayObj.length > 0) {
+                                    hide = arrayObj[0];
+                                    arrayObj.forEach(function (element) {
+                                        hide = scope.form.hidestatus.relation == "or" ? hide || element : hide && element;
+                                    }, this);
+                                }
+                                scope.form.hide = hide;
+                            }, true); ///
+                        }
                     }
-                }
-                if (scope.form.showstatus) {
-                    if (!scope.form.showstatus.relation) {
-                        scope.form.showstatus.relation = "or";
-                    }
-                    if (scope.form.showstatus.filedlist) {
-                        var watchstr = "", tag = "";
-                        scope.form.showstatus.filedlist.forEach(function (element) {
-                            tmodel = scope.model;
-                            tfield = element.field;
-                            if (element.dfield) {
-                                tmodel = scope.dmodel;
-                                tfield = element.dfield;
-                            }
-                            watchstr += tag + (element.dfield ? "dmodel" : "model") + '.' + tfield;
-                            tag = "+";
-                        });
-                        scope.$watch(watchstr, function (newValue, oldValue) {
-                            var arrayObj = new Array();
+                    if (scope.form.showstatus) {
+                        if (!scope.form.showstatus.relation) {
+                            scope.form.showstatus.relation = "or";
+                        }
+                        if (scope.form.showstatus.filedlist) {
+                            var watchstr = "", tag = "";
                             scope.form.showstatus.filedlist.forEach(function (element) {
                                 tmodel = scope.model;
                                 tfield = element.field;
@@ -3843,61 +3831,61 @@ angular.module('app')
                                     tmodel = scope.dmodel;
                                     tfield = element.dfield;
                                 }
-                                if (!angular.isUndefined(tmodel) && tmodel.hasOwnProperty(tfield)) {
-                                    var formstatus = tmodel[tfield];
-                                    if (angular.isUndefined(formstatus)) {
-                                        formstatus = "";
-                                    }
-                                    if (typeof element.status == "string") {
-                                        var showstatus = element.status.split(",");
-                                        var itemval = false;
-                                        showstatus.forEach(function (item) {
-                                            if (item == formstatus) {
-                                                itemval = itemval || true;
-                                            }
-                                            else {
-                                                itemval = itemval || false;
-                                            }
-                                        });
-                                        arrayObj.push(itemval);
-                                    }
-                                    else if (formstatus == element.status) {
-                                        arrayObj.push(true);
-                                    }
-                                    else {
-                                        arrayObj.push(false);
-                                    }
-                                }
+                                watchstr += tag + (element.dfield ? "dmodel" : "model") + '.' + tfield;
+                                tag = "+";
                             });
-                            var show = true;
-                            if (arrayObj.length > 0) {
-                                show = arrayObj[0];
-                                arrayObj.forEach(function (element) {
-                                    show = scope.form.showstatus.relation == "or" ? show || element : show && element;
-                                }, this);
-                            }
-                            scope.form.hide = !show;
-                        }, true); ///
+                            scope.$watch(watchstr, function (newValue, oldValue) {
+                                var arrayObj = new Array();
+                                scope.form.showstatus.filedlist.forEach(function (element) {
+                                    tmodel = scope.model;
+                                    tfield = element.field;
+                                    if (element.dfield) {
+                                        tmodel = scope.dmodel;
+                                        tfield = element.dfield;
+                                    }
+                                    if (!angular.isUndefined(tmodel) && tmodel.hasOwnProperty(tfield)) {
+                                        var formstatus = tmodel[tfield];
+                                        if (angular.isUndefined(formstatus)) {
+                                            formstatus = "";
+                                        }
+                                        if (typeof element.status == "string") {
+                                            var showstatus = element.status.split(",");
+                                            var itemval = false;
+                                            showstatus.forEach(function (item) {
+                                                if (item == formstatus) {
+                                                    itemval = itemval || true;
+                                                }
+                                                else {
+                                                    itemval = itemval || false;
+                                                }
+                                            });
+                                            arrayObj.push(itemval);
+                                        }
+                                        else if (formstatus == element.status) {
+                                            arrayObj.push(true);
+                                        }
+                                        else {
+                                            arrayObj.push(false);
+                                        }
+                                    }
+                                });
+                                var show = true;
+                                if (arrayObj.length > 0) {
+                                    show = arrayObj[0];
+                                    arrayObj.forEach(function (element) {
+                                        show = scope.form.showstatus.relation == "or" ? show || element : show && element;
+                                    }, this);
+                                }
+                                scope.form.hide = !show;
+                            }, true); ///
+                        }
                     }
-                }
-                if (scope.form.requiredtatus) {
-                    if (!scope.form.requiredtatus.relation) {
-                        scope.form.requiredtatus.relation = "or";
-                    }
-                    if (scope.form.requiredtatus.filedlist) {
-                        var watchstr = "", tag = "";
-                        scope.form.requiredtatus.filedlist.forEach(function (element) {
-                            tmodel = scope.model;
-                            tfield = element.field;
-                            if (element.dfield) {
-                                tmodel = scope.dmodel;
-                                tfield = element.dfield;
-                            }
-                            watchstr += tag + (element.dfield ? "dmodel" : "model") + '.' + tfield;
-                            tag = "+";
-                        });
-                        scope.$watch(watchstr, function (newValue, oldValue) {
-                            var arrayObj = new Array();
+                    if (scope.form.requiredtatus) {
+                        if (!scope.form.requiredtatus.relation) {
+                            scope.form.requiredtatus.relation = "or";
+                        }
+                        if (scope.form.requiredtatus.filedlist) {
+                            var watchstr = "", tag = "";
                             scope.form.requiredtatus.filedlist.forEach(function (element) {
                                 tmodel = scope.model;
                                 tfield = element.field;
@@ -3905,47 +3893,59 @@ angular.module('app')
                                     tmodel = scope.dmodel;
                                     tfield = element.dfield;
                                 }
-                                if (!angular.isUndefined(tmodel) && tmodel.hasOwnProperty(tfield)) {
-                                    var requiredtatus = tmodel[tfield];
-                                    if (angular.isUndefined(requiredtatus)) {
-                                        requiredtatus = "";
-                                    }
-                                    if (typeof element.status == "string") {
-                                        var showstatus = element.status.split(",");
-                                        var itemval = false;
-                                        showstatus.forEach(function (item) {
-                                            if (item == requiredtatus) {
-                                                itemval = itemval || true;
-                                            }
-                                            else {
-                                                itemval = itemval || false;
-                                            }
-                                        });
-                                        arrayObj.push(itemval);
-                                    }
-                                    else if (requiredtatus == element.status) {
-                                        arrayObj.push(true);
-                                    }
-                                    else {
-                                        arrayObj.push(false);
-                                    }
-                                }
+                                watchstr += tag + (element.dfield ? "dmodel" : "model") + '.' + tfield;
+                                tag = "+";
                             });
-                            var show = true;
-                            if (arrayObj.length > 0) {
-                                show = arrayObj[0];
-                                arrayObj.forEach(function (element) {
-                                    show = scope.form.requiredtatus.relation == "or" ? show || element : show && element;
-                                }, this);
-                            }
-                            scope.form.hide = !show;
-                        }, true); ///
+                            scope.$watch(watchstr, function (newValue, oldValue) {
+                                var arrayObj = new Array();
+                                scope.form.requiredtatus.filedlist.forEach(function (element) {
+                                    tmodel = scope.model;
+                                    tfield = element.field;
+                                    if (element.dfield) {
+                                        tmodel = scope.dmodel;
+                                        tfield = element.dfield;
+                                    }
+                                    if (!angular.isUndefined(tmodel) && tmodel.hasOwnProperty(tfield)) {
+                                        var requiredtatus = tmodel[tfield];
+                                        if (angular.isUndefined(requiredtatus)) {
+                                            requiredtatus = "";
+                                        }
+                                        if (typeof element.status == "string") {
+                                            var showstatus = element.status.split(",");
+                                            var itemval = false;
+                                            showstatus.forEach(function (item) {
+                                                if (item == requiredtatus) {
+                                                    itemval = itemval || true;
+                                                }
+                                                else {
+                                                    itemval = itemval || false;
+                                                }
+                                            });
+                                            arrayObj.push(itemval);
+                                        }
+                                        else if (requiredtatus == element.status) {
+                                            arrayObj.push(true);
+                                        }
+                                        else {
+                                            arrayObj.push(false);
+                                        }
+                                    }
+                                });
+                                var show = true;
+                                if (arrayObj.length > 0) {
+                                    show = arrayObj[0];
+                                    arrayObj.forEach(function (element) {
+                                        show = scope.form.requiredtatus.relation == "or" ? show || element : show && element;
+                                    }, this);
+                                }
+                                scope.form.hide = !show;
+                            }, true); ///
+                        }
                     }
                 }
-            }
-        ]
-    };
-});
+            ]
+        };
+    });
 
 //# sourceMappingURL=objcontrol.js.map
 
@@ -4445,12 +4445,12 @@ var yes;
                     }
                     $http.get('plugins/bas/components/tree.html', { cache: $templateCache })
                         .success(function (html) {
-                        // scope.selectChanged = scope.selectChanged || function (node) {
-                        //         walkChildren(node.children, node.selected);
-                        //         walkParent(node, node.selected);
-                        //     };
-                        ele.html('').append($compile(html)(scope));
-                    });
+                            // scope.selectChanged = scope.selectChanged || function (node) {
+                            //         walkChildren(node.children, node.selected);
+                            //         walkParent(node, node.selected);
+                            //     };
+                            ele.html('').append($compile(html)(scope));
+                        });
                 }
             };
         }
@@ -4461,33 +4461,253 @@ var yes;
 
 angular.module('app')
     .directive('viewGrid', function ($compile, $templateCache, $http) {
-    return {
-        restrict: 'AE',
-        replace: true,
-        scope: {
-            ngModel: "=",
-            form: "="
-        },
-        require: '^ngModel',
-        templateUrl: 'plugins/bas/components/viewgrid.html',
-        controller: ['$rootScope', '$timeout', 'uiGridConstants', 'settings', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
-            function ($rootScope, $timeout, uiGridConstants, settings, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
-                //  var form={
-                //     headers: "=",
-                //     rowDblclick: "=",
-                //     onchangepage: "=",
-                //     resource: "=",
-                //     gridApi: "=",
-                //     gridKey: "=",
-                //     sortable: "=",
-                //     records:"=",
-                //     onHoveredIndexChange: "="
-                //   }
-                var scope = $scope;
-                var isfoot = false;
-                scope.bakheaders = angular.copy($scope.form.headers);
-                angular.forEach($scope.form.headers, function (col, key) {
-                    if (col) {
+        return {
+            restrict: 'AE',
+            replace: true,
+            scope: {
+                ngModel: "=",
+                form: "="
+            },
+            require: '^ngModel',
+            templateUrl: 'plugins/bas/components/viewgrid.html',
+            controller: ['$rootScope', '$timeout', 'uiGridConstants', 'settings', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
+                function ($rootScope, $timeout, uiGridConstants, settings, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
+                    //  var form={
+                    //     headers: "=",
+                    //     rowDblclick: "=",
+                    //     onchangepage: "=",
+                    //     resource: "=",
+                    //     gridApi: "=",
+                    //     gridKey: "=",
+                    //     sortable: "=",
+                    //     records:"=",
+                    //     onHoveredIndexChange: "="
+                    //   }
+                    var scope = $scope;
+                    var isfoot = false;
+                    scope.bakheaders = angular.copy($scope.form.headers);
+                    angular.forEach($scope.form.headers, function (col, key) {
+                        if (col) {
+                            col.readonly = true;
+                            if (col.type == "basLov") {
+                                col.cellTemplate = "ui-grid/gridcelllov";
+                            }
+                            else if (col.type == "basNumber" || col.type == "number") {
+                                col.headerCellClass = "esy-number";
+                                col.type = "number";
+                                col.cellTemplate = "ui-grid/gridcellnumber";
+                            }
+                            else if (col.type == "basRemark") {
+                                col.cellTemplate = "ui-grid/gridcellremark";
+                            }
+                            else {
+                                if (!col.cellTemplate) {
+                                    col.cellTemplate = "ui-grid/gridcelldefault";
+                                }
+                            }
+                            if (!col.hasOwnProperty("enableColumnMenu")) {
+                                col.enableColumnMenu = false;
+                            }
+                            if (col.hasOwnProperty("summsg")) {
+                                col.aggregationType = uiGridConstants.aggregationTypes.sum;
+                                isfoot = true;
+                                if (col.summsg.auto) {
+                                    col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{ ( col.getAggregationValue() | number :col.colDef.num ) }}</div></div>";
+                                }
+                                else {
+                                    if (angular.isString(col.summsg.sumval)) {
+                                        col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{(col.colDef.summsg.sumval)}}</div></div>";
+                                    }
+                                    else {
+                                        col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{(col.colDef.summsg.sumval | number :col.colDef.num)}}</div></div>";
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    scope.paginationOptions = {
+                        pageNumber: 0,
+                        pageSize: 30,
+                        sort: ""
+                    };
+                    scope.gridOptions = angular.extend({
+                        data: 'entries',
+                        height: 200,
+                        enableSorting: true,
+                        enableColumnMenu: true,
+                        suppressRemoveSort: false,
+                        showGridFooter: false,
+                        showColumnFooter: isfoot,
+                        columnFooterHeight: 24,
+                        multiSelect: true,
+                        enableFullRowSelection: false,
+                        enableGridMenu: true,
+                        gridMenuCustomItems: [{
+                            title: '重置',
+                            action: function ($event) {
+                                scope.resetgridmsg();
+                                scope.gridOptions.columnDefs = scope.readgridmsg(scope.bakheaders, scope.form.gridKey ? scope.form.gridKey : "");
+                            },
+                            order: 210
+                        }],
+                        onRegisterApi: function (gridApi) {
+                            gridApi.headers = scope.form.headers;
+                            scope.form.gridApi = gridApi;
+                            gridApi.core.on.sortChanged(scope, function (grid, sortColumns) {
+                                if (sortColumns.length == 0) {
+                                    scope.paginationOptions.sort = null;
+                                }
+                                else {
+                                    scope.paginationOptions.sort = sortColumns[0].colDef.name + "," + sortColumns[0].sort.direction;
+                                }
+                                if (scope.form.onchangepage) {
+                                    scope.form.onchangepage(scope.paginationOptions.pageNumber, scope.paginationOptions.pageSize, scope.paginationOptions.sort);
+                                }
+                            });
+                            gridApi.pagination.on.paginationChanged(scope, function (newPage, pageSize) {
+                                if (scope.form.onchangepage) {
+                                    scope.paginationOptions.pageNumber = newPage - 1;
+                                    scope.paginationOptions.pageSize = pageSize;
+                                    scope.form.onchangepage(scope.paginationOptions.pageNumber, scope.paginationOptions.pageSize, scope.paginationOptions.sort);
+                                }
+                            });
+                            gridApi.core.on.renderingComplete(scope, function (ar1) {
+                                $timeout(function () {
+                                    angular.element(window).trigger('resize');
+                                }, 0);
+                            });
+                            gridApi.core.on.columnVisibilityChanged(scope, function (ar1, ar2) {
+                                scope.savegridmsg(gridApi.grid.columns);
+                            });
+                            gridApi.colMovable.on.columnPositionChanged(scope, function (ar1, ar2) {
+                                scope.savegridmsg(gridApi.grid.columns);
+                            });
+                            gridApi.colResizable.on.columnSizeChanged(scope, function (ar1, ar2) {
+                                scope.savegridmsg(gridApi.grid.columns);
+                                // var cols = [];
+                                // angular.forEach(gridApi.grid.columns, function(column) {
+                                //     cols.push(column.width);
+                                // });
+                                // if (scope.option.gridKey) {
+                                //     localStorage.setItem(scope.gridKey + "_grid", cols);
+                                // }
+                            });
+                        },
+                        rowTemplate: "<div ng-dblclick=\"grid.appScope.onDblClick($event,row)\"  ng-click=\"grid.appScope.hoveredIndex = rowRenderIndex\" " +
+                            "ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" " +
+                            "class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader,'selecthoverclass': grid.appScope.hoveredIndex === rowRenderIndex }\" " +
+                            "ui-grid-cell ></div>"
+                    }, settings.uiGrid);
+                    if ($scope.form.sortable) {
+                        $scope.gridOptions.sortable = $scope.form.sortable;
+                    }
+                    scope.onDblClick = function (event, row) {
+                        if (row && row.entity)
+                            scope.backentry = angular.copy(row.entity);
+                        if (scope.form.rowDblclick) {
+                            scope.form.rowDblclick(scope.backentry);
+                        }
+                    };
+                    scope.$watch("form.headers", function (newValue, oldValue) {
+                        if (scope.form.headers) {
+                            scope.gridOptions.columnDefs = scope.readgridmsg(scope.form.headers, scope.form.gridKey ? scope.form.gridKey : "");
+                        }
+                    }, true); ///
+                    scope.$watch("ngModel", function (newValue, oldValue) {
+                        if (scope.ngModel) {
+                            scope.entries = scope.ngModel;
+                            scope.gridOptions.totalItems = scope.form.records;
+                            scope.hoveredIndex = null; //对象改变的时候,重置选中状态
+                        }
+                    }, true); ///
+                    scope.$watch("hoveredIndex", function (newValue, oldValue) {
+                        scope.form.onHoveredIndexChange && scope.form.onHoveredIndexChange(scope.hoveredIndex != null ? scope.entries[scope.hoveredIndex] : null, scope.hoveredIndex);
+                    }, true);
+                    scope.resetgridmsg = function () {
+                        localStorage.setItem(scope.form.gridKey + "_grid", "{}");
+                    };
+                    scope.savegridmsg = function (gridcols) {
+                        var cols = {};
+                        angular.forEach(gridcols, function (column) {
+                            cols[column.field] = {
+                                width: column.width,
+                                visible: column.visible
+                            };
+                            // var item ={ //selectionRowHeaderCol
+                            //     key: column.field,
+                            //     width: column.width,
+                            //     visible: column.visible
+                            // }
+                            // cols.push(item);
+                        });
+                        localStorage.setItem(scope.form.gridKey + "_grid", angular.toJson(cols, true));
+                    };
+                    scope.readgridmsg = function (headers, localStorageKey) {
+                        var columns = [];
+                        var colsmsg = angular.fromJson(localStorage.getItem(localStorageKey + "_grid") || "{}");
+                        angular.forEach(colsmsg, function (col, key) {
+                            if (headers.hasOwnProperty(key)) {
+                                var item = angular.extend(headers[key], col);
+                                if (angular.isObject(headers[key]) && key) {
+                                    item.name = key;
+                                }
+                                if (angular.isUndefined(item.headerCellFilter))
+                                    item.headerCellFilter = "translate";
+                                columns.push(item);
+                            }
+                        });
+                        angular.forEach(headers, function (col, key) {
+                            if (!colsmsg.hasOwnProperty(key)) {
+                                if (angular.isString(col)) {
+                                    col = {
+                                        name: key,
+                                        original: col,
+                                        displayName: col
+                                    };
+                                }
+                                else if (angular.isObject(col) && key) {
+                                    col.name = key;
+                                }
+                                if (angular.isUndefined(col.headerCellFilter))
+                                    col.headerCellFilter = "translate";
+                                columns.push(col);
+                            }
+                        });
+                        return columns;
+                    };
+                }
+            ]
+        };
+    });
+
+//# sourceMappingURL=viewgrid.js.map
+
+angular.module('app')
+    .directive('viewsingleGrid', function ($compile, $templateCache, $http) {
+        return {
+            restrict: 'AE',
+            replace: true,
+            scope: {
+                headers: "=",
+                rowDblclick: "=",
+                onchangepage: "=",
+                resource: "=",
+                gridApi: "=",
+                gridKey: "="
+            },
+            require: '^ngModel',
+            templateUrl: 'plugins/bas/components/viewsinglegrid.html',
+            controller: ['$rootScope', '$timeout', 'uiGridConstants', 'settings', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
+                function ($rootScope, $timeout, uiGridConstants, settings, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
+                    var scope = $scope;
+                    scope.bakheaders = angular.copy($scope.headers);
+                    var isfoot = false;
+                    angular.forEach($scope.headers, function (col, key) {
+                        if (col) {
+                            if (col.aggregationType) {
+                                isfoot = true;
+                            }
+                        }
                         col.readonly = true;
                         if (col.type == "basLov") {
                             col.cellTemplate = "ui-grid/gridcelllov";
@@ -4499,6 +4719,9 @@ angular.module('app')
                         }
                         else if (col.type == "basRemark") {
                             col.cellTemplate = "ui-grid/gridcellremark";
+                        }
+                        else if (col.type == "basIcos") {
+                            col.cellTemplate = "ui-grid/gridcellioc";
                         }
                         else {
                             if (!col.cellTemplate) {
@@ -4523,247 +4746,24 @@ angular.module('app')
                                 }
                             }
                         }
-                    }
-                });
-                scope.paginationOptions = {
-                    pageNumber: 0,
-                    pageSize: 30,
-                    sort: ""
-                };
-                scope.gridOptions = angular.extend({
-                    data: 'entries',
-                    height: 200,
-                    enableSorting: true,
-                    enableColumnMenu: true,
-                    suppressRemoveSort: false,
-                    showGridFooter: false,
-                    showColumnFooter: isfoot,
-                    columnFooterHeight: 24,
-                    multiSelect: true,
-                    enableFullRowSelection: false,
-                    enableGridMenu: true,
-                    gridMenuCustomItems: [{
-                            title: '重置',
-                            action: function ($event) {
-                                scope.resetgridmsg();
-                                scope.gridOptions.columnDefs = scope.readgridmsg(scope.bakheaders, scope.form.gridKey ? scope.form.gridKey : "");
-                            },
-                            order: 210
-                        }],
-                    onRegisterApi: function (gridApi) {
-                        gridApi.headers = scope.form.headers;
-                        scope.form.gridApi = gridApi;
-                        gridApi.core.on.sortChanged(scope, function (grid, sortColumns) {
-                            if (sortColumns.length == 0) {
-                                scope.paginationOptions.sort = null;
-                            }
-                            else {
-                                scope.paginationOptions.sort = sortColumns[0].colDef.name + "," + sortColumns[0].sort.direction;
-                            }
-                            if (scope.form.onchangepage) {
-                                scope.form.onchangepage(scope.paginationOptions.pageNumber, scope.paginationOptions.pageSize, scope.paginationOptions.sort);
-                            }
-                        });
-                        gridApi.pagination.on.paginationChanged(scope, function (newPage, pageSize) {
-                            if (scope.form.onchangepage) {
-                                scope.paginationOptions.pageNumber = newPage - 1;
-                                scope.paginationOptions.pageSize = pageSize;
-                                scope.form.onchangepage(scope.paginationOptions.pageNumber, scope.paginationOptions.pageSize, scope.paginationOptions.sort);
-                            }
-                        });
-                        gridApi.core.on.renderingComplete(scope, function (ar1) {
-                            $timeout(function () {
-                                angular.element(window).trigger('resize');
-                            }, 0);
-                        });
-                        gridApi.core.on.columnVisibilityChanged(scope, function (ar1, ar2) {
-                            scope.savegridmsg(gridApi.grid.columns);
-                        });
-                        gridApi.colMovable.on.columnPositionChanged(scope, function (ar1, ar2) {
-                            scope.savegridmsg(gridApi.grid.columns);
-                        });
-                        gridApi.colResizable.on.columnSizeChanged(scope, function (ar1, ar2) {
-                            scope.savegridmsg(gridApi.grid.columns);
-                            // var cols = [];
-                            // angular.forEach(gridApi.grid.columns, function(column) {
-                            //     cols.push(column.width);
-                            // });
-                            // if (scope.option.gridKey) {
-                            //     localStorage.setItem(scope.gridKey + "_grid", cols);
-                            // }
-                        });
-                    },
-                    rowTemplate: "<div ng-dblclick=\"grid.appScope.onDblClick($event,row)\"  ng-click=\"grid.appScope.hoveredIndex = rowRenderIndex\" " +
-                        "ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" " +
-                        "class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader,'selecthoverclass': grid.appScope.hoveredIndex === rowRenderIndex }\" " +
-                        "ui-grid-cell ></div>"
-                }, settings.uiGrid);
-                if ($scope.form.sortable) {
-                    $scope.gridOptions.sortable = $scope.form.sortable;
-                }
-                scope.onDblClick = function (event, row) {
-                    if (row && row.entity)
-                        scope.backentry = angular.copy(row.entity);
-                    if (scope.form.rowDblclick) {
-                        scope.form.rowDblclick(scope.backentry);
-                    }
-                };
-                scope.$watch("form.headers", function (newValue, oldValue) {
-                    if (scope.form.headers) {
-                        scope.gridOptions.columnDefs = scope.readgridmsg(scope.form.headers, scope.form.gridKey ? scope.form.gridKey : "");
-                    }
-                }, true); ///
-                scope.$watch("ngModel", function (newValue, oldValue) {
-                    if (scope.ngModel) {
-                        scope.entries = scope.ngModel;
-                        scope.gridOptions.totalItems = scope.form.records;
-                        scope.hoveredIndex = null; //对象改变的时候,重置选中状态
-                    }
-                }, true); ///
-                scope.$watch("hoveredIndex", function (newValue, oldValue) {
-                    scope.form.onHoveredIndexChange && scope.form.onHoveredIndexChange(scope.hoveredIndex != null ? scope.entries[scope.hoveredIndex] : null, scope.hoveredIndex);
-                }, true);
-                scope.resetgridmsg = function () {
-                    localStorage.setItem(scope.form.gridKey + "_grid", "{}");
-                };
-                scope.savegridmsg = function (gridcols) {
-                    var cols = {};
-                    angular.forEach(gridcols, function (column) {
-                        cols[column.field] = {
-                            width: column.width,
-                            visible: column.visible
-                        };
-                        // var item ={ //selectionRowHeaderCol
-                        //     key: column.field,
-                        //     width: column.width,
-                        //     visible: column.visible
-                        // }
-                        // cols.push(item);
-                    });
-                    localStorage.setItem(scope.form.gridKey + "_grid", angular.toJson(cols, true));
-                };
-                scope.readgridmsg = function (headers, localStorageKey) {
-                    var columns = [];
-                    var colsmsg = angular.fromJson(localStorage.getItem(localStorageKey + "_grid") || "{}");
-                    angular.forEach(colsmsg, function (col, key) {
-                        if (headers.hasOwnProperty(key)) {
-                            var item = angular.extend(headers[key], col);
-                            if (angular.isObject(headers[key]) && key) {
-                                item.name = key;
-                            }
-                            if (angular.isUndefined(item.headerCellFilter))
-                                item.headerCellFilter = "translate";
-                            columns.push(item);
+                        if (!col.hasOwnProperty("enableColumnMenu")) {
+                            col.enableColumnMenu = false;
                         }
                     });
-                    angular.forEach(headers, function (col, key) {
-                        if (!colsmsg.hasOwnProperty(key)) {
-                            if (angular.isString(col)) {
-                                col = {
-                                    name: key,
-                                    original: col,
-                                    displayName: col
-                                };
-                            }
-                            else if (angular.isObject(col) && key) {
-                                col.name = key;
-                            }
-                            if (angular.isUndefined(col.headerCellFilter))
-                                col.headerCellFilter = "translate";
-                            columns.push(col);
-                        }
-                    });
-                    return columns;
-                };
-            }
-        ]
-    };
-});
-
-//# sourceMappingURL=viewgrid.js.map
-
-angular.module('app')
-    .directive('viewsingleGrid', function ($compile, $templateCache, $http) {
-    return {
-        restrict: 'AE',
-        replace: true,
-        scope: {
-            headers: "=",
-            rowDblclick: "=",
-            onchangepage: "=",
-            resource: "=",
-            gridApi: "=",
-            gridKey: "="
-        },
-        require: '^ngModel',
-        templateUrl: 'plugins/bas/components/viewsinglegrid.html',
-        controller: ['$rootScope', '$timeout', 'uiGridConstants', 'settings', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
-            function ($rootScope, $timeout, uiGridConstants, settings, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
-                var scope = $scope;
-                scope.bakheaders = angular.copy($scope.headers);
-                var isfoot = false;
-                angular.forEach($scope.headers, function (col, key) {
-                    if (col) {
-                        if (col.aggregationType) {
-                            isfoot = true;
-                        }
-                    }
-                    col.readonly = true;
-                    if (col.type == "basLov") {
-                        col.cellTemplate = "ui-grid/gridcelllov";
-                    }
-                    else if (col.type == "basNumber" || col.type == "number") {
-                        col.headerCellClass = "esy-number";
-                        col.type = "number";
-                        col.cellTemplate = "ui-grid/gridcellnumber";
-                    }
-                    else if (col.type == "basRemark") {
-                        col.cellTemplate = "ui-grid/gridcellremark";
-                    }
-                    else if (col.type == "basIcos") {
-                        col.cellTemplate = "ui-grid/gridcellioc";
-                    }
-                    else {
-                        if (!col.cellTemplate) {
-                            col.cellTemplate = "ui-grid/gridcelldefault";
-                        }
-                    }
-                    if (!col.hasOwnProperty("enableColumnMenu")) {
-                        col.enableColumnMenu = false;
-                    }
-                    if (col.hasOwnProperty("summsg")) {
-                        col.aggregationType = uiGridConstants.aggregationTypes.sum;
-                        isfoot = true;
-                        if (col.summsg.auto) {
-                            col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{ ( col.getAggregationValue() | number :col.colDef.num ) }}</div></div>";
-                        }
-                        else {
-                            if (angular.isString(col.summsg.sumval)) {
-                                col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{(col.colDef.summsg.sumval)}}</div></div>";
-                            }
-                            else {
-                                col.footerCellTemplate = "<div class=\"ui-grid-cell-contents\" col-index=\"renderIndex\"><div style=\"text-align: right;line-height: 20px;\">{{(col.colDef.summsg.sumval | number :col.colDef.num)}}</div></div>";
-                            }
-                        }
-                    }
-                    if (!col.hasOwnProperty("enableColumnMenu")) {
-                        col.enableColumnMenu = false;
-                    }
-                });
-                scope.gridOptions = angular.extend({
-                    data: 'entries',
-                    height: 320,
-                    enableSorting: false,
-                    enableColumnMenu: true,
-                    suppressRemoveSort: false,
-                    showGridFooter: false,
-                    showColumnFooter: isfoot,
-                    columnFooterHeight: 24,
-                    enableRowSelection: false,
-                    multiSelect: false,
-                    enableFullRowSelection: true,
-                    enableGridMenu: true,
-                    gridMenuCustomItems: [{
+                    scope.gridOptions = angular.extend({
+                        data: 'entries',
+                        height: 320,
+                        enableSorting: false,
+                        enableColumnMenu: true,
+                        suppressRemoveSort: false,
+                        showGridFooter: false,
+                        showColumnFooter: isfoot,
+                        columnFooterHeight: 24,
+                        enableRowSelection: false,
+                        multiSelect: false,
+                        enableFullRowSelection: true,
+                        enableGridMenu: true,
+                        gridMenuCustomItems: [{
                             title: '重置',
                             action: function ($event) {
                                 scope.resetgridmsg();
@@ -4771,131 +4771,131 @@ angular.module('app')
                             },
                             order: 210
                         }],
-                    onRegisterApi: function (gridApi) {
-                        scope.gridApi = gridApi;
-                        scope.$parent.gridApi = gridApi;
-                        gridApi.pagination.on.paginationChanged(scope, function (newPage, pageSize) {
-                            if (scope.onchangepage) {
-                                scope.onchangepage(newPage - 1, pageSize);
-                            }
-                        });
-                        gridApi.core.on.renderingComplete(scope, function (ar1) {
-                            $timeout(function () {
-                                angular.element(window).trigger('resize');
-                            }, 0);
-                        });
-                        gridApi.core.on.columnVisibilityChanged(scope, function (ar1, ar2) {
-                            scope.savegridmsg(gridApi.grid.columns);
-                        });
-                        gridApi.colMovable.on.columnPositionChanged(scope, function (ar1, ar2) {
-                            scope.savegridmsg(gridApi.grid.columns);
-                        });
-                        gridApi.colResizable.on.columnSizeChanged(scope, function (ar1, ar2) {
-                            scope.savegridmsg(gridApi.grid.columns);
-                        });
-                    },
-                    rowTemplate: "<div ng-dblclick=\"grid.appScope.onDblClick($event,row)\" " +
-                        "ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" " +
-                        "class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" " +
-                        "ui-grid-cell ></div>"
-                }, settings.uiGrid);
-                scope.onDblClick = function (event, row) {
-                    if (row && row.entity)
-                        scope.backentry = angular.copy(row.entity);
-                    if (scope.rowDblclick) {
-                        scope.rowDblclick(scope.backentry);
-                    }
-                };
-                scope.$watch("headers", function (newValue, oldValue) {
-                    if (scope.headers) {
-                        scope.gridOptions.columnDefs = scope.readgridmsg(scope.headers, scope.gridKey ? scope.gridKey : "");
-                    }
-                }, true); ///
-                scope.$watch("resource", function (newValue, oldValue) {
-                    if (scope.resource) {
-                        scope.entries = scope.resource.content;
-                        scope.gridOptions.totalItems = scope.resource.records;
-                    }
-                }, true); ///
-                scope.resetgridmsg = function () {
-                    localStorage.setItem(scope.gridKey + "_grid", "{}");
-                };
-                scope.savegridmsg = function (gridcols) {
-                    var cols = {};
-                    angular.forEach(gridcols, function (column) {
-                        cols[column.field] = {
-                            width: column.width,
-                            visible: column.visible
-                        };
-                        // var item ={ //selectionRowHeaderCol
-                        //     key: column.field,
-                        //     width: column.width,
-                        //     visible: column.visible
-                        // }
-                        // cols.push(item);
-                    });
-                    localStorage.setItem(scope.gridKey + "_grid", angular.toJson(cols, true));
-                };
-                scope.readgridmsg = function (headers, localStorageKey) {
-                    var columns = [];
-                    var colsmsg = angular.fromJson(localStorage.getItem(localStorageKey + "_grid") || "{}");
-                    angular.forEach(colsmsg, function (col, key) {
-                        if (headers.hasOwnProperty(key)) {
-                            var item = angular.extend(headers[key], col);
-                            if (angular.isObject(headers[key]) && key) {
-                                item.name = key;
-                            }
-                            if (angular.isUndefined(item.headerCellFilter))
-                                item.headerCellFilter = "translate";
-                            columns.push(item);
+                        onRegisterApi: function (gridApi) {
+                            scope.gridApi = gridApi;
+                            scope.$parent.gridApi = gridApi;
+                            gridApi.pagination.on.paginationChanged(scope, function (newPage, pageSize) {
+                                if (scope.onchangepage) {
+                                    scope.onchangepage(newPage - 1, pageSize);
+                                }
+                            });
+                            gridApi.core.on.renderingComplete(scope, function (ar1) {
+                                $timeout(function () {
+                                    angular.element(window).trigger('resize');
+                                }, 0);
+                            });
+                            gridApi.core.on.columnVisibilityChanged(scope, function (ar1, ar2) {
+                                scope.savegridmsg(gridApi.grid.columns);
+                            });
+                            gridApi.colMovable.on.columnPositionChanged(scope, function (ar1, ar2) {
+                                scope.savegridmsg(gridApi.grid.columns);
+                            });
+                            gridApi.colResizable.on.columnSizeChanged(scope, function (ar1, ar2) {
+                                scope.savegridmsg(gridApi.grid.columns);
+                            });
+                        },
+                        rowTemplate: "<div ng-dblclick=\"grid.appScope.onDblClick($event,row)\" " +
+                            "ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" " +
+                            "class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" " +
+                            "ui-grid-cell ></div>"
+                    }, settings.uiGrid);
+                    scope.onDblClick = function (event, row) {
+                        if (row && row.entity)
+                            scope.backentry = angular.copy(row.entity);
+                        if (scope.rowDblclick) {
+                            scope.rowDblclick(scope.backentry);
                         }
-                    });
-                    angular.forEach(headers, function (col, key) {
-                        if (!colsmsg.hasOwnProperty(key)) {
-                            if (angular.isString(col)) {
-                                col = {
-                                    name: key,
-                                    original: col,
-                                    displayName: col
-                                };
-                            }
-                            else if (angular.isObject(col) && key) {
-                                col.name = key;
-                            }
-                            if (angular.isUndefined(col.headerCellFilter))
-                                col.headerCellFilter = "translate";
-                            columns.push(col);
+                    };
+                    scope.$watch("headers", function (newValue, oldValue) {
+                        if (scope.headers) {
+                            scope.gridOptions.columnDefs = scope.readgridmsg(scope.headers, scope.gridKey ? scope.gridKey : "");
                         }
-                    });
-                    return columns;
-                    // var columns = [];
-                    // var colWidth = angular.fromJson(localStorage.getItem(localStorageKey + "_grid") || "{}");
-                    // colWidth = "";
-                    // colWidth = colWidth.split(',');
-                    // var index = 1;
-                    // angular.forEach(headers, function(col, key) {
-                    //     if (angular.isString(col)) {
-                    //         col = {
-                    //             name: key,
-                    //             original: col,
-                    //             displayName: col
-                    //         };
-                    //     } else if (angular.isObject(col) && key) {
-                    //         col.name = key;
-                    //     }
-                    //     if (angular.isUndefined(col.headerCellFilter))
-                    //         col.headerCellFilter = "translate";
-                    //     if (colWidth.length > index) {
-                    //         col.width = colWidth[index - 1];
-                    //     }
-                    //     index++;
-                    //     columns.push(col);
-                    // });
-                    // return columns;
-                };
-            }]
-    };
-});
+                    }, true); ///
+                    scope.$watch("resource", function (newValue, oldValue) {
+                        if (scope.resource) {
+                            scope.entries = scope.resource.content;
+                            scope.gridOptions.totalItems = scope.resource.records;
+                        }
+                    }, true); ///
+                    scope.resetgridmsg = function () {
+                        localStorage.setItem(scope.gridKey + "_grid", "{}");
+                    };
+                    scope.savegridmsg = function (gridcols) {
+                        var cols = {};
+                        angular.forEach(gridcols, function (column) {
+                            cols[column.field] = {
+                                width: column.width,
+                                visible: column.visible
+                            };
+                            // var item ={ //selectionRowHeaderCol
+                            //     key: column.field,
+                            //     width: column.width,
+                            //     visible: column.visible
+                            // }
+                            // cols.push(item);
+                        });
+                        localStorage.setItem(scope.gridKey + "_grid", angular.toJson(cols, true));
+                    };
+                    scope.readgridmsg = function (headers, localStorageKey) {
+                        var columns = [];
+                        var colsmsg = angular.fromJson(localStorage.getItem(localStorageKey + "_grid") || "{}");
+                        angular.forEach(colsmsg, function (col, key) {
+                            if (headers.hasOwnProperty(key)) {
+                                var item = angular.extend(headers[key], col);
+                                if (angular.isObject(headers[key]) && key) {
+                                    item.name = key;
+                                }
+                                if (angular.isUndefined(item.headerCellFilter))
+                                    item.headerCellFilter = "translate";
+                                columns.push(item);
+                            }
+                        });
+                        angular.forEach(headers, function (col, key) {
+                            if (!colsmsg.hasOwnProperty(key)) {
+                                if (angular.isString(col)) {
+                                    col = {
+                                        name: key,
+                                        original: col,
+                                        displayName: col
+                                    };
+                                }
+                                else if (angular.isObject(col) && key) {
+                                    col.name = key;
+                                }
+                                if (angular.isUndefined(col.headerCellFilter))
+                                    col.headerCellFilter = "translate";
+                                columns.push(col);
+                            }
+                        });
+                        return columns;
+                        // var columns = [];
+                        // var colWidth = angular.fromJson(localStorage.getItem(localStorageKey + "_grid") || "{}");
+                        // colWidth = "";
+                        // colWidth = colWidth.split(',');
+                        // var index = 1;
+                        // angular.forEach(headers, function(col, key) {
+                        //     if (angular.isString(col)) {
+                        //         col = {
+                        //             name: key,
+                        //             original: col,
+                        //             displayName: col
+                        //         };
+                        //     } else if (angular.isObject(col) && key) {
+                        //         col.name = key;
+                        //     }
+                        //     if (angular.isUndefined(col.headerCellFilter))
+                        //         col.headerCellFilter = "translate";
+                        //     if (colWidth.length > index) {
+                        //         col.width = colWidth[index - 1];
+                        //     }
+                        //     index++;
+                        //     columns.push(col);
+                        // });
+                        // return columns;
+                    };
+                }]
+        };
+    });
 
 //# sourceMappingURL=viewsinglegrid.js.map
 
@@ -5001,7 +5001,7 @@ angular.module('app')
                                         uploader.formData = [{'attachmentId': $scope.attachmentId}, {'isImage': true}];
                                     });
                                 } else {
-                                	uploader.formData = [{'attachmentId': $scope.attachmentId}, {'isImage': true}];
+                                    uploader.formData = [{'attachmentId': $scope.attachmentId}, {'isImage': true}];
                                     utils.async("GET", settings.getByAttIdUrl, {"attId": $scope.attachmentId}).then(function (res) {
                                         $scope.items = res.data.body;
                                         if($scope.items){
@@ -5068,102 +5068,62 @@ angular.module('app')
 })();
 angular.module('app')
     .directive('getPerson', function ($compile, $templateCache, $http) {
-    return {
-        restrict: 'E',
-        replace: true,
-        scope: {
-            ngModel: "=",
-            form: "="
-        },
-        require: '^ngModel',
-        templateUrl: 'plugins/base/components/getperson.html',
-        controller: ['$rootScope', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
-            function ($rootScope, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
-                var scope = $scope;
-                if (!scope.form.ngModelOptions) {
-                    scope.form.ngModelOptions = {};
-                }
-                scope.model = {
-                    field: scope.ngModel
-                };
-                scope.$watch('model.field', function (newValue, oldValue) {
-                    scope.ngModel = newValue;
-                }, true); ///
-                scope.$watch('ngModel', function (newValue, oldValue) {
-                    scope.model.field = newValue;
-                }, true); ///
-                scope.$watch('$parent.model.formstatus', function (newValue, oldValue) {
-                    var formstatus = "00"; //初始状态
-                    if (newValue) {
-                        formstatus = newValue;
+        return {
+            restrict: 'E',
+            replace: true,
+            scope: {
+                ngModel: "=",
+                form: "="
+            },
+            require: '^ngModel',
+            templateUrl: 'plugins/base/components/getperson.html',
+            controller: ['$rootScope', '$scope', '$location', '$templateCache', '$interpolate', '$translate', 'utils', 'ngDialog', '$filter',
+                function ($rootScope, $scope, $location, $templateCache, $interpolate, $translate, utils, ngDialog, $filter) {
+                    var scope = $scope;
+                    if (!scope.form.ngModelOptions) {
+                        scope.form.ngModelOptions = {};
                     }
-                    if (formstatus == "99") {
-                        scope.form.readonly = true;
-                    }
-                    else {
-                        if (scope.form.readonlystatus) {
-                            var readonlystatus = scope.form.readonlystatus.split(",");
-                            var readonly = false;
-                            readonlystatus.forEach(function (element) {
-                                if (element == formstatus) {
-                                    readonly = true;
-                                }
-                            });
-                            scope.form.readonly = readonly;
-                        }
-                    }
-                }, true); ///
-                scope.form.titleMap = [];
-                scope.form.small = false;
-                scope.form.fieldAddonRight = 'fa-search-minus';
-                scope.form.refresh = function (options, search) {
-                    if (!search) {
-                        return;
-                    }
-                    var params = {
-                        count: 10,
-                        oid$eq: "203500010799",
-                        cname$match: search
+                    scope.model = {
+                        field: scope.ngModel
                     };
-                    utils.ajax({
-                        method: 'GET',
-                        url: 'base/person',
-                        mockUrl: "plugins/vehicle/data/vehicleInfo.json",
-                        params: params
-                    }).then(function (res) {
-                        scope.form.titleMap = [];
-                        res.data.body.items.forEach(function (e) {
-                            var item = {
-                                value: e.pid,
-                                name: e.cname
-                            };
-                            if (scope.form.relationfield) {
-                                scope.form.relationfield.forEach(function (element) {
-                                    item[element.findfield] = e[element.findfield];
+                    scope.$watch('model.field', function (newValue, oldValue) {
+                        scope.ngModel = newValue;
+                    }, true); ///
+                    scope.$watch('ngModel', function (newValue, oldValue) {
+                        scope.model.field = newValue;
+                    }, true); ///
+                    scope.$watch('$parent.model.formstatus', function (newValue, oldValue) {
+                        var formstatus = "00"; //初始状态
+                        if (newValue) {
+                            formstatus = newValue;
+                        }
+                        if (formstatus == "99") {
+                            scope.form.readonly = true;
+                        }
+                        else {
+                            if (scope.form.readonlystatus) {
+                                var readonlystatus = scope.form.readonlystatus.split(",");
+                                var readonly = false;
+                                readonlystatus.forEach(function (element) {
+                                    if (element == formstatus) {
+                                        readonly = true;
+                                    }
                                 });
+                                scope.form.readonly = readonly;
                             }
-                            scope.form.titleMap.push(item);
-                        });
-                    });
-                };
-                scope.onChange = function (selected) {
-                    if (scope.form.relationfield) {
-                        scope.form.relationfield.forEach(function (element) {
-                            if (scope.$parent.model) {
-                                scope.$parent.model[element.tofield] = selected[element.findfield];
-                            }
-                            else {
-                                scope.$parent.row.entity[element.tofield] = selected[element.findfield];
-                            }
-                        });
-                    }
-                };
-                var init = function () {
-                    if (scope.ngModel) {
+                        }
+                    }, true); ///
+                    scope.form.titleMap = [];
+                    scope.form.small = false;
+                    scope.form.fieldAddonRight = 'fa-search-minus';
+                    scope.form.refresh = function (options, search) {
+                        if (!search) {
+                            return;
+                        }
                         var params = {
                             count: 10,
                             oid$eq: "203500010799",
-                            pid$eq: scope.ngModel
+                            cname$match: search
                         };
                         utils.ajax({
                             method: 'GET',
@@ -5185,49 +5145,89 @@ angular.module('app')
                                 scope.form.titleMap.push(item);
                             });
                         });
-                    }
-                };
-                init();
-                $scope.form.dialog = function () {
-                    ngDialog.open({
-                        className: 'ngdialog-theme-default dialog-people-selector',
-                        template: 'plugins/base/pages/people.selector.html',
-                        controller: function ($scope) {
-                            $scope.callback = function (justPersons, selects) {
-                                if (justPersons.length > 0) {
-                                    justPersons.forEach(function (person) {
-                                        if (person.pid && person.cname) {
-                                            scope.ngModel = person.pid;
-                                            var item = {
-                                                value: person.pid,
-                                                name: person.cname
-                                            };
-                                            if (scope.form.relationfield) {
-                                                scope.form.relationfield.forEach(function (element) {
-                                                    if (scope.$parent.model) {
-                                                        scope.$parent.model[element.tofield] = person[element.findfield];
-                                                    }
-                                                    else {
-                                                        scope.$parent.row.entity[element.tofield] = person[element.findfield];
-                                                    }
-                                                });
-                                            }
-                                            scope.form.titleMap.push(item);
-                                            scope.ngModel = person.pid;
-                                        }
-                                    });
-                                    ngDialog.closeAll();
+                    };
+                    scope.onChange = function (selected) {
+                        if (scope.form.relationfield) {
+                            scope.form.relationfield.forEach(function (element) {
+                                if (scope.$parent.model) {
+                                    scope.$parent.model[element.tofield] = selected[element.findfield];
                                 }
                                 else {
-                                    ngDialog.closeAll();
+                                    scope.$parent.row.entity[element.tofield] = selected[element.findfield];
                                 }
-                            };
+                            });
                         }
-                    });
-                };
-            }]
-    };
-});
+                    };
+                    var init = function () {
+                        if (scope.ngModel) {
+                            var params = {
+                                count: 10,
+                                oid$eq: "203500010799",
+                                pid$eq: scope.ngModel
+                            };
+                            utils.ajax({
+                                method: 'GET',
+                                url: 'base/person',
+                                mockUrl: "plugins/vehicle/data/vehicleInfo.json",
+                                params: params
+                            }).then(function (res) {
+                                scope.form.titleMap = [];
+                                res.data.body.items.forEach(function (e) {
+                                    var item = {
+                                        value: e.pid,
+                                        name: e.cname
+                                    };
+                                    if (scope.form.relationfield) {
+                                        scope.form.relationfield.forEach(function (element) {
+                                            item[element.findfield] = e[element.findfield];
+                                        });
+                                    }
+                                    scope.form.titleMap.push(item);
+                                });
+                            });
+                        }
+                    };
+                    init();
+                    $scope.form.dialog = function () {
+                        ngDialog.open({
+                            className: 'ngdialog-theme-default dialog-people-selector',
+                            template: 'plugins/base/pages/people.selector.html',
+                            controller: function ($scope) {
+                                $scope.callback = function (justPersons, selects) {
+                                    if (justPersons.length > 0) {
+                                        justPersons.forEach(function (person) {
+                                            if (person.pid && person.cname) {
+                                                scope.ngModel = person.pid;
+                                                var item = {
+                                                    value: person.pid,
+                                                    name: person.cname
+                                                };
+                                                if (scope.form.relationfield) {
+                                                    scope.form.relationfield.forEach(function (element) {
+                                                        if (scope.$parent.model) {
+                                                            scope.$parent.model[element.tofield] = person[element.findfield];
+                                                        }
+                                                        else {
+                                                            scope.$parent.row.entity[element.tofield] = person[element.findfield];
+                                                        }
+                                                    });
+                                                }
+                                                scope.form.titleMap.push(item);
+                                                scope.ngModel = person.pid;
+                                            }
+                                        });
+                                        ngDialog.closeAll();
+                                    }
+                                    else {
+                                        ngDialog.closeAll();
+                                    }
+                                };
+                            }
+                        });
+                    };
+                }]
+        };
+    });
 
 //# sourceMappingURL=getperson.js.map
 
@@ -5276,41 +5276,41 @@ angular.module('app')
 
         }).directive('yesApplicationTree', function ($compile, $templateCache, $http) {
 
-            var walkChildren = function (tree, state) {
-                angular.forEach(tree, function (node) {
-                    node.selected = state;
-                    if (node.children) {
-                        walkChildren(node.children, state);
-                    }
-                });
-            };
-            
-            return {
-                restrict: 'EA',
-                scope: {
-                    nodes: "=",
-                    root: "=",
-                    hide: "=",
-                    initial: "=",
-                    onSelect: "="
-                },
-                //templateUrl: 'plugins/base/templates/role-tree.html',
-                //replace: true,
-                link: function (scope, element, attrs) {
-                    $http.get("plugins/base/directives/tree.application.html", {cache: $templateCache})
-                        .success(function (html) {
-                            scope.selectChanged = function (node, pd) {
-                            		if(pd || !node.children || !node.children.length){
-	                            		walkChildren(scope.initial,false);
-	                        			node.selected = true;
-	                        			scope.onSelect(node);
-                            		}
-                                };
-                            element.html('').append($compile(html)(scope));
-                        });
+        var walkChildren = function (tree, state) {
+            angular.forEach(tree, function (node) {
+                node.selected = state;
+                if (node.children) {
+                    walkChildren(node.children, state);
                 }
-            };
-        })
+            });
+        };
+
+        return {
+            restrict: 'EA',
+            scope: {
+                nodes: "=",
+                root: "=",
+                hide: "=",
+                initial: "=",
+                onSelect: "="
+            },
+            //templateUrl: 'plugins/base/templates/role-tree.html',
+            //replace: true,
+            link: function (scope, element, attrs) {
+                $http.get("plugins/base/directives/tree.application.html", {cache: $templateCache})
+                    .success(function (html) {
+                        scope.selectChanged = function (node, pd) {
+                            if(pd || !node.children || !node.children.length){
+                                walkChildren(scope.initial,false);
+                                node.selected = true;
+                                scope.onSelect(node);
+                            }
+                        };
+                        element.html('').append($compile(html)(scope));
+                    });
+            }
+        };
+    })
 })();
 'use strict';
 (function () {
@@ -5319,62 +5319,62 @@ angular.module('app')
 
         }).directive('yesOrganizationTree', function ($compile, $templateCache, $http) {
 
-            var walkChildren = function (tree, state) {
-                angular.forEach(tree, function (node) {
-                    node.selected = state;
-                    if (node.children) {
-                        walkChildren(node.children, state);
-                    }
-                });
-            };
-            
-            return {
-                restrict: 'EA',
-                scope: {
-                    nodes: "=",
-                    root: "=",
-                    hide: "=",
-                    initial: "=",
-                    onSelect: "=",
-                    multiple: "=",
-                    sortable: "=",
-                    sortOption: "="
-                },
-                //templateUrl: 'plugins/base/templates/role-tree.html',
-                //replace: true,
-                link: function (scope, element, attrs) {
-                	var template = "tree.organization.html";
-                	if(scope.sortable){
-                		template = "tree.organization.sortable.html";
-                	}
-                    $http.get("plugins/base/directives/"+template, {cache: $templateCache})
-                        .success(function (html) {
-                            scope.selectChanged = function (node, pd) {
-                            		if(pd || !node.children || !node.children.length){
-                            			if(scope.multiple){
-                            				node.selected = !node.selected;
-                            			}else{
-		                            		walkChildren(scope.initial,false);
-		                        			node.selected = true;
-                            			}
-	                        			scope.onSelect(node);
-                            		}
-                                };
-                            element.html('').append($compile(html)(scope));
-                            scope.showMoveIco = function(brothers){
-                            	brothers.forEach(function(item){
-                            		item.showMove = true;
-                            	});
-                            };
-                            scope.hideMoveIco = function(brothers){
-                            	brothers.forEach(function(item){
-                            		item.showMove = false;
-                            	});
-                            };
-                        });
+        var walkChildren = function (tree, state) {
+            angular.forEach(tree, function (node) {
+                node.selected = state;
+                if (node.children) {
+                    walkChildren(node.children, state);
                 }
-            };
-        })
+            });
+        };
+
+        return {
+            restrict: 'EA',
+            scope: {
+                nodes: "=",
+                root: "=",
+                hide: "=",
+                initial: "=",
+                onSelect: "=",
+                multiple: "=",
+                sortable: "=",
+                sortOption: "="
+            },
+            //templateUrl: 'plugins/base/templates/role-tree.html',
+            //replace: true,
+            link: function (scope, element, attrs) {
+                var template = "tree.organization.html";
+                if(scope.sortable){
+                    template = "tree.organization.sortable.html";
+                }
+                $http.get("plugins/base/directives/"+template, {cache: $templateCache})
+                    .success(function (html) {
+                        scope.selectChanged = function (node, pd) {
+                            if(pd || !node.children || !node.children.length){
+                                if(scope.multiple){
+                                    node.selected = !node.selected;
+                                }else{
+                                    walkChildren(scope.initial,false);
+                                    node.selected = true;
+                                }
+                                scope.onSelect(node);
+                            }
+                        };
+                        element.html('').append($compile(html)(scope));
+                        scope.showMoveIco = function(brothers){
+                            brothers.forEach(function(item){
+                                item.showMove = true;
+                            });
+                        };
+                        scope.hideMoveIco = function(brothers){
+                            brothers.forEach(function(item){
+                                item.showMove = false;
+                            });
+                        };
+                    });
+            }
+        };
+    })
 })();
 'use strict';
 (function () {
@@ -5383,48 +5383,48 @@ angular.module('app')
 
         }).directive('yesRoleTree', function ($compile, $templateCache, $http) {
 
-            var walkChildren = function (tree, state) {
-                angular.forEach(tree, function (node) {
-                    node.selected = state;
-                    if (node.children) {
-                        walkChildren(node.children, state);
-                    }
-                });
-            };
-
-            var walkParent = function (node, state) {
-                if (node && node.parentNode && state) {
-                    node.parentNode.selected = state;
-                    walkParent(node.parentNode, state);
+        var walkChildren = function (tree, state) {
+            angular.forEach(tree, function (node) {
+                node.selected = state;
+                if (node.children) {
+                    walkChildren(node.children, state);
                 }
-            };
+            });
+        };
 
-            return {
-                restrict: 'EA',
-                scope: {
-                    nodes: "=",
-                    root: "=",
-                    hide: "=",
-                    cantSelected: "="
-                },
-                //templateUrl: 'plugins/base/templates/role-tree.html',
-                //replace: true,
-                link: function (scope, element, attrs) {
-                    $http.get("plugins/base/directives/tree.roles.html", {cache: $templateCache})
-                        .success(function (html) {
-                            scope.selectChanged = scope.selectChanged || function (node) {
-                            		if(scope.cantSelected){
-	                                    node.selected = !node.selected; 
-                            		}else{
-                            			walkChildren(node.children, node.selected);
-	                                    walkParent(node, node.selected);
-                            		}
-                                };
-                            element.html('').append($compile(html)(scope));
-                        });
-                }
-            };
-        })
+        var walkParent = function (node, state) {
+            if (node && node.parentNode && state) {
+                node.parentNode.selected = state;
+                walkParent(node.parentNode, state);
+            }
+        };
+
+        return {
+            restrict: 'EA',
+            scope: {
+                nodes: "=",
+                root: "=",
+                hide: "=",
+                cantSelected: "="
+            },
+            //templateUrl: 'plugins/base/templates/role-tree.html',
+            //replace: true,
+            link: function (scope, element, attrs) {
+                $http.get("plugins/base/directives/tree.roles.html", {cache: $templateCache})
+                    .success(function (html) {
+                        scope.selectChanged = scope.selectChanged || function (node) {
+                            if(scope.cantSelected){
+                                node.selected = !node.selected;
+                            }else{
+                                walkChildren(node.children, node.selected);
+                                walkParent(node, node.selected);
+                            }
+                        };
+                        element.html('').append($compile(html)(scope));
+                    });
+            }
+        };
+    })
 })();
 (function () {
     'use strict';
@@ -5486,7 +5486,7 @@ angular.module('app')
                                         uploader.formData = [{'attachmentId': $scope.attachmentId}];
                                     });
                                 } else {
-                                	uploader.formData = [{'attachmentId': $scope.attachmentId}];
+                                    uploader.formData = [{'attachmentId': $scope.attachmentId}];
                                     utils.async("GET", settings.getByAttIdUrl, {"attId": $scope.attachmentId}).then(function (res) {
                                         $scope.items = res.data.body;
                                     });

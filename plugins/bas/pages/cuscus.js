@@ -10,8 +10,7 @@ define(function() {
             }
             scope.datapage = {
                 page: 0,
-                size: 20,
-                sort: "created,desc"
+                size: 20
             }
             scope.promise = null;
             scope.listUrl = "plugins/bas/templates/list.html";
@@ -121,7 +120,7 @@ define(function() {
                     },
                     tax_cal: {
                         type: "basLov",
-                        lovtype: "gettax",
+                        // lovtype: "gettax",
                         name: "tax_cal",
                         label: "稅額計算方式"
                     },
@@ -147,24 +146,19 @@ define(function() {
                 },
 
                 load: function() {
+
+                
+
                     scope.promise = utils.ajax({
                         method: 'POST',
-                        url: "popup/get_cus",
+                        url: `customer/query?page=${scope.datapage.page || 0}&size=${scope.datapage.size || 30} ${scope.datapage.sort ? `&sort=${scope.datapage.sort}` : ''}`,
                         mockUrl: "plugins/base/data/orderlines.json",
-                        data: {}
+                        data:{}
                     }).then(function(res) {
                         scope.model.content = res.data;
                     });
 
-                    // scope.promise = utils.ajax({
-                    //     method: 'POST',
-                    //     url: "bas/cuscus/query?page=" + scope.datapage.page + "&size=" + scope.datapage.size + "&sort=" + scope.datapage.sort,
-                    //     mockUrl: "plugins/base/data/orderlines.json",
-                    //     data: scope.filter
-                    // }).then(function(res) {
-                    //     console.log(res);
-                    //     scope.model = res.data.body;
-                    // });
+    
 
                 },
                 reset: function() {
@@ -176,7 +170,7 @@ define(function() {
                 changepage: function(page, size, sort) {
                     scope.datapage.page = page;
                     scope.datapage.size = size;
-                    scope.datapage.sort = sort;
+                    // scope.datapage.sort = sort;
                     scope.action.load();
                 },
                 rowclick: function(entity) {

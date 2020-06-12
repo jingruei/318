@@ -8,10 +8,6 @@ define(function() {
                 scope.uid = $rootScope.uid;
                 $rootScope.uid = "";
             };
-            if ($rootScope.cus_nbr) {
-                scope.cus_nbr = $rootScope.cus_nbr;
-                $rootScope.cus_nbr = "";
-            };
             scope.model = {
                 formstatus: "add" //edit,view
             };
@@ -104,238 +100,173 @@ define(function() {
                     schema: {
                         "type": "object",
                         "properties": {
-                            "cus_nbr": {
-                                "title": "客戶編號",
+                            "s_nbr": {
+                                "title": "員工編號",
                                 "type": "string"
                             },
-                            "big_key": {
-                                "title": "譯音碼",
-                                "type": "string"
-                            },
-                            "area_nbr": {
-                                "title": "地區名稱",
-                                "type": "string"
-                            },
-                            "cus_alias": {
-                                "title": "客戶簡稱",
-                                "type": "string"
-                            },
-                            "cus_name": {
-                                "title": "客戶名稱",
-                                "type": "string"
-                            },
-                            "cus_addr": {
-                                "title": "客戶地址",
-                                "type": "string"
-                            },
-                            "sen_addr": {
-                                "title": "送貨地址",
-                                "type": "string"
-                            },
-                            "ivc_addr": {
-                                "title": "发票地址",
-                                "type": "string"
-                            },
-                            "email_addr": {
-                                "title": "E-MAIL地址",
+                            "s_name": {
+                                "title": "員工姓名",
                                 "type": "string"
                             },
                             "eng_name": {
-                                "title": "英文名稱",
+                                "title": "英文姓名",
                                 "type": "string"
                             },
-                            "addr_e": {
-                                "title": "英文地址",
+                            "sex": {
+                                "title": "姓別",
                                 "type": "string"
                             },
-                            "cus_gun": {
-                                "title": "統一編號",
+                            "s_id": {
+                                "title": "身分證字號",
                                 "type": "string"
                             },
-                            "cus_fax": {
-                                "title": "傳真機號碼",
+                            "n_name": {
+                                "title": "籍貫",
                                 "type": "string"
                             },
-                            "attname": {
-                                "title": "負責人",
+                            "group_nbr": {
+                                "title": "組別",
                                 "type": "string"
                             },
-                            "oew_amt": {
-                                "title": "資本額",
-                                "type": "number"
-                            },
-                            "acc_amt": {
-                                "title": "年營業額",
-                                "type": "number"
-                            },
-                            "beg_date": {
-                                "title": "創立日期",
+                            "birthday": {
+                                "title": "出生日期",
                                 "type": "datePicker"
                             },
-                            "remark1": {
-                                "title": "訂貨習慣",
+                            "marry": {
+                                "title": "婚姻",
                                 "type": "string"
                             },
-                            "remark2": {
-                                "title": "客戶評等",
+                            "addr1": {
+                                "title": "戶籍地址",
                                 "type": "string"
                             },
-                            "remark3": {
-                                "title": "廠商性質",
+                            "tel1": {
+                                "title": "電話1",
                                 "type": "string"
                             },
-                            "remark4": {
-                                "title": "廠商類別",
+                            "addr2": {
+                                "title": "通訊地址",
                                 "type": "string"
                             },
-                            "remark5": {
-                                "title": "開发票方式",
+                            "tel2": {
+                                "title": "電話2",
                                 "type": "string"
                             },
-                            "remark6": {
-                                "title": "業種別",
+                            "callphone": {
+                                "title": "行動電話",
                                 "type": "string"
                             },
-                            "remark7": {
-                                "title": "收款方式",
-                                "type": "string"
-                            },
-                            "pay_term": {
-                                "title": "交易方式",
-                                "type": "string"
-                            },
-                            "tax_type": {
-                                "title": "稅別",
-                                "type": "string"
-                            },
-                            "days": {
-                                "title": "月結日",
-                                "type": "string"
-                            },
-                            "days1": {
-                                "title": "付票票期",
-                                "type": "number"
-                            },
-                            "days2": {
-                                "title": "請款日",
-                                "type": "number"
-                            },
-                            "days3": {
-                                "title": "付款日",
-                                "type": "number"
-                            },
-                            "ddate": {
-                                "title": "開始交易日",
+                            "chgdate": {
+                                "title": "異動日期",
                                 "type": "datePicker"
                             },
-                            "sale_inv": {
-                                "title": "營業項目",
-                                "type": "string"
+                            "redate": {
+                                "title": "到職日期",
+                                "type": "datePicker"
                             },
-                            "cus_lev": {
-                                "title": "單價等級",
-                                "type": "string"
+                            "oudate": {
+                                "title": "離職日期",
+                                "type": "datePicker"
                             },
-                            "sale_nbr": {
-                                "title": "業務員",
-                                "type": "string"
+                            "indate1": {
+                                "title": "投保日期",
+                                "type": "datePicker"
                             },
-                            "tot_amt": {
-                                "title": "授信額度",
+                            "sudate1": {
+                                "title": "退保日期",
+                                "type": "datePicker"
+                            },
+                            "surance1": {
+                                "title": "勞保薪資",
                                 "type": "number"
                             },
-                            "remark": {
-                                "title": "備注",
+                            "sur1_amt": {
+                                "title": "勞保費",
                                 "type": "string"
                             },
-                            "l_update": {
-                                "title": "最近異動日期",
+                            "indate3": {
+                                "title": "投保日期",
                                 "type": "datePicker"
                             },
-                            "l_shpdate": {
-                                "title": "最近交易日期",
+                            "sudate3": {
+                                "title": "退保日期",
                                 "type": "datePicker"
                             },
-
-                            "m_date": {
-                                "title": "嘜頭最後編輯日期",
-                                "type": "datePicker"
-                            },
-                            "logtype": {
-                                "title": "嘜頭LOG圖形",
-                                "type": "string"
-                            },
-                            "logtxt": {
-                                "title": "嘜頭LOG文字",
-                                "type": "string"
-                            },
-                            "fmiltle": {
-                                "title": "正嘜頭",
-                                "type": "string"
-                            },
-                            "dmiltle": {
-                                "title": "側嘜頭",
-                                "type": "string"
-                            },
-                            "cellphone": {
-                                "title": "大哥大",
-                                "type": "string"
-                            },
-                            "acounter": {
-                                "title": "會計",
-                                "type": "string"
-                            },
-                            "a_tel": {
-                                "title": "電話3",
-                                "type": "string"
-                            },
-                            "a_oth": {
-                                "title": "分機3",
-                                "type": "string"
-                            },
-                            "http": {
-                                "title": "網站",
-                                "type": "string"
-                            },
-                            "mail_nbr": {
-                                "title": "郵遞區號",
-                                "type": "string"
-                            },
-                            "mail_no1": {
-                                "title": "郵遞區號",
-                                "type": "string"
-                            },
-                            "mail_no2": {
-                                "title": "郵遞區號",
-                                "type": "string"
-                            },
-                            "shp_desc": {
-                                "title": "業務性質",
-                                "type": "string"
-                            },
-                            "shp_1": {
-                                "title": "業務說明",
-                                "type": "string"
-                            },
-                            "service_tp": {
-                                "title": "服務別",
-                                "type": "string"
-                            },
-                            "tax_cal": {
-                                "title": "稅額計算方式",
+                            "sur3_amt": {
+                                "title": "團保費",
                                 "type": "number"
+                            },
+                            "in_nbr": {
+                                "title": "保卡號碼",
+                                "type": "string"
+                            },
+                            "post": {
+                                "title": "郵局局號",
+                                "type": "string"
+                            },
+                            "post_id": {
+                                "title": "郵局帳號",
+                                "type": "string"
+                            },
+                            "isman": {
+                                "title": "役畢",
+                                "type": "string"
+                            },
+                            "r_nbr": {
+                                "title": "學歷",
+                                "type": "string"
+                            },
+                            "school": {
+                                "title": "學校",
+                                "type": "string"
+                            },
+                            "subject": {
+                                "title": "科系",
+                                "type": "string"
+                            },
+                            "year_end": {
+                                "title": "畢業年月",
+                                "type": "string"
+                            },
+                            "sch_end": {
+                                "title": "畢業肄業",
+                                "type": "string"
+                            },
+                            "error": {
+                                "title": "身分證錯誤註記",
+                                "type": "string"
+                            },
+                            "towork": {
+                                "title": "到職情況",
+                                "type": "string"
+                            },
+                            "cname": {
+                                "title": "聯絡人",
+                                "type": "string"
+                            },
+                            "photo": {
+                                "title": "相片",
+                                "type": "string"
+                            },
+                            "b_nbr": {
+                                "title": "銀行代號",
+                                "type": "string"
+                            },
+                            "bank_code": {
+                                "title": "銀行帳號",
+                                "type": "datePicker"
                             }
-
                         }
                     },
                     form: [{
-                            title: "基本信息",
+                            title: "基本訊息",
                             type: "region",
                             css: "max-4",
                             items: [{
-                                    title: "客戶編號",
-                                    key: 'cus_nbr',
-                                    placeholder: "空白自動產生",
+                                    title: "員工編號",
+                                    key: 's_nbr',
+                                    required: true,
+                                    // placeholder: "空白自動產生",
                                     editstatus: {
                                         relation: "and",
                                         filedlist: [
@@ -345,7 +276,7 @@ define(function() {
                                     type: 'basString'
                                 },
                                 {
-                                    title: "客戶名稱",
+                                    title: "員工姓名",
                                     required: true,
                                     editstatus: {
                                         relation: "and",
@@ -353,14 +284,13 @@ define(function() {
                                             { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
                                         ]
                                     },
-                                    key: 'cus_name',
-                                    css: "cell2",
+                                    key: 's_name',
                                     type: 'basString'
                                 },
                                 {
-                                    title: "客戶簡稱",
+                                    title: "身分證號碼",
                                     required: true,
-                                    key: 'cus_alias',
+                                    key: 's_id',
                                     editstatus: {
                                         relation: "and",
                                         filedlist: [
@@ -370,8 +300,8 @@ define(function() {
                                     type: 'basString'
                                 },
                                 {
-                                    title: "譯音碼",
-                                    key: 'big_key',
+                                    title: "籍貫",
+                                    key: 'n_name',
                                     editstatus: {
                                         relation: "and",
                                         filedlist: [
@@ -381,31 +311,34 @@ define(function() {
                                     type: 'basString'
                                 },
                                 {
-                                    title: "負責人",
-                                    key: 'attname',
+                                    title: "出生年月日",
+                                    key: 'birthday',
                                     editstatus: {
                                         relation: "and",
                                         filedlist: [
                                             { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
                                         ]
                                     },
-                                    type: 'basString'
+                                    type: 'date-picker'
                                 },
-                                //T
                                 {
                                     title: "組別",
                                     key: 'group_nbr',
                                     editstatus: {
                                         relation: "and",
                                         filedlist: [
-                                            { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
+                                            { field: "formstatus", status: "add,edit" } //表单为新增，修改状态
                                         ]
                                     },
-                                    type: 'basString'
+                                    onchange: function(item) {
+                                        console.log(item)
+                                    },
+                                    type: 'basLov',
+                                    lovtype: 'getgroup'
                                 },
                                 {
-                                    title: "主辦會計",
-                                    key: 'attname3',
+                                    title: "電話",
+                                    key: 'tel1',
                                     editstatus: {
                                         relation: "and",
                                         filedlist: [
@@ -415,8 +348,32 @@ define(function() {
                                     type: 'basString'
                                 },
                                 {
-                                    title: "稱謂",
-                                    key: 'call1',
+                                    title: "戶籍地址",
+                                    key: 'addr1',
+                                    editstatus: {
+                                        relation: "and",
+                                        filedlist: [
+                                            { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
+                                        ]
+                                    },
+                                    css: "cell2",
+                                    type: 'basString'
+                                },
+                                {
+                                    title: "通訊地址",
+                                    key: 'addr2',
+                                    editstatus: {
+                                        relation: "and",
+                                        filedlist: [
+                                            { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
+                                        ]
+                                    },
+                                    css: "cell2",
+                                    type: 'basString'
+                                },
+                                {
+                                    title: "手機",
+                                    key: 'callphone',
                                     editstatus: {
                                         relation: "and",
                                         filedlist: [
@@ -425,382 +382,50 @@ define(function() {
                                     },
                                     type: 'basString'
                                 },
-                            ]
-                        },
-                        {
-                            title: "基本訊息",
-                            type: "tabs",
-                            css: "max-4",
-                            tabs: [{
-                                    title: "基本資料",
-                                    items: [
-                                        {
-                                            title: "客戶電話1",
-                                            key: 'cus_tel',
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            type: 'basString'
-                                        },
-                                        {
-                                            title: "分機1",
-                                            key: 'cus_oth',
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            type: 'basString'
-                                        },
-                                        {
-                                            title: "營業項目",
-                                            key: 'sale_inv',
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            css: "cell2",
-                                            type: 'basString'
-                                        },
-                                        {
-                                            title: "手機",
-                                            key: 'cellphone',
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            type: 'basString'
-                                        },
-                                        {
-                                            title: "傳真機號碼",
-                                            key: 'cus_fax',
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            type: 'basString'
-                                        },
-                                        //T
-                                        {
-                                            title: "稅籍編號",
-                                            key: 'tax_nbr',
-                                            readonly: true,
-                                            type: 'basString'
-                                        },
-                                        {
-                                            title: "稽徵機關代號",
-                                            key: 'chk_nbr',
-                                            readonly: true,
-                                            type: 'basString'
-                                        },
-                                        {
-                                            title: "統一編號",
-                                            key: 'cus_gun',
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            type: 'basString'
-                                        },
-                                        {
-                                            title: "業務性質",
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            key: 'shp_desc',
-                                            css: "cell100",
-                                            type: 'basLovm',
-                                            lovtype: "getword"
-                                        }
-                                        
-
-                                    ]
+                                {
+                                    title: "緊急聯絡人",
+                                    key: 'cname',
+                                    editstatus: {
+                                        relation: "and",
+                                        filedlist: [
+                                            { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
+                                        ]
+                                    },
+                                    type: 'basString'
                                 },
                                 {
-                                    title: "稅務服務1",
-                                    items: [
-                                        {
-                                            title: "是否提供購買發票服務",
-                                            type: "basRadiosinline",
-                                            key: 'buy_invo',
-                                            titleMap: [
-                                                { value: "1", name: "是" },
-                                                { value: "2", name: "否，自行購買" }
-                                            ],
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                        },
-                                        //T
-                                        {
-                                            title: "每期幾日前送交",
-                                            key: 'day4',
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            type: "basString"
-                                        },
-                                        {
-                                            title: "每期憑證收取方式",
-                                            key: 'tax_get',
-                                            titleMap: [
-                                                { value: 1, name: "客戶寄來或送來" },
-                                                { value: 2, name: "親自收取" },
-                                                { value: 3, name: "不一定" }
-                                            ],
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表单为新增，修改状态
-                                                ]
-                                            },
-                                            type: 'basLov',
-                                            lovtype: "select"
-                                        },
-                                        {
-                                            title: "每期憑證收取日期",
-                                            key: 'vou_day',
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            type: "basString"
-                                        },
-                                        {
-                                            title: "營業稅申報方式",
-                                            key: 'sal_tax',
-                                            titleMap: [
-                                                { value: 1, name: "401" },
-                                                { value: 2, name: "403" },
-                                                { value: 3, name: "直接扣抵法" },
-                                                { value: 4, name: "間接扣抵法" },
-                                                { value: 5, name: "按月" },
-                                                { value: 6, name: "按期" },
-                                            ],
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表单为新增，修改状态
-                                                ]
-                                            },
-                                            type: 'basLov',
-                                            lovtype: "select"
-                                        },
-                                        {
-                                            title: "發票開立方式",
-                                            key: 'mak_invo',
-                                            titleMap: [
-                                                { value: 1, name: "手開" },
-                                                { value: 2, name: "收銀機" },
-                                                { value: 3, name: "電子計算機" },
-                                                { value: 4, name: "電子發票" },
-                                            ],
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表单为新增，修改状态
-                                                ]
-                                            },
-                                            type: 'basLov',
-                                            lovtype: "select"
-                                        },
-                                        {
-                                            title: "營利事業所得稅結算申報方式",
-                                            key: 'set_ment',
-                                            titleMap: [
-                                                { value: 1, name: "書審" },
-                                                { value: 2, name: "成本逕決" },
-                                                { value: 3, name: "查帳" },
-                                                { value: 4, name: "簽證" },
-                                                { value: 5, name: "其它" },
-                                            ],
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表单为新增，修改状态
-                                                ]
-                                            },
-                                            type: 'basLov',
-                                            lovtype: "select"
-                                        },
-
-                                    ]
+                                    title: "到職日期",
+                                    key: 'redate',
+                                    editstatus: {
+                                        relation: "and",
+                                        filedlist: [
+                                            { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
+                                        ]
+                                    },
+                                    type: 'date-picker'
                                 },
                                 {
-                                    title: "稅務服務2",
-                                    items: [
-                                        {
-                                            title: "特殊交易問題",
-                                            key: 'spe_que',
-                                            css: "cell100",
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            type: 'basTextarea'
-                                        },
-                                    ]
+                                    title: "時薪",
+                                    key: 'hour',
+                                    editstatus: {
+                                        relation: "and",
+                                        filedlist: [
+                                            { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
+                                        ]
+                                    },
+                                    type: 'basString'
                                 },
                                 {
-                                    title: "稅務服務3",
-                                    items: [
-                                        {
-                                            title: "營業稅",
-                                            key: 'note_sal',
-                                            css: "cell100",
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            type: 'basTextarea'
-                                        },
-                                        {
-                                            title: "帳務",
-                                            key: 'note_acc',
-                                            css: "cell100",
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            type: 'basTextarea'
-                                        },
-                                        {
-                                            title: "扣繳",
-                                            key: 'note_acc1',
-                                            css: "cell100",
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            type: 'basTextarea'
-                                        },
-                                        {
-                                            title: "所得稅",
-                                            key: 'note_sal1',
-                                            css: "cell100",
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            type: 'basTextarea'
-                                        }
-                                    ]
-                                },
-                                {
-                                    title: "聯絡人",
-                                    items:[{}]
-                                },
-                                {
-                                    title: "地址/備註",
-                                    items: [{
-                                            title: "登記地址",
-                                            key: 'cus_addr',
-                                            css: "cell2",
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            type: 'basString'
-                                        },
-                                        {
-                                            title: "聯絡地址",
-                                            css: "cell2",
-                                            key: 'sen_addr',
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            type: 'basString'
-                                        },
-                                        {
-                                            title: "郵遞區號",
-                                            key: 'mail_no1',
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            type: 'basString'
-                                        },
-                                        {
-                                            title: "E-MAIL地址",
-                                            key: 'email_addr',
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            type: 'basString'
-                                        },
-                                        {
-                                            title: "網站",
-                                            css: "cell2",
-                                            key: 'http',
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            type: 'basString'
-                                        },
-                                        {
-                                            title: "備註",
-                                            key: 'remark',
-                                            css: "cell100",
-                                            editstatus: {
-                                                relation: "and",
-                                                filedlist: [
-                                                    { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
-                                                ]
-                                            },
-                                            type: 'basTextarea'
-                                        }
-
-
-
-                                    ]
-                                },
-                               
+                                    title: "勞保生效日",
+                                    key: 'indate1',
+                                    editstatus: {
+                                        relation: "and",
+                                        filedlist: [
+                                            { field: "formstatus", status: "add,edit" } //表單為新增，修改狀態
+                                        ]
+                                    },
+                                    type: 'date-picker'
+                                }
                             ]
                         }
                     ],
@@ -808,14 +433,10 @@ define(function() {
             };
             scope.action = {
                 add: function(event) {
-                    scope.model = {
-                        formstatus: "add", //edit,view
-                        coin_nbr: sysconstant.SYS_COIN,
-                        tax_type: sysconstant.SYS_TAX,
-                        pay_term: sysconstant.SYS_PAY,
-                        days: 25,
-                    }
                     $scope.$broadcast('schemaFormRedraw');
+                    scope.model = {
+                        formstatus: "add" //edit,view
+                    }
                 },
                 edit: function() {
                     scope.model.formstatus = "edit"
@@ -825,7 +446,7 @@ define(function() {
                     dialog.confirm('確定刪除當前數據?').then(function() {
                         scope.promise = utils.ajax({
                             method: 'DELETE',
-                            url: "bas/cuscus/" + scope.model.uid,
+                            url: `staff/${scope.model.uid}`,
                             mockUrl: "plugins/data/cuscus.detail.json"
                         }).then(function(res) {
                             toastr.info("數據刪除成功!!!");
@@ -848,30 +469,14 @@ define(function() {
                     scope.model.formstatus = "view";
                 },
                 load: function() {
-                    if (scope.cus_nbr) {
+                    if (scope.uid) {
                         scope.promise = utils.ajax({
                             method: 'GET',
-                            url: "bas/cuscus/getbycusnbr/" + scope.cus_nbr,
-                            mockUrl: "plugins/data/cuscus.detail.json"
+                            url: `staff/${scope.uid}`,
+                            mockUrl: "plugins/data/baswar.detail.json"
                         }).then(function(res) {
                             var data = res.data;
-                            scope.model = data.body;
-                            scope.model.formstatus = "view";
-                            for (var p in scope.model) {
-                                if (scope.model[p] === null) {
-                                    delete scope.model[p];
-                                }
-                            }
-                            scope.bakmodel = angular.copy(scope.model);
-                        });
-                    } else if (scope.uid) {
-                        scope.promise = utils.ajax({
-                            method: 'GET',
-                            url: "bas/cuscus/" + scope.uid,
-                            mockUrl: "plugins/data/cuscus.detail.json"
-                        }).then(function(res) {
-                            var data = res.data;
-                            scope.model = data.body;
+                            scope.model = data;
                             scope.model.formstatus = "view";
                             for (var p in scope.model) {
                                 if (scope.model[p] === null) {
@@ -881,9 +486,8 @@ define(function() {
                             scope.bakmodel = angular.copy(scope.model);
                         });
                     } else {
-                        scope.action.add();
+                        scope.bakmodel = angular.copy(scope.model);
                     }
-
                 },
                 save: function(event, form) {
                     for (var p in scope.model) {
@@ -899,14 +503,15 @@ define(function() {
                     var type = scope.model.uid ? "edit" : "add";
                     var bakstatus = scope.model.formstatus
                     scope.model.formstatus = "read";
+
+                    console.log('staff Save Model =>', scope.model)
                     scope.promise = utils.ajax({
                         method: "POST",
-                        url: "bas/cuscus",
+                        url: "staff",
                         mockUrl: "plugins/data/cuscus.detail.json",
                         data: scope.model
                     }).then(function(res) {
-                        scope.cus_nbr = "";
-                        scope.uid = res.data.body.uid
+                        scope.uid = res.data.uid
                         if (type == "add") {
                             toastr.info("新增成功！");
                         } else {

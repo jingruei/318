@@ -349,11 +349,10 @@ angular.module('app').controller('app.master',
             $scope.menu = {};
             utils.ajax({
                 url: 'plugins/$default/data/menus.json',
-                // url: 'menus?type=suball',
+                // url: 'menus',
                 mockUrl: 'plugins/$default/data/menus.json'
             }).then(
                 function(res) {
-
                     var temp = [];
                     var items = res.data.body.docs || res.data.body.items || res.data.body;
                     items.forEach(function(item) {
@@ -427,11 +426,13 @@ angular.module('app').controller('app.master',
             },
             logout: function() {
                 utils.ajax({
-                    url: "logout"
+                    url: "ping"
                 }).then(function(res) {
+                    console.log('登出前',localStorage);
+                    
                     localStorage.removeItem("displayName");
-                    //$location.path("/login");
-                    location.reload();
+                    $location.path("/login");
+                    // location.reload();
                 }, function(error) {
                     location.reload();
                 });

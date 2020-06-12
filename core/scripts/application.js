@@ -12,6 +12,8 @@
                 }
             }
 
+            
+
             settings.templates = angular.extend({
                 'masterPage': 'plugins/' + settings.pluginDefaultName + '/pages/master.html', //根布局母模版
                 'login': 'plugins/' + settings.pluginDefaultName + '/pages/login.html', //登录页面模版
@@ -38,7 +40,6 @@
                     ]
                 },
                 'app.home': {
-
                     url: '/home',
                     views: {
                         "content": {
@@ -145,7 +146,6 @@
             function initRouters(settings, $stateProvider, $urlRouterProvider) {
                 if (settings.routers) {
                     angular.forEach(settings.routers, function (route, name) {
-
                         if (route.dependencies) {
                             route.resolve = resolves(route.dependencies);
                         }

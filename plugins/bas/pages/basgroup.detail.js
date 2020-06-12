@@ -2,7 +2,7 @@ define(function() {
     angular.module('app').controller('bas.basgroup.detail',
         function($rootScope, $scope, $location, utils, path, getSingleView, settings,
             $timeout, dialog, toastr, ngDialog, uiGridConstants, qwsys) {
-            var scope = $scope;
+            let scope = $scope;
             scope.uid = "";
             if ($rootScope.uid) {
                 scope.uid = $rootScope.uid;
@@ -29,7 +29,7 @@ define(function() {
                         }
                     },
                     save: {
-                        name: "保存",
+                        name: "存檔",
                         icon: "fa-save",
                         editstatus: {
                             relation: "and",
@@ -161,7 +161,7 @@ define(function() {
                     dialog.confirm('確定刪除當前數據?').then(function() {
                         scope.promise = utils.ajax({
                             method: 'DELETE',
-                            url: "bas/baswar/" + scope.model.uid,
+                            url: `group/${scope.model.uid}`,
                             mockUrl: "plugins/data/baswar.detail.json"
                         }).then(function(res) {
                             toastr.info("數據刪除成功!!!");
@@ -187,7 +187,7 @@ define(function() {
                     if (scope.uid) {
                         scope.promise = utils.ajax({
                             method: 'GET',
-                            url: "bas/baswar/" + scope.uid,
+                            url: `group/${scope.uid}`,
                             mockUrl: "plugins/data/baswar.detail.json"
                         }).then(function(res) {
                             var data = res.data;
@@ -221,11 +221,11 @@ define(function() {
                     scope.model.formstatus = "read";
                     scope.promise = utils.ajax({
                         method: "POST",
-                        url: "bas/baswar",
+                        url: "group",
                         mockUrl: "plugins/data/baswar.detail.json",
                         data: scope.model
                     }).then(function(res) {
-                        scope.uid = res.data.body.uid
+                        scope.uid = res.data.uid
                         if (type == "add") {
                             toastr.info("新增成功！");
                         } else {
