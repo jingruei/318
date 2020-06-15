@@ -66,7 +66,7 @@ define(function() {
                         data:scope.filter,
                         useJWT:true
                     }).then(function(res) {
-                        scope.model.content = res.data;
+                        scope.model = res.data;
                     });
 
                 },

@@ -2,7 +2,7 @@
     <section class="list-view ngdialog-content-wrap">
         <div ng-hide="!config.listoperation" class="operation" style="float: right; z-index: 1; margin-bottom: 1px; margin-top: 0px;">
 
-            <button class="btn btn-primary querybutton" type="button" ng-click="action.load();findmore=false;"><i class="fa fa-search"></i> 查询</button>
+            <button class="btn btn-primary querybutton" type="button" ng-click="action.load();findmore=false;"><i class="fa fa-search"></i> 查詢</button>
             <button class="btn btn-primary querybutton" type="button" ng-click="action.reset();"><i class="fa fa-undo"></i> 重置</button>
             <button ng-show="config.filtermoreItems" ng-init="findmore=false" ng-click="findmore=!findmore" class="btn btn-primary querybutton" type="button" ng-click="action.load();"><i class="fa fa-indent"></i> 更多</button>
             <button type="button" ng-click="isCollapsed=!isCollapsed" style=" border: none; background: none;"><i class="fa fa-chevron-up click" ng-class="{'fa-chevron-down':isCollapsed}"></i></button>
@@ -10,7 +10,7 @@
 
         <div ng-show="!config.listoperation" class="operation" style="text-align: left;">
 
-            <button class="btn btn-primary querybutton" type="button" ng-click="action.load();findmore=false;"><i class="fa fa-search"></i> 查询</button>
+            <button class="btn btn-primary querybutton" type="button" ng-click="action.load();findmore=false;"><i class="fa fa-search"></i> 查詢</button>
             <button class="btn btn-primary querybutton" type="button" ng-click="action.reset();"><i class="fa fa-undo"></i> 重置</button>
             <button ng-show="config.filtermoreItems" ng-init="findmore=false" ng-click="findmore=!findmore" class="btn btn-primary querybutton" type="button" ng-click="action.load();"><i class="fa fa-indent"></i> 更多</button>
             <button type="button" ng-click="isCollapsed=!isCollapsed" style="float:right; border: none; background: none;"><i class="fa fa-chevron-up click" ng-class="{'fa-chevron-down':isCollapsed}"></i></button>
@@ -24,18 +24,18 @@
         <div ng-init="isCollapsed=true" ng-show="isCollapsed" style="background-color: #FFFFCC;">
             <form name="query" ng-submit="action.load();findmore=false;" class="list-queries query-form base-form ">
 
-                <!--过滤部分-->
+                <!--過濾部分-->
                 <div style="position: relative;">
                     <layout-responsive class="max-6">
                         <ui-query ng-keypress="($event.which === 13)?action.load():0" ng-repeat="cf in config.filterItems" ng-model="filter" option="cf" class="query-item form-cells cell {{cf.css}}"></ui-query>
                     </layout-responsive>
                 </div>
 
-                <!--更多过滤-->
+                <!--更多過濾-->
                 <div ng-show="config.filtermoreItems" class="find-more" ng-class="{'show-more':findmore} " style="width: 370px;height: 420px;    padding: 10px;    padding-bottom: 0px;">
                     <div class="moreTitle">
                         <div class="moreTitlel">
-                            <a>高级搜索</a>
+                            <a>高級搜索</a>
                         </div>
                         <div class="moreTitler">
                             <div class="operation">
@@ -55,7 +55,7 @@
 
         <!--
         </div>-->
-        <div id='cgbusy' cg-busy="{promise:promise,templateUrl:'',message:loadmessage?loadmessage:'页面加载中..',backdrop:true,delay:0,minDuration:0}">
+        <div id='cgbusy' cg-busy="{promise:promise,templateUrl:'',message:loadmessage?loadmessage:'頁面加載中..',backdrop:true,delay:0,minDuration:0}">
             <div gridcol-control ng-model="model" model="filter" form="config">
                 <list-grid headers="config.headers" row-dblclick="action.rowclick;" onchangepage="action.changepage" resource="model" grid-api="config.gridApi" grid-key="config.gridkey" on-hovered-index-change="config.onHoveredIndexChange" sortable="config.sortable"
                     gridheight="config.gridheight"></list-grid>

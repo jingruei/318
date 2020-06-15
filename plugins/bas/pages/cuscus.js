@@ -155,7 +155,7 @@ define(function() {
                         mockUrl: "plugins/base/data/orderlines.json",
                         data:{}
                     }).then(function(res) {
-                        scope.model.content = res.data;
+                        scope.model=res.data;
                     });
 
     

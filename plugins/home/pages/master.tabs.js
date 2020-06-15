@@ -348,11 +348,13 @@ angular.module('app').controller('app.master',
         $scope.load = function() {
             $scope.menu = {};
             utils.ajax({
-                url: 'plugins/$default/data/menus.json',
+                'method': "GET",
                 // url: 'menus',
+                url: 'plugins/$default/data/menus.json',
                 mockUrl: 'plugins/$default/data/menus.json'
             }).then(
                 function(res) {
+                    console.log('menus',res.data);
                     var temp = [];
                     var items = res.data.body.docs || res.data.body.items || res.data.body;
                     items.forEach(function(item) {
@@ -428,7 +430,7 @@ angular.module('app').controller('app.master',
                 utils.ajax({
                     url: "ping"
                 }).then(function(res) {
-                    console.log('登出前',localStorage);
+                    // console.log('登出前',localStorage);
                     
                     localStorage.removeItem("displayName");
                     $location.path("/login");

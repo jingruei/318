@@ -1806,7 +1806,9 @@ angular.module('app')
                                             if (res.data.length > 0) {
                                                 $rootScope[rootmap] = [{ value: "", name: "重置" }];
                                             }
-                                            res.data.forEach(function(e) {
+                                            
+                                            
+                                            res.data.content.forEach(function(e) {
                                                 if (e) {
                                                     e.value = e[scope.config.showField.valueField];
                                                     e.name = e[scope.config.showField.nameField];

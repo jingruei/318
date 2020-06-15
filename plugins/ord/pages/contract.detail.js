@@ -254,7 +254,8 @@ define(function () {
                             {
                                 title: "合約年度",
                                 key: 'cont_year',
-                                type: 'basDefault',
+                                type: "basEsydatetime",
+                                format: "YYYYMM",
                                 lovtype: ''
                             },
                             {
@@ -355,7 +356,8 @@ define(function () {
                                             {field: "formstatus", status: "view"}, //表單新增狀態
                                         ]
                                     },
-                                    type: 'basDefault',
+                                    type: "basEsydatetime",
+                                    format: "YYYYMM",
                                     width: 110
                                 },
                                 "desc": {

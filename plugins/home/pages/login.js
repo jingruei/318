@@ -74,7 +74,8 @@
                     }).then(function (res) {
                         console.log('login',res);
                         var data = res.data;
-                        localStorage.setItem("displayName", data['displayName'] || data['name'] || data['token']);
+                        localStorage.setItem("displayName", data['displayName'] || data['name']);
+                        localStorage.setItem("JWT", data['token']);
                         // localStorage.setItem("token", data['token']);
                         var hash = decodeURIComponent($location.search()["return"]);
                         
