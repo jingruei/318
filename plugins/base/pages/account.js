@@ -4,22 +4,22 @@ define(['plugins/base/pages/account.config', 'plugins/base/pages/account.detail'
             function($scope, $rootScope, utils, path, getBaseView, settings, $translate,
                 $timeout, dialog, toastr) {
 
-                var scope = getBaseView($scope, 'plugins/base/pages/account.detail.html'); //虚拟继承基础的view.
-                scope.loadSubMenus("all"); //告诉母版页面加载左侧菜单。
+                var scope = getBaseView($scope, 'plugins/base/pages/account.detail.html'); //虛擬繼承基礎的view.
+                scope.loadSubMenus("all"); //告訴母版頁面加載左側菜單。
                 scope.promise = null;
                 /**
-                 * 所有页面要绑定的
+                 * 所有頁面要綁定的
                  */
                 scope.binds = function() {
 
                     /**
-                     * 声明查询过滤条件字段
+                     * 聲明查詢過濾條件字段
                      * @type {{}}
                      */
                     scope.filter = {};
 
                     /**
-                     * 表格设置
+                     * 表格設置
                      */
                     scope.gridOptions = angular.extend({
                         data: 'entries',
@@ -46,7 +46,7 @@ define(['plugins/base/pages/account.config', 'plugins/base/pages/account.detail'
                                 //localStorage.setItem(gridKey + "_grid", cols);
                             });
                         },
-                        appScopeProvider: { //行模版内的事件定义
+                        appScopeProvider: { //行模版內的事件定義
                             onDblClick: function(event, row) {
                                 if (row && row.entity)
                                     scope.loadDetail(row.entity);
@@ -64,22 +64,22 @@ define(['plugins/base/pages/account.config', 'plugins/base/pages/account.detail'
                     }, settings.uiGrid);
 
                     /**
-                     * 绑定列表的操作按钮渲染绑定
+                     * 綁定列表的操作按鈕渲染綁定
                      * @type {{add: {name: string, icon: string}, edit: {name: string, icon: string, action: Function}, del: {name: string, icon: string, action: Function}, enable: {name: string, icon: string, action: Function}, disable: {name: string, icon: string, action: Function}, unlock: {name: string, icon: string, action: Function}}}
                      */
                     scope.listOperations = config.listOperations;
 
                     /**
-                     * 表格列定义
+                     * 表格列定義
                      * @type {{name: {displayName: string, minWidth: number, maxWidth: number}, aid: {displayName: string, minWidth: number, maxWidth: number}, displayName: {displayName: string, minWidth: number, maxWidth: number}, email: {displayName: string, minWidth: number, maxWidth: number}, enable: {displayName: string, minWidth: number, maxWidth: number, cellTemplate: string}, type: {displayName: string, minWidth: number, maxWidth: number}, password: {displayName: string, minWidth: number, maxWidth: number, visible: boolean}, activeCode: {displayName: string, minWidth: number, maxWidth: number}, mobile: {displayName: string, minWidth: number}}}
                      */
                     scope.headers = config.headers;
 
 
                     /**
-                     * 绑定查询字段
+                     * 綁定查詢字段
                      * @type {*[]}
-                     * 对于需要数组的配置都定义成对象配置方式,这样容易定位,代码容易折叠收起
+                     * 對於需要數組的配置都定義成對象配置方式,這樣容易定位,代碼容易折疊收起
                      */
                     scope.filterItems = config.filterItems;
 
@@ -95,13 +95,13 @@ define(['plugins/base/pages/account.config', 'plugins/base/pages/account.detail'
                     getEnterprises(scope.filterItems[7]);
 
                     /**
-                     * 绑定详情对象
+                     * 綁定詳情對象
                      * @type {{}}
                      */
                     scope.model = {};
 
                     /**
-                     * 最终的按钮操作行为实现
+                     * 最終的按鈕操作行為實現
                      * @type {{}}
                      */
                     scope.action = {
@@ -152,7 +152,7 @@ define(['plugins/base/pages/account.config', 'plugins/base/pages/account.detail'
                             var rows = scope.action.rowsActionCheck();
 
                             if (rows.length) {
-                                dialog.confirm('确定删除该条记录?').then(function() {
+                                dialog.confirm('確定刪除該條記錄?').then(function() {
                                     var loading = 0;
                                     angular.forEach(rows, function(row) {
                                         utils.ajax({
@@ -184,10 +184,10 @@ define(['plugins/base/pages/account.config', 'plugins/base/pages/account.detail'
                         rowsActionCheck: function(count) {
                             var rows = scope.action.bulk();
                             if (count === 1 && rows.length !== 1) {
-                                toastr.info("所选条数必须是一条！");
+                                toastr.info("所選條數必須是一條！");
                                 return false;
                             } else if (!rows.length) {
-                                toastr.info("所选条数必须多于一条！");
+                                toastr.info("所選條數必須多於一條！");
                             }
                             return rows;
                         },
@@ -201,7 +201,7 @@ define(['plugins/base/pages/account.config', 'plugins/base/pages/account.detail'
                 };
 
                 /**
-                 * 定义页面加载数据
+                 * 定義頁面加載數據
                  */
                 scope.load = function() {
                     var data = angular.copy(scope.filter);
@@ -239,7 +239,7 @@ define(['plugins/base/pages/account.config', 'plugins/base/pages/account.detail'
 
                 scope.loadTypes();
                 /**
-                 * 初始化页面
+                 * 初始化頁面
                  */
                 scope.init();
             });

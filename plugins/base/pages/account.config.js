@@ -9,14 +9,14 @@ define(function () {
                 }
             },
             edit: {
-                name: "编辑",
+                name: "編輯",
                 icon: "fa-edit",
                 action: function (event, scope) {
                     scope.action.edit(event);
                 }
             },
             del: {
-                name: "删除",
+                name: "刪除",
                 icon: "fa-remove",
                 action: function (event, scope) {
                     scope.action.del(event);
@@ -26,38 +26,38 @@ define(function () {
 
         headers: {
             "name": {
-                displayName: "名称",
+                displayName: "名稱",
                 minWidth: 100
             },
             "aid": {
-                displayName: "账号",
+                displayName: "賬號",
                 minWidth: 100
             },
             "alias": {
-                displayName: "别名",
+                displayName: "別名",
                 width: 150
             },
             "type": {
-                displayName: "类型",
+                displayName: "類型",
                 width: 70,
                 cellTemplate: "<div class='ui-grid-cell-contents'>{{row.entity.type | translate}}</div>"
             },
             "matrixNo": {
-                displayName: "关联编号",
+                displayName: "關聯編號",
                 minWidth: 130
             },
             "mobile": {
-                displayName: "手机号码",
+                displayName: "手機號碼",
                 width: 90
             },
             "mail": {
-                displayName: "电子邮箱",
+                displayName: "電子郵箱",
                 width: 170
             },
             "enable": {
-                displayName: "状态",
+                displayName: "狀態",
                 width: 70,
-                cellTemplate: "<div class='ui-grid-cell-contents'>{{row.entity.enable?'已启用':'未启用' | translate}}</div>"
+                cellTemplate: "<div class='ui-grid-cell-contents'>{{row.entity.enable?'已啟用':'未啟用' | translate}}</div>"
             }
         },
         
@@ -65,45 +65,45 @@ define(function () {
             0: {
                 type: "input",
                 name: "name$match",
-                title: "名称"
+                title: "名稱"
             },
             1: {
                 type: "input",
                 name: "aid$match",
-                title: "账号"
+                title: "賬號"
             },
             2: {
                 type: "input",
                 name: "mail$match",
-                title: "电子邮箱"
+                title: "電子郵箱"
             },
             3: {
                 type: "input",
                 name: "mobile$match",
-                title: "手机号码"
+                title: "手機號碼"
             },
             4: {
                 type: "select",
                 name: "enable$eq",
-                title: "状态",
+                title: "狀態",
                 titleMap: [{
                     value: '1',
-                    name: "已启用"
+                    name: "已啟用"
                 }, {
                     value: '0',
-                    name: "未启用"
+                    name: "未啟用"
                 }]
             },
             6: {
                 type: "select",
                 name: "type$eq",
-                title: "账号类型",
+                title: "賬號類型",
                 titleMap: []
             },
             7: {
                 type: "select",
                 name: "eid$eq",
-                title: "企业",
+                title: "企業",
                 titleMap: []
             }
         }

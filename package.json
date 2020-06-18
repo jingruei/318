@@ -38,6 +38,8 @@
     "angular-ui-router": "^0.2.15",
     "bootstrap": "^3.1.1",
     "font-awesome": "^4.5.0",
+    "gulp": "^4.0.2",
+    "gulp-serve": "^1.4.0",
     "jquery": "^2.1.4",
     "mermaid": "^3.1.1",
     "moment": "^2.11.0",

@@ -2,60 +2,59 @@ angular.module('app').controller('base.account.detail',
     function($scope, $rootScope, utils, path) {
 
         var scope = $scope;
-
         scope.detail = {
             schema: {
                 type: "object",
                 properties: {
                     mail: {
-                        title: "电子邮箱",
+                        title: "電子郵箱",
                         type: "string",
                         pattern: /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/,
                         maxLength: 128
                     },
                     name: {
-                        title: "名称",
+                        title: "名稱",
                         type: "string",
                         required: true,
                         maxLength: 32
                     },
                     alias: {
-                        title: "别名",
+                        title: "別名",
                         type: "string",
                         maxLength: 32
                     },
                     enable: {
-                        title: "是否启用",
+                        title: "是否啟用",
                         type: "boolean"
                     },
                     aid: {
-                        title: "账号",
+                        title: "賬號",
                         type: "string"
                     },
                     type: {
-                        title: "类型",
+                        title: "類型",
                         type: "string",
                         required: true
                     },
                     password: {
-                        title: "密码",
+                        title: "密碼",
                         type: "string",
                         required: true,
                         maxLength: 64
                     },
                     mobile: {
-                        title: "手机号码",
+                        title: "手機號碼",
                         type: "string",
                         pattern: "^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$",
                         maxLength: 128
                     },
                     group: {
-                        title: "账号组",
+                        title: "賬號組",
                         type: "string",
                         maxLength: 64
                     },
                     matrixNo: {
-                        "title": "关联编号",
+                        "title": "關聯編號",
                         "type": "string",
                         readonly: true,
                         maxLength: 64
@@ -67,10 +66,10 @@ angular.module('app').controller('base.account.detail',
                 title: "主要信息",
                 items: [{
                         key: 'aid',
-                        placeholder: "账号自动生成"
+                        placeholder: "賬號自動生成"
                     }, {
                         key: 'name',
-                        placeholder: "请输入名称"
+                        placeholder: "請輸入名稱"
                     },
                     {
                         key: "password",
@@ -90,13 +89,14 @@ angular.module('app').controller('base.account.detail',
                         key: 'enable'
                     }
                 ]
-            }]
+            }],
+            
         };
 
         var model = scope.$parent.model;
-        scope.init = function() { //初始设置model
+        scope.init = function() { //初始設置model
 
-            if (model.uid) { //如果是编辑
+            if (model.uid) { //如果是編輯
                 model.password = "******";
             } else {
                 model.type = "user";

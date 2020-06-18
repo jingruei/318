@@ -17,7 +17,7 @@ define(function() {
             scope.listUrl = "plugins/bas/templates/list.html";
             scope.config = {
                 gridkey: "acpbah",
-                title: "应付管理",
+                title: "應收帳款管理",
                 listoperation: {
                     add: {
                         name: "新增",
@@ -29,58 +29,59 @@ define(function() {
                 },
                 headers: {
                     "status": {
-                        displayName: "状态",
+                        displayName: "科目",
                         width: 120
                     },
-                    "acr_mon": {
-                        displayName: "结帐月份",
-                        width: 120
-                    },
-                    "ven_nbr": {
-                        displayName: "厂商代号",
+                    "desc": {
+                        displayName: "說明",
                         width: 120
                     },
                     "nbr": {
-                        displayName: "付款单代号",
-                        ondblclick: function(entity) {
-                            $rootScope.uid = entity.uid;
-                            scope.action.opendetail();
-                        },
+                        displayName: "收款單號",
                         width: 120
                     },
-                    "nbrdate": {
-                        displayName: "付款日期",
+                    "cus_nbr": {
+                        displayName: "客戶代號",
                         width: 120
                     },
-                    "tot_amt": {
-                        displayName: "付款金额",
+                    "ar_amt": {
+                        displayName: "應收金額",
                         width: 120
-                    }
+                    },
+                    "chk_date": {
+                        displayName: "票據到期日",
+                        width: 120
+                    },
+                    "acr_mon": {
+                        displayName: "結帳月份",
+                        width: 120
+                    },
+                    
                 },
-                filterItems: {
-                    ven_nbr: {
+                filterItems: { 
+                    nbr: {
+                        type: "basLov",
+                        lovtype: "select",
+                        name: "nbr",
+                        label: "收款單號"
+                    },
+                    cus_nbr: {
                         type: "basLov",
                         lovtype: "getven",
-                        name: "ven_nbr",
-                        label: "厂商代号"
+                        name: "cus_nbr",
+                        label: "客戶代號"
                     },
-                    nbr: {
-                        type: "basDefault",
-                        lovtype: "",
-                        name: "nbr",
-                        label: "付款单代号"
-                    },
+                   
                     acr_mon: {
-                        type: "input",
-                        lovtype: "",
-                        name: "acr_mon",
-                        label: "结帐月份"
-                    },
-                    nbrdate: {
                         type: "basEsydatetime",
-                        lovtype: "",
-                        name: "nbrdate",
-                        label: "付款日期"
+                        format: "YYYYMM",
+                        name: "acr_mon",
+                        label: "結帳月份"
+                    },
+                    date: {
+                        type: "basEsydatetime",
+                        name: "date",
+                        label: "收款日期"
                     }
                 }
             }
@@ -121,7 +122,7 @@ define(function() {
                 // },
                 opendetail: function() {
                     var node = {
-                        name: "应付明细",
+                        name: "應收帳款明細",
                         url: 'acr/acpbah.detail'
                     }
                     $scope.$emit('opencusdetail', node);

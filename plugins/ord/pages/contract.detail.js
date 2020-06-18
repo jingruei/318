@@ -303,7 +303,7 @@ define(function () {
                         ]
                     },
                         {
-                            type: 'basLine',
+        
                             css: "cell100 ",
                             title: "明細行"
                         },

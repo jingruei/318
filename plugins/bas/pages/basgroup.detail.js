@@ -191,7 +191,7 @@ define(function() {
                             mockUrl: "plugins/data/baswar.detail.json"
                         }).then(function(res) {
                             var data = res.data;
-                            scope.model = data.body;
+                            scope.model = data;
                             scope.model.formstatus = "view";
                             for (var p in scope.model) {
                                 if (scope.model[p] === null) {

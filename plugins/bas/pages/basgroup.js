@@ -36,13 +36,13 @@ define(function() {
                     }
                 },
                 filterItems: {
-                    ware_desc: {
+                    group_name: {
                         type: "basDefault",
                         lovtype: "",
                         name: "group_name",
                         label: "組別名稱"
                     },
-                    ware_nbr: {
+                    group_nbr: {
                         type: "basDefault",
                         lovtype: "",
                         name: "group_nbr",
@@ -65,7 +65,7 @@ define(function() {
                         mockUrl: "plugins/base/data/orderlines.json",
                         data:scope.filter
                     }).then(function(res) {
-                        scope.model = res.data;
+                        scope.model.content = res.data;
                     });
 
 
