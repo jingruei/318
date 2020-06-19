@@ -130,7 +130,7 @@ define(function () {
                                 {
                                     field: "status",
                                     status: "30"
-                                } //已审核
+                                } //已審核
                             ]
                         },
                         action: function (event, form) {
@@ -320,16 +320,16 @@ define(function () {
                                     type: 'basNumber',
                                 },
                                 {
-                                    title: "状态",
+                                    title: "狀態",
                                     key: 'status',
                                     readonly: true,
                                     titleMap: [{
                                             value: "10",
-                                            name: "【未审核】"
+                                            name: "【未審核】"
                                         },
                                         {
                                             value: "30",
-                                            name: "【已审核】"
+                                            name: "【已審核】"
                                         }
                                     ],
                                     type: 'basStatus'
@@ -582,7 +582,7 @@ define(function () {
                         mockUrl: "plugins/data/ordbah.detail.json",
                         data: scope.model
                     }).then(function (res) {
-                        toastr.info("审核成功！");
+                        toastr.info("審核成功！");
                         scope.action.load();
                         $scope.$broadcast('schemaFormRedraw');
                         scope.refreshtab("refreshordbah", {});
@@ -597,7 +597,7 @@ define(function () {
                         mockUrl: "plugins/data/ordbah.detail.json",
                         data: scope.model
                     }).then(function (res) {
-                        toastr.info("反审成功！");
+                        toastr.info("反審成功！");
                         scope.action.load();
                         $scope.$broadcast('schemaFormRedraw');
                         scope.refreshtab("refreshordbah", {});

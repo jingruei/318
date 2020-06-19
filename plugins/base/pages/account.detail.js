@@ -62,24 +62,38 @@ angular.module('app').controller('base.account.detail',
                 }
             },
             form: [{
-                type: "region",
+                type: "group",
                 title: "主要信息",
                 items: [{
+                        title: "帳號",
                         key: 'aid',
-                        placeholder: "賬號自動生成"
-                    }, {
+                        type: 'basstring'
+                    }, 
+                    {
+                        title: "名稱",
                         key: 'name',
-                        placeholder: "請輸入名稱"
+                        type: 'basstring'
                     },
                     {
-                        key: "password",
+                        title: "密碼",
+                        key: 'password',
                         type: "password"
                     },
-                    'alias',
                     {
+                        title: "別名",
+                        key: 'name2',
+                        type: 'basstring'
+                    },
+                    {
+                        title: "類型",
                         key: 'type',
-                        type: "select",
-                        titleMap: []
+                        titleMap: [
+                            { value: 1, name: "one" },
+                            { value: 2, name: "two" },
+                            { value: 3, name: "three" }
+                        ],
+                        type: 'basLov',
+                        lovtype: 'select'
                     },
                     'matrixNo',
                     'mail',
